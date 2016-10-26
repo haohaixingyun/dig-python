@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="partnerInfoPage">
+	<object name="firstPartnerName_link">
+		<prop name="value">Ingram Micro/Bill</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag7017541_link">
+		<prop name="value">7017541</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="reseller_link">
+		<prop name="value">Reseller</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

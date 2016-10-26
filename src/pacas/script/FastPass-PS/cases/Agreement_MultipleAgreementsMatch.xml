@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="Agreement_MultipleAgreementsMatch" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>Agreement_MultipleAgreementsMatch</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Multiple Agreements Match.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />
+		<mapping src="agreementSiteInfoPage.xml" />
+		<mapping src="agreementSearchInfoPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="Agreement_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="Agreement_MultipleAgreementsMatch.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Agreement Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Name' field with 'ING' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement search information page">
+				settext agreementSearchPage:customerName_text $web:customerName3.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="object_existence" object="agreementSearchInfoPage:tag11531_link" value="60" retry="1"/>
+				<verify type="string_in_page" object="7746381" value="60" retry="1"/>
+				<verify type="string_in_page" object="7746382" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Click 'Agreement numbers'(11531) displayed on the result page." extension="Agreement details page">
+				Click agreementSearchInfoPage:tag11531_link.
+				<verify type="object_existence" object="agreementDetailPage:softwareSubscription_link" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Hit back." extension="Agreement search information page">
+				Go back.
+				<verify type="object_existence" object="agreementSearchInfoPage:tag7084912_link" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Click 'Customer numbers' (7084912) displayed on the result page." extension="Customer details page">
+				Click agreementSearchInfoPage:tag7084912_link.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Hit back." extension="Agreement search information page">
+				Go back.
+				<verify type="object_existence" object="agreementSearchInfoPage:ingUSFinancialServicesCorp_link" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Click 'Customer name' (ING (US) Financial Services Corp) displayed on the result page." extension="Agreement search information page">
+				Click agreementSearchInfoPage:ingUSFinancialServicesCorp_link.
+				<!-- <verify type="object_existence" object="agreementSiteInfoPage:contacts_link" value="60" retry="1"/> -->
+			</step>
+			<step index="9" comment="Click on 'Contacts' in related links area on the Agreement site information page." extension="Contact information page">
+				Click agreementSiteInfoPage:contacts_link.
+				<verify type="string_in_page" object="Contact information" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Click on 'Current sales orders' in related links area on the Agreement site information page." extension="Current sales order page">
+				Click agreementSiteInfoPage:currentSalesOrders_link.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:allSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Click on 'All sales orders' in related links area on the Agreement site information page." extension="Site historical information page">
+				Click agreementSiteInfoPage:allSalesOrders_link.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="14" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:softwareSubscription_link" value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Click on 'Software subscription and support entitlements' in related links area on the Agreement site information page." extension="Customer site maintenance entitlement information page">
+				Click agreementSiteInfoPage:softwareSubscription_link.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="16" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:tag7084912_link" value="60" retry="1"/>
+			</step>
+			<step index="17" comment="Click on the 'Site number' next to 'Agreement number' on the Agreement site information page." extension="Customer detail page">
+				Click agreementSiteInfoPage:tag7084912_link.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="18" comment="Click the 'Agreements' option from the navigation panel." extension="Agreement Search form">
+				Click fastPassHomePage:fastPassHome_link.
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="19" comment="Input 'Name' field with 'ING Insurance' and check mark 'Match name exactly' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement search information page">
+				settext agreementSearchPage:customerName_text $web:customerName4.
+				check agreementSearchPage:match_checkbox true.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="Passport Advantage" value="60" retry="1"/>
+				<verify type="string_in_page" object="Passport Advantage Express" value="60" retry="1"/>
+			</step>
+			<step index="20" comment="Hit back." extension="Agreement Search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="21" comment="Input 'IBM Customer number' field with '401976' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement search information page">
+				settext agreementSearchPage:customerNum_text $web:customerNum2.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="11531" value="60" retry="1"/>
+				<verify type="string_in_page" object="06644" value="60" retry="1"/>
+			</step>
+			<step index="22" comment="Hit back." extension="Agreement Search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="23" comment="Input 'Postal code' field with '02169' and click 'Search'." extension="Agreement search information page">
+				settext agreementSearchPage:postalCode_text $web:postalCode3.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="Passport Advantage" value="60" retry="1"/>
+				<verify type="string_in_page" object="Passport Advantage Express" value="60" retry="1"/>
+			</step>
+			<step index="24" comment="Hit back." extension="Agreement Search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="25" comment="Input 'Customer name' field with 'Connectria'.  Have 'Active sites' clicked.  Have all program types checked. Click 'Search'." extension="Agreement search information page">
+				settext agreementSearchPage:customerName_text $web:customerName2.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="Connectria" value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

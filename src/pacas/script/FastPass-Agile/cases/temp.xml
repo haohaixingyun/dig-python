@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="temp" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>temp</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Aug 16th, 2010</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.1 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />	
+	    <mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />	
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.1_data.xml"></data>
+		</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease101.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+	
+
+			<step index="1" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="20" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+							
+			</step>
+			<step index="3" comment="Input 'Site number' field with '7019455' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:siteNumber_text $web:siteNum.
+				Click agreementSearchPage:search_button.
+							</step>
+			<step index="4" comment="Click the '7019455' link." extension="GBFH_View_link check">
+				Click agreementDetailPage:tag7019455_link.
+			</step>
+			<step index="5" comment="Click GBFH_View_link link." extension="SPSS_View_link check">
+			Click customerDetailPage:GBFH_View_link.
+			<verify type="string_in_page" object="Brand family for business partner incentives" value="20" retry="1"/> 
+			</step>
+  			<step index="6" comment="Click SPSS_View_link link." extension="SPSS_View_link check">
+			
+			Go back.
+			Click customerDetailPage:SPSS_View_link.
+			<verify type="string_in_page" object="SPSS Report" value="20" retry="1"/> 
+			</step>
+		</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="allEntitlementPage">
+	<object name="StateFarmMA_link">
+		<prop name="value">State Farm Mutual Automobile</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag09382_link">
+		<prop name="value">09382</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag7017541_link">
+		<prop name="value">7017541</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstPartNumE01M6LL_link">
+		<prop name="value">G12236</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstPartNumD599NLL_link">
+		<prop name="value">D03JMLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="salesTransaction_link">
+		<prop name="value">Sales Transaction</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="evolution_link">
+		<prop name="value">Evolution</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="partNumE03PILL_link">
+		<prop name="value">ATCTYLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="partNumE02Y4LL_link">
+		<prop name="value">ATCTYLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="salesOrderNum0052187812_link">
+		<prop name="value">0056021468</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="allocation_link">
+		<prop name="value">Allocation</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="next_link">
+		<prop name="value">Next</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstPartNumATD65LL_link">
+		<prop name="value">ATD65LL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstPartNumD0K2QLL_link">
+		<prop name="value">D0K2QLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstPartNumD0JYILL_link">
+		<prop name="value">D0JYILL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="firstPartNumD0K10LL_link">
+		<!--<prop name="value">D0K10LL</prop> Juco -->
+		<prop name="value">D0M7QLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="firstPartNumD0K12LL_link">
+		<prop name="value">D0K12LL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>		
+	<object name="firstSalesOrder_0077080197_link">
+		<prop name="value">0077080197</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>		
+	<object name="firstSalesOrder_0053141990_link">
+		<prop name="value">0053141990</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstSalesOrder_0077080175_link">
+		<prop name="value">0077080175</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	
+	<object name="BillingOrder_0053425230_link">
+		<prop name="value">0053425230</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>		
+	<object name="BillingOrder_0053425229_link">
+		<prop name="value">0053425229</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>		
+</object>

@@ -1,0 +1,7 @@
+#region declare
+#endregion
+#region code
+		String testData%AUTO_INT% = %PARAM2%;
+		TestObject testObj%AUTO_INT% = factory.getSapObjectByName("%PARAM1%", null);
+		new SapSelectTreeNodeByKey(testObj%AUTO_INT%, testData%AUTO_INT%, "");	
+#endregion

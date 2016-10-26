@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">http://w3stage.sso.ibm.com/software/xl/fastpass/ps/fphome.nsf/default?openform</value>
+	</item>
+	<item key="username">
+		<value index="1">kezhu@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">7890uiop</value>
+	</item>
+	<item key="invoiceNum">
+		<value index="1">115008683</value>
+	</item>
+	<item key="salesOrderNum1">
+		<value index="1">52182772</value>
+	</item>
+</data>

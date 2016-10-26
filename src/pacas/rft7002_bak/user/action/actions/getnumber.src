@@ -1,0 +1,6 @@
+#region declare
+#endregion
+#region code
+		String testData%AUTO_INT% = %PARAM1%;
+		new GetNumber(bto, testData%AUTO_INT%, "%PARAM2%");	
+#endregion

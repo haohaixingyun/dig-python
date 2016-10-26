@@ -1,0 +1,77 @@
+<html>
+<body>
+This package controls what logger the package uses for logging.
+
+<h1>1. How the Package Logging Works</h1><p>
+
+The package logging works through the three classes in ibm\loggers\control. These classes are:<br>
+<dd>	IPackageLogger<br>
+<dd>	IPackageLoggerConstants<br>
+<dd>	PackageLoggingController<br>
+The first two classes are interfaces, and the last is the class that controls the package logging.<p> 
+
+IPackageLogger is an interface that must be extended by any logger that wants to provide package logging. It guarantees that certain methods will be in any logger, so that the package can call these methods on any logger that someone might create. By using this interface, the package can know that when it calls a method, the logger will have that particular method. The methods it guarantees are:<br>
+<dd>	logPackageInfo<br>
+<dd>	logPackageWarning<br>
+<dd>	logPackageError<br>
+This allows the package to assume that all loggers will have these methods, even loggers that haven't been created yet. Any object that implements IPackageLogger can be stored in an IPackageLogger variable and these methods can be called on that object using polymorphism. Thus, someone can create a brand new logger, and the package can log messages to this new logger by calling one of these log methods on an instance of IPackageLogger that is stored in the package.<p>
+
+IPackageLoggerConstants holds constants that define the logging levels for the package. These levels are:<br>
+<dd>	PACKAGELOGLEVEL_NONE = no package logging.<br>
+<dd>	PACKAGELOGLEVEL_ERRORS_ONLY = log package errors only.<br>
+<dd>	PACKAGELOGLEVEL_ERRORS_WARNINGS = log package errors and warnings.<br>
+<dd>	PACKAGELOGLEVEL_BASICINFO = log package errors, warnings, and "basic" informational messages.<br>
+<dd>	PACKAGELOGLEVEL_WIDGET_CLICKS = log errors, warnings, basic info, and widget clicks that in and of themselves constitute a change of state of the widget (e.g. clicking a link will be logged whereas clicking a textfield will not).<br>
+<dd>	PACKAGELOGLEVEL_ALL_WIDGET_SETTERS = log errors, warnings, basic info, and all widget "setters" including clicks  (e.g. setting the text in a textfield or selecting an item from a listbox will be logged in addition to clicks).<br>
+This interface is separated from IPackageLogger so that we can inherit the constants without implementing IPackageLogger, but since IPackageLogger extends IPackageConstants, all package loggers will get them automatically.<p>
+
+PackageLoggingController does the real work of logging from the package. Instead of having to pass in a logger and logging level to every class in the package, you can just set the logger and the log level here. The package then can check the log level in this class, and get the logger from it to log a message. There is a convenience method in this class that allows the package to just send in a message and the level at which the message should be logged, and the controller itself will log the message if the package logging level is greater than the message's importance.<p>
+
+
+<h1>2. The GenericLogger</h1><p>
+
+The GenericLogger is the default logger for the package. It is used if no other logger is set in the PackageLoggingController. If no package log level is set, then it logs errors only. <p>
+
+Script writers can use the GenericLogger by using the logScript* methods, logScriptInfo, logScriptWarning, logScriptError. The package uses logPackage* methods, logPackageInfo, logPackageWarning, logPackageError, which are forced on the class by its implementation of IPackageLogger.<p>
+
+The GenericLogger also contains a method to set the package log level. This method merely turns around and calls the package log level setter in PackageLoggerController. It is provided in this class in order to allow the user to only have to access one class to set up package logging. In a similar vein, the GenericLogger's constructor sets the package logger in PackageLoggingController to this instance of the GenericLogger. This is unnecessary since the default logger for the package is GenericLogger, but it brings out the point that the user need not ever interact with the classes in the control directory, but only needs to deal with his or her logger. If you create your own logger, you should follow this example.<p>
+
+Let's discuss how one might use the GenericLogger, and trace a call through the package.<br>
+The user would create the logger in his or her script, like so:<br>
+<dd>	<code>GenericLogger log = new GenericLogger();</code><br>
+This call to the constructor will set the PackageLoggingController to this instance of GenericLogger. By default, the package logging level is error only, but the user might want to lower this level and log all widget "setters". He can do so with this call to his GenericLogger:<br>
+<dd>	<code>log.setPackageLogLevel(log.PACKAGELOGLEVEL_ALL_WIDGET_SETTERS);</code><br>
+(Notice that since the GenericLogger implements IPackageLogger which implements IPackageLoggerConstants, the user only ever has to interact with the GenericLogger.)<br>
+Now if the user calls a widget "setter", it will log that action to the log file. So, if the user calls:<br>
+<dd>	<code>new WTextField(MyTextField()).setText("Text");</code><br>
+This will run the WTextField code to set the text, and after the text has been set, the method in WTextField executes this line:<br>
+<dd>	<code>PackageLoggingController.logPackageInfo(PackageLoggingController.PACKAGELOGLEVEL_ALL_WIDGET_SETTERS, <br>
+"Set text \"" + s + "\" in TextField \"" + getName() + "\"");</code><br>
+which in turns calls this code in the LoggerController:<br>
+<dd>	<code>public static void logPackageInfo(int iMessageLevel, String sMessage) {<br>
+<dd><dd>	if (iMessageLevel >= giLogLevel)<br>
+<dd><dd><dd>		goLogger.logPackageInfo(sMessage);<br>
+<dd>	}</code><br>
+So the LoggerController evaluates whether the message's importance level is greater than or equal to the package log level, and if so, it logs the message by accessing the logger stored inside the class and calling the appropriate method in that logger.<p>
+
+
+<h1>3. Creating your own Logger</h1><p>
+
+Creating your own logger is relatively straightforward. The easiest way to do it is to extend the GenericLogger and override the methods you want to change. Remember to set the package logger in the constructor with the line:<br>
+<dd>	<code>PackageLoggingController.setLogger(this);</code><br>
+so that your users won't have to access anything from the control directory. (If you have extended GenericLogger, then you will inherit the setPackageLogLevel method.)<p>
+
+One method you probably want to override is format message. This allows you to put the messages you receive in a particular format before printing them. So, for instance, you may want to add a prefix to every log message that includes the date and time. This is the place to do that.<p>
+
+You can also use the GenericLogger to access RationalTestScript's logError, logWarning, logInfo, logTestResult and vpManual. These public methods merely wrap these RationalTestScript functions and make them publically accessible. So if you want to access this functionality without inheriting RationalTestScript, you can use the methods in this class.<p>
+
+
+<h1>4. Logging from your Package Classes</h1><p>
+
+Logging from package classes is also relatively straightforward. All you need to do is call the appropriate method in the PackageLoggerController indicating the message text and the conditions under which you want it logged (the message importance). So, if you want to log an error, call:<br>
+<dd>	<code>PackageLoggingController.logPackageError(PackageLoggingController.PACKAGELOGLEVEL_ERRORS_ONLY, "Error!");</code><br>
+Or if you want to log an informational message, call:<br>
+<dd>	<code>PackageLoggingController.logPackageInfo(PackageLoggingController.PACKAGELOGLEVEL_BASICINFO, "Info: ...");</code><br>
+The package controller will take it from there, and print the message using the appropriate logger if the message importance meets the log level set for the package by the user.<p>
+</body>
+</html>

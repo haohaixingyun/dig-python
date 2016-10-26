@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">https://fpagile.boulder.ibm.com/software/xl/fastpass/agile/fphome.nsf/default?openform</value>
+	</item>
+	<item key="username">
+		<value index="1">zhuke@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">4rfv5tgb</value>
+	</item>
+	<item key="ContactName"><!--juco 2015.11.10 -->
+		<value index="1">tom</value>
+	</item>	
+	<item key="ContactEmail"><!--juco 2015.11.10 -->
+		<value index="1">tommy_k_w_lai@NOL.COM.SG</value>
+	</item>		
+</data>

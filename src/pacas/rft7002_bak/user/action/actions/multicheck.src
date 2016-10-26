@@ -1,0 +1,12 @@
+#region declare
+#endregion
+
+#region code
+	String testData%AUTO_INT% = %PARAM2%;
+	String teData%AUTO_INT% = %PARAM3%;
+	GuiTestObject tmp%AUTO_INT% = new GuiTestObject((TestObject) factory
+			.createGuiObjectAndWait("%PARAM1%", bto, 30, 5));
+	TestObject testobject%AUTO_INT% = (TestObject)(new GetTable(tmp%AUTO_INT%, "", "")).getResultObj();	
+
+	new RapidMultiCheck(testobject%AUTO_INT%, testData%AUTO_INT%, teData%AUTO_INT%);
+#endregion

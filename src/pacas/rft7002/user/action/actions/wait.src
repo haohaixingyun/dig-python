@@ -1,0 +1,15 @@
+#region declare	
+#endregion
+
+#region code
+	int wait%AUTO_INT% = 5;
+	try {
+		wait%AUTO_INT% = Integer.parseInt(%PARAM1%);
+	} catch (NumberFormatException e) {
+	}
+	try {
+		Thread.sleep(1000 * wait%AUTO_INT%);
+	} catch (InterruptedException  e) {
+		
+	}
+#endregion

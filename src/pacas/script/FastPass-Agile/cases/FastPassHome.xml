@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="FastPassHome" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>FastPassHome</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Home page.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="Customer_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="FastPassHome.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'FastPass home' option from the navigation panel." extension="Home page of the FastPass application displays">
+				Click fastPassHomePage:fastPassHome_link.
+				<verify type="string_in_page" object="FastPass is an IBM internal reporting tool for Software Group Distributed Software." value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Click the 'FastPass home' option from the navigation panel." extension="Home page of the FastPass application displays">
+				Click fastPassHomePage:fastPassHome_link.
+				<verify type="string_in_page" object="FastPass is an IBM internal reporting tool for Software Group Distributed Software." value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

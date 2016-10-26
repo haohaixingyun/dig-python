@@ -1,0 +1,15 @@
+
+/**
+*%COMMENT%
+*/
+private void step%AUTO_INT%() throws Throwable {
+int stepIndex = %AUTO_INT%;	
+boolean switch_flag = false;
+%LOCAL_VARS%
+%DECLARATIONS%
+%ACTIONS%
+%WEB_SPECIFIED%
+%VERIFICATIONS%
+%LOG%
+	
+}

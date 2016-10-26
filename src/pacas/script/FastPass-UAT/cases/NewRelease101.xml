@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease101" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease101</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Aug 16th, 2010</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.1 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />	
+	    <mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />	
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.1_data.xml"></data>
+		</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease101.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+			<step index="1" comment="Click the 'Help' option from the navigation panel." extension="Help page displays">
+				Click fastPassHomePage:help_link.
+				<verify type="object_existence" object="fastPassHelpPage:whatsNewLeft_link" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Click the 'What's New' link." extension="What's New top page displays">
+				Click fastPassHelpPage:whatsNewLeft_link.
+				<verify type="string_in_page" object="The current version of FastPass includes these changes made in recent releases." value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Click the 'October 2010 release' link." extension="October 2010 release top page displays">
+				Click fastPassHelpPage:October2010_link.
+				<verify type="string_in_page" object="The October 2010 release of FastPass enhancements supports the following projects" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Click the 'new and modified pages' link." extension="new and modified pages displays">
+				Click fastPassHelpPage:NewAndModifiedPages_link.
+			<verify type="string_in_page" object="The following pages were either new or modified during the October 2010 release" value="60" retry="1"/>
+			</step>		
+			<step index="5" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="6" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<!-- <verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/> -->	
+				<verify type="string_in_page" object="e.g., 90513937 for Blue Harmony, 100252546 for DSW" value="60" retry="1"/>
+				<!--<verify type="object_existence" object="salesOrderSearchPage:invoiceNum_text" value="60" retry="1"/>-->			
+			</step>
+			<!--Only one sales order with assigned BH invoice number  0053128386 / 115270396 / 123222901 -->
+			<step index="7" comment="Input 'invoice number' field with  DSW Invoice Number '115270396' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:invoiceNum_text $web:invoiceNum1.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="60" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:tag0053127775_link" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Click the link in the 'SAP sales order' column." extension="Sales Order information page">
+				Click salesOrderInfoPage:tag0053127775_link.
+				<!--<verify type="string_in_page" object="DSW / Blue Harmony invoice numbers" value="20" retry="1"/>-->
+				<verify type="string_in_page" object="115270396" value="60" retry="1"/>		
+			</step>
+			<step index="9" comment="Hit Back." extension="Help page displays">
+				Go back.
+				Go back.
+			</step>	
+			<step index="10" comment="Input 'invoice number' field with  BH Invoice Number '123222901' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:invoiceNum_text $web:invoiceNum2.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="60" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:tag0040000000_link" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Click the link in the 'SAP sales order' column." extension="Sales Order information page">
+				Click salesOrderInfoPage:tag0040000000_link.
+				<!-- <verify type="string_in_page" object="DSW / Blue Harmony invoice numbers" value="20" retry="1"/>-->
+				<verify type="string_in_page" object="90000001" value="60" retry="1"/>
+			</step>			
+			<!-- One of two sales orders with assigned BH invoice number. 55554321  -->
+			<step index="12" comment="Hit Back." extension="Search page displays">
+				Go back.
+				Go back.		
+			</step>			
+			<step index="13" comment="Input 'invoice number' field with  BH Invoice Number '123222902' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:invoiceNum_text $web:invoiceNum3.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="60" retry="1"/>
+			<!--	<verify type="object_existence" object="salesOrderInfoPage:tag0051312942_link" value="20" retry="1"/>  -->
+			<!--	<verify type="object_existence" object="salesOrderInfoPage:tag0051312924_link" value="20" retry="1"/>  -->
+			</step>
+			<!--Only one sales order with assigned BH invoice number but has various assigned DSW invoice numbers on the line items.55567894-->
+			<step index="14" comment="Hit Back." extension="Search page displays">
+				Go back.	
+			</step>			
+			<step index="15" comment="Input 'invoice number' field with  BH Invoice Number '170779986' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:invoiceNum_text $web:invoiceNum4.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="60" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:tag0053128386_link" value="60" retry="1"/>
+			</step>
+			<step index="16" comment="Click the link in the 'SAP sales order' column." extension="Sales Order information page">
+				Click salesOrderInfoPage:tag0053128386_link.
+				<!--<verify type="string_in_page" object="DSW / Blue Harmony invoice numbers" value="60" retry="1"/>-->
+			<!--	<verify type="string_in_page" object="9041105 / 55567895" value="60" retry="1"/>	-->
+				<verify type="string_in_page" object="170779986" value="60" retry="1"/> 
+			</step> 
+			<step index="17" comment="Click the 'Software entitlements' option from the navigation panel." extension="The search page should show">
+				Click fastPassHomePage:fastPassHome_link
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<!-- SPSS Entmt Type for Revn Stream LACKEY/TULACKEY Entitlement types -->
+			<!-- TODO:  find a data with both lic_only_flag = 1 and elctrnc_dwnld_flag = 1.  -->
+			<step index="18" comment="Input 'Site number' field with '7516475'.Click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with customer site entitlement information">
+				settext softwareSubscriptionSearchPage:siteNumber_text $web:siteNumber1.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+			</step>
+			<step index="19" comment="Select dropdown option 'All entitlements' and hit Go button." extension="All entitlements for site page">
+				<!--select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1AllEntitlements.-->
+				Click customerSiteEntitlementInfoPage:go_button.
+				<!-- <verify type="string_in_page" object="License only" value="60" retry="1"/> -->
+			</step>
+			
+	
+	</steps>				
+	<epilog>
+	</epilog>
+</testcase>

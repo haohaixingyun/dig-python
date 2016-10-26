@@ -1,0 +1,9 @@
+#region declare
+#endregion
+
+#region code
+		String testData%AUTO_INT% = %PARAM2%;					
+		WComboBox testobject%AUTO_INT% = new WComboBox((TestObject) factory.createGuiObject(
+					"%PARAM1%", bto));
+		new MultiSelect(testobject%AUTO_INT%, testData%AUTO_INT%, "");
+#endregion

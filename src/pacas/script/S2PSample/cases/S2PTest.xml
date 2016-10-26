@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="S2PTest" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>S2PTest</name>
+		<author>kevin</author>
+		<version>1.0</version>
+		<date>June 20th, 2008</date> 
+		<time>12:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info> Here displays some readable information.</info> 
+	</header>
+	
+	<mapping-set>
+		<mapping src="S2PTest_map.xml"/>		
+	</mapping-set>
+	
+	<data-set>
+		<data src="S2P_Login_ID.xls"></data>
+	</data-set>
+	
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+	</dependentcases>
+	<logchannels>
+	<logchannel item="logchannel1"></logchannel>
+	<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+	<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+		Browser $web:URL:i.
+		wait 30
+	</prolog>  
+	<steps>
+		<step index = '1' comment="Login." extension="The main pages should show">
+			settext common:edit_UserName $web:ID:i
+			settext common:edit_Pwd $web:Password:i
+			click common:button_SignIn
+			wait 60
+			<verify type="object_existence" object="common:link_Logoff" value="" param = "" retry = "1"/>
+		</step>
+	 	<step index = '2' comment="Logoff" extension="Logoff">		
+			Click common:link_Logoff
+	 		wait 60
+	 		<verify type="manual" object="" value="" param = "" retry = "1"/>
+	 	</step>		 		 		 		 		 		 		 		 				
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

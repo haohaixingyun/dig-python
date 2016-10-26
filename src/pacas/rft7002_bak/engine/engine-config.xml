@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+dir node property
+name: required; logic name of each element, also the reference used
+				 by file's dest_dir property 
+dest_dir: required; destination foldler, create if not exist, 
+				otherwise ingore
+src: optional; abstract denoting of source file, can be a directory 
+				or comma separated file list or DOMAINBEAN's property
+transformer: optional; must present after src; 	value can be a xml 
+				or xls file name
+filter: optional; must present after src; regular expression, only 
+				take effect on file name filter
+recrusive: whether process subdirectory, true or false
+
+
+file node property
+name: required; logic name
+src: required; relative to Config Base Path or can be retrived form a 
+				DOMAINBEAN, which returns the absolute path name
+dest_dir: required; reference of the logic name of dir node
+transformer: optional; value can be a xml or xls file name
+rename: optional; destination file name, can contain inforamation from DOMAINBEAN
+
+
+piece node property
+pattern: placeholder in src file, should be ippercase, e.g., %TEST%
+template: reference to a src file or literal value
+bean: [Bean.Property], get Property value of Bean
+generator: the name of one class, which must inherited from IGenerator.
+ -->
+<engine-config>
+	<dirs dest_root="%dir:config.script-dir%">
+		<dir name="case" dest_dir="cases">
+			<dir name="data" dest_dir="data"/>
+		</dir> 
+		<dir name="map" dest_dir="map">
+		</dir>
+		<dir name="action" dest_dir="actions"/>
+		<dir name="rft_templates" dest_dir="templates" src="rft_template" recursive="true"/>
+		<dir name="resources" dest_dir="resources">
+			<dir name="resource_case" dest_dir="cases"/>
+			<dir name="resource_action" dest_dir="action"/>
+		</dir>
+	</dirs>
+	<files dest_root="%dir:config.script-dir%">
+		<file name="datastoredef" src="fixed_template/datastoredef_template.src"
+			dest_dir="%dir:engine-config.resources%" rename="DatastoreDefinition.rftdsd">
+				<piece pattern="%PROJECT_NAME%" bean="%bean:System.projectName%"/>
+		</file>
+		<file name="project_description" src="fixed_template/project_template.src" 
+			dest_dir="%dir:config.script-dir%" rename=".project">
+				<piece pattern="%PROJECT_NAME%" bean="%bean:System.projectName%"/>
+		</file>
+		<!-- Pure copying -->
+		<file name="classpath_description" src="fixed_template/classpath_template.src" 
+		 dest_dir="%dir:config.script-dir%" rename=".classpath"/>
+	
+		<file name="rftxmap" src="fixed_template/rftxmap_template.src" 
+			dest_dir="%dir:engine-config.resource_case%" rename="%bean:TestCase.name%.rftxmap"/>
+		.
+		<file name="rftdef" src="fixed_template/rftdef_template.src" 
+			dest_dir="%dir:engine-config.resource_case%" rename="%bean:TestCase.name%.rftdef">
+				<piece pattern="%PACKAGE_DECL%" generator="%dir:engine-config.case.rel%"/>
+				<piece pattern="%HELPER_PKG%" generator="%dir:engine-config.resources.rel%/%dir:engine-config.resource_case.rel%"/>
+				<piece pattern="%SCRIPT_NAME%" bean="%bean:TestCase.name%"/>
+		</file>
+	</files>
+</engine-config>
+	

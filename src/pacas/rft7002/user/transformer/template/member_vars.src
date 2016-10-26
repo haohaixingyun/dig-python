@@ -1,0 +1,9 @@
+		TestCase 	theCase = TestCase.getCaseInstance(this.getScriptName(),null,null);
+		AutoObjectFactory factory = AutoObjectFactory.createInstance("%OBJFILE%",getOption(IOptionName.DATASTORE).toString().trim() + File.separator+ "%OBJBASE%");
+		CustomLogger logger = null;
+		Hashtable<String,BrowserTestObject> bto_table = new Hashtable<String,BrowserTestObject>();
+		public static int iterTimes = 1;
+		public static String iterPolicy = "%POLICY%";
+		public static final int max = %MAX%;
+		public String dataIndex = "1";
+		

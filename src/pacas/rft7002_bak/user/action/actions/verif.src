@@ -1,0 +1,9 @@
+#region declare
+		Integer result%AUTO_INT% = new Integer(TestCase.IResult.NOT_RUN);
+		TestCase.Verification ver%AUTO_INT% = new TestCase.Verification(
+					"%TYPE%", "%TEST_OBJECT%", "%VALUE%", "%PARAM%", %RETRY%);
+#endregion
+#region code
+		result%AUTO_INT% = new Verify(ver%AUTO_INT%, null, bto).getResultInt();
+		theCase.setStepResult(%AUTO_INT%, result%AUTO_INT%);
+#endregion

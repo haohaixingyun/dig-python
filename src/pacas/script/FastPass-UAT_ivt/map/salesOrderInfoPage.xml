@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="salesOrderInfoPage">
+	<object name="currentSalesOrders_link">
+		<prop name="value">Current sales orders</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="allSalesOrders_link">
+		<prop name="value">All sales orders</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="softwareSubscription_link">
+		<prop name="value">Software entitlements</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="stateFarmMAIC_link">
+		<prop name="value">State Farm Mutual AutomobileInsurance Company</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag09382_link">
+		<prop name="value">09382</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag7017541_link">
+		<prop name="value">7017541</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="IBMGlobalFinance_link">
+		<prop name="value">IBM Global Finance</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="StateFarmMA1_link">
+		<prop name="value">State Farm Mutual Automobile</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="StateFarmMA2_link">
+		<prop name="value">State Farm Mutual Automobile</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="StateFarmMA3_link">
+		<prop name="value">State Farm Mutual Automobile</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+3</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag0052182772_link">
+		<prop name="value">0052182772</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag0052941720_link">
+		<prop name="value">0052941720</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag0053127775_link">
+		<prop name="value">0053127775</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="tag0053361495_link">
+		<prop name="value">0053361495</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="tag0051312942_link">
+		<prop name="value">0051312942</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag0051312924_link">
+		<prop name="value">0051312924</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="tag0052759692_link">
+		<prop name="value">0052759692</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag0053128386_link">
+		<prop name="value">0053128386</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag0051539838_link">
+		<prop name="value">0051539838</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	 
+	<object name="firstCustomerName_link">
+		<prop name="value">Caja de Retiros, Jubilaciones YPensiones de La Policia Federal</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstAgreementNum_link">
+		<prop name="value">133774</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstSiteNum_link">
+		<prop name="value">7540861</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstSAPSalesOrder_link">
+		<prop name="value">0040482058</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="ServicesAgreementNumber_0077080210_link">
+		<prop name="value">0077080210</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="ANZ_BANKING_GROUP_link">
+		<prop name="value">ANZ BANKING GROUP</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="ANZ_BANKING_GROUP_link">
+		<prop name="value">ANZ BANKING GROUP</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="ServicesAgreementNumber_0077080212_link">
+		<prop name="value">0077080212</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="tag43721_link">
+		<prop name="value">43721</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+ 	<object name="firstPartNumD0K36LL_link">
+		<prop name="value">D0K36LL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag0053425267_link">
+		<prop name="value">0053425267</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	
+</object>

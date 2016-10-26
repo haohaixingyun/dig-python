@@ -1,0 +1,7 @@
+#region declare
+#endregion
+#region code
+		GuiTestObject testobject%AUTO_INT% = new GuiTestObject((TestObject) factory
+			.createGuiObjectAndWait("%PARAM1%", bto, 30, 5));
+		new Click(testobject%AUTO_INT%, "", "");
+#endregion

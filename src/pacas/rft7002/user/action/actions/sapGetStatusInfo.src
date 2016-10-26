@@ -1,0 +1,9 @@
+#region declare
+#endregion
+#region code
+		TestObject testObj%AUTO_INT% = factory.getSapObjectByName("%PARAM1%", null);
+		String startIndex%AUTO_INT% = %PARAM2%;
+		String endIndex%AUTO_INT% = %PARAM3%;
+		String path%AUTO_INT% =getCurrentProject().getLocation()+"/cases/data/"+this.getClass().getSimpleName()+".properties";		
+		new SapGetStatusInfo(testObj%AUTO_INT%,startIndex%AUTO_INT%,endIndex%AUTO_INT%,path%AUTO_INT%);	
+#endregion

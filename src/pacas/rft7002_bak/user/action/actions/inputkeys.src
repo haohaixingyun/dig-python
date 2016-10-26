@@ -1,0 +1,6 @@
+#region declare
+		String testData%AUTO_INT% = %PARAM1%;
+#endregion
+#region code
+		new InputKeys("", testData%AUTO_INT%, "");
+#endregion

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease104_2" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease104_2</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>June 21th, 2011</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.4 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+		<mapping src="allEntitlementPage.xml" />
+		<mapping src="allSalesOrdersPage.xml" />
+		<mapping src="softwareSubscriptionRelatedLinksPage.xml" />
+		<mapping src="agreementDetailPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+		
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.4_data.xml"></data>
+		</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease104_2.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+	
+	
+	  		<step index="1" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Search for one of the Billing Orders (53425267) using the Sales Order Search form's SAP Sales Order number entry box.." 
+			      extension="Sales Order page should display.">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNum1.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+				<verify type="string_in_page" object="Services agreement number" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Hit back." extension="back">
+				Go back.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Search for Services Agreement value (77080151)using Sales Order Search form." 
+			      extension="Services Agreement page should display">
+				settext salesOrderSearchPage:services_agreement_number_text $web:servicesAgreementNum1.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Services agreement" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Click on 'Software entitlements' in the related links area." extension="">
+				Click softwareSubscriptionRelatedLinksPage:SoftwareEntitlements_links.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>			
+			<step index="7" comment="Use 'Software entitlements' related link to view 'All sales transactions'" 
+			      extension="All Sales Transactions page should display">
+				
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1AllEntitlements.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="All entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>			
+			<step index="8" comment="Click on the first Part Number values" 
+			      extension="Part Details page should display with SaaS field values">
+				Click allEntitlementPage:firstPartNumD48XRML_link
+				<verify type="string_in_page" object="Part information" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS part type" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS service provider" value="60" retry="1"/>
+			</step>				
+			<step index="9" comment="Hit back." extension="back">
+				Go back.
+				<verify type="string_in_page" object="All entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Click on 'All Sales Transactions' in the related links area." extension="">
+				Click softwareSubscriptionRelatedLinksPage:allSalesTransactions_link.
+				<verify type="string_in_page" object="All sales transactions for site - Default sort by order date" value="60" retry="1"/>
+			</step>		
+			<step index="11" comment="By clicking on the Sales Order, or Service agreement number 0077080000" 
+			      extension="Services agreement is displayed">
+				Click allSalesOrdersPage:page2
+				Click allEntitlementPage:firstSalesOrder_0077080000_link
+				<verify type="string_in_page" object="Services agreement" value="60" retry="1"/>
+				<verify type="string_in_page" object="0077080000" value="60" retry="1"/>
+			</step>	
+			<step index="12" comment="Click on a Billing Order value.0053425230 " 
+			      extension="Sales Order page should display.">
+				Click allEntitlementPage:BillingOrder_0053529755_link
+				<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+			</step>	
+			<step index="13" comment="By clicking on the Sales Order, or Service agreement number 0077080197" 
+			      extension="Services agreement is displayed">
+				Click allEntitlementPage:firstSalesOrder_0077080000_link
+				<verify type="string_in_page" object="Services agreement" value="60" retry="1"/>
+				<verify type="string_in_page" object="0077080000" value="60" retry="1"/>
+			</step>	
+
+	
+	
+
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

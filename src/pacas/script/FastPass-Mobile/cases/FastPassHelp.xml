@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="FastPassHelp" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>FastPassHelp</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Help page.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="Customer_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="FastPassHelp.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Help' option from the navigation panel." extension="Help page displays">
+				Click fastPassHomePage:help_link.
+				<verify type="object_existence" object="fastPassHelpPage:userGuide_link" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Click the 'User Guide' link." extension="User Guide top page displays">
+				Click fastPassHelpPage:userGuide_link.
+				<verify type="string_in_page" object="The User Guide provides an overview of FastPass and how to use it. " value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Hit Back." extension="Help page displays">
+				Go back.
+				<verify type="object_existence" object="fastPassHelpPage:userGuide_link" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Click the 'Getting Started' link." extension="Getting Started top page displays">
+				Click fastPassHelpPage:gettingStarted_link.
+				<verify type="string_in_page" object="The topics below are targeted primarily to first-time users." value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Hit Back." extension="Help page displays">
+				Go back.
+				<verify type="object_existence" object="fastPassHelpPage:userGuide_link" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Click the 'Frequently Asked Questions' link." extension="Frequently Asked Questions top page displays">
+				Click fastPassHelpPage:frequentlyAskedQuestions_link.
+				<verify type="string_in_page" object="If you cannot find the answer to your question here, please refer to the User Guide." value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Hit Back." extension="Help page displays">
+				Go back.
+				<verify type="object_existence" object="fastPassHelpPage:userGuide_link" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Click the 'What's New' link." extension="What's New top page displays">
+				Click fastPassHelpPage:whatsNew_link.
+				<verify type="string_in_page" object="The current version of FastPass includes these changes made in recent releases." value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Hit Back." extension="Help page displays">
+				Go back.
+				<verify type="object_existence" object="fastPassHelpPage:userGuide_link" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Click the 'Index' link." extension="Index top page displays">
+				Click fastPassHelpPage:helpIndex_link.
+				<verify type="string_in_page" object="Useful Terms, Acronyms and Abbreviations" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Hit Back." extension="Help page displays">
+				Go back.
+				<verify type="object_existence" object="fastPassHelpPage:userGuide_link" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Click the 'User Guide' option from the navigation panel." extension="User Guide top page displays">
+				Click fastPassHelpPage:userGuideLeft_link.
+				<verify type="string_in_page" object="The User Guide provides an overview of FastPass and how to use it. " value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Click the 'Getting Started' option from the navigation panel." extension="Getting Started top page displays">
+				Click fastPassHelpPage:gettingStartedLeft_link.
+				<verify type="string_in_page" object="The topics below are targeted primarily to first-time users." value="60" retry="1"/>
+			</step>
+			<step index="14" comment="Click the 'Frequently Asked Questions' option from the navigation panel." extension="Frequently Asked Questions top page displays">
+				Click fastPassHelpPage:frequentlyAskedQuestionsLeft_link.
+				<verify type="string_in_page" object="If you cannot find the answer to your question here, please refer to the User Guide." value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Click the 'What's New' option from the navigation panel." extension="What's New top page displays">
+				Click fastPassHelpPage:whatsNewLeft_link.
+				<verify type="string_in_page" object="The current version of FastPass includes these changes made in recent releases." value="60" retry="1"/>
+			</step>
+			<step index="16" comment="Click the 'Index' option from the navigation panel." extension="Index top page displays">
+				Click fastPassHelpPage:helpIndexLeft_link.
+				<verify type="string_in_page" object="Useful Terms, Acronyms and Abbreviations" value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

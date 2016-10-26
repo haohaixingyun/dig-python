@@ -1,0 +1,6 @@
+#region declare
+
+#endregion
+#region code
+		if (Boolean.valueOf(%PARAM1%)) {
+#endregion

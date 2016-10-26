@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRealease_VOctober_V17UI_08" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRealease_VOctober_V17UI_08</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>One Sales Order Match.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />
+		<mapping src="agreementSiteInfoPage.xml" />
+		<mapping src="agreementSearchInfoPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="softwareSubscriptionSearchPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="SalesOrder_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRealease_VOctober_V17UI_08.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:fastPassHome_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>	
+  			<step index="2" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="3" comment="Login FastPass." extension="Agreement Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+  			<step index="4" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="string_in_page" object="Software entitlements search" value="60" retry="1"/>
+			</step>
+  			<step index="5" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="string_in_page" object="Sales order search" value="60" retry="1"/>
+			</step>
+  			<step index="6" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:customers_link.
+				<verify type="string_in_page" object="Customer search" value="60" retry="1"/>
+			</step>
+  			<step index="7" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:fastPassAccess_link.
+				<verify type="string_in_page" object="How do I manage FastPass access?" value="60" retry="1"/>
+			</step>
+  			<step index="8" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="Agreement search" value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Input 'Name' field with 'ING' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement search information page">
+				settext agreementSearchPage:customerName_text $web:customerName.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+			</step>				
+  			<step index="10" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="string_in_page" object="Software entitlements search" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Input 'Agreement number' field with '09382'.Input 'Site number' field with '7017541'.Click 'Search'." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				settext softwareSubscriptionSearchPage:agreementNum_text $web:agreementNum1.
+				settext softwareSubscriptionSearchPage:customerNum_text $web:siteNumber5.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="Country State Province" value="60" retry="1"/>
+				<verify type="string_in_page" object="Agreement - Site number" value="60" retry="1"/>
+				<verify type="string_in_page" object="Program type" value="60" retry="1"/>
+				<verify type="string_in_page" object="IBM customer number / Enterprise number" value="60" retry="1"/>
+				<verify type="string_in_page" object="Site status / Allocated entitlements" value="60" retry="1"/>
+				<verify type="string_in_page" object="Customer name" value="60" retry="1"/>
+			</step>
+ 			<step index="12" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:customers_link.
+				<verify type="string_in_page" object="Customer search" value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Input 'Customer name' field with 'State Farm'.Click 'Search'." extension="Customer information - Sorted by customer name page.">
+				settext customerSearchPage:customerName_text $web:customerName1.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Customer information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="object_existence" object="customerInfoPage:tag7017541_link" value="60" retry="1"/>
+				<verify type="string_in_page" object="7017541 " value="60" retry="1"/>
+			</step>
+			<step index="14" comment="Click the first site number in the 'Site number' column." extension="Customer details page.">
+				Click customerInfoPage:tag7017541_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+  			<step index="15" comment="Click the 'Help' option from the navigation panel." extension="Help page displays">
+				Click fastPassHomePage:help_link.
+				<verify type="string_in_page" object="FastPass is an IBM internal" value="60" retry="1"/>
+			</step>		
+  			<step index="16" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:fastPassAccess_link.
+				<verify type="string_in_page" object="How do I manage FastPass access?" value="60" retry="1"/>
+			</step>		
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

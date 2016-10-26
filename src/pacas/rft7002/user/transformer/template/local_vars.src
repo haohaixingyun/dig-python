@@ -1,0 +1,6 @@
+	BrowserTestObject bto = null;
+	if (Browse.browserStarted()) {
+		// bto = Browse.get("default");
+		bto = BrowserOps.findBrowser();
+		AutoObjectFactory.browserReady(bto, 30, 3);
+	}

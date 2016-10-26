@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="ApplncDetails">
+	<object name="view_link">
+		<prop name="value">View</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

@@ -1,0 +1,3 @@
+					new TestCase.Step("%COMMENT%",
+						"Verify: %EXTENSION%",
+						"%EXTENSION%", "%EXTENSION% fail",""),

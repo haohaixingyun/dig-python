@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="CSRA_map">
+	<object name="CSRA_checkbox">
+		<prop name="value">Cloud Services Relational Agreement</prop>
+		<prop name="type">checkbox</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.checkbox</prop>								
+	</object>
+	<object name="logon_password">
+		<prop name="value">password</prop>
+		<prop name="type">password</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.password</prop>								
+	</object>
+	<object name="siteNumber_text">
+		<prop name="value">Enter site number</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>	
+	<object name="submit_button">
+		<prop name="value">ibm-submit</prop>
+		<prop name="type">submit</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>
+	<object name="allSites_radio">
+		<prop name="value">Site status all</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="sortBy_select">
+		<prop name="value">Order By</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.SELECT</prop>								
+	</object>
+	<object name="desc_radio">
+		<prop name="value">Descending</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="search_button">
+		<prop name="value">Search</prop>
+		<prop name="type">submit</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>
+	<object name="Customer_name_link">
+		<prop name="value">ROYAL AND SUN ALLIANCE INSURANCE (S) PTE LTD</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="Agreement_number_link">
+		<prop name="value">212950</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="Site_number_link">
+		<prop name="value">7068674</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="currentView_link3">
+		<prop name="value">Current view</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+		<object name="CSTA_checkbox">
+		<prop name="value">Cloud Services Transactional Agreement</prop>
+		<prop name="type">checkbox</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.checkbox</prop>								
+	</object>
+</object>

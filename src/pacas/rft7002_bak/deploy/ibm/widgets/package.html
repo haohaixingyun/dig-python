@@ -1,0 +1,19 @@
+<html>
+<body>
+This package contains widget classes that extend the functionality of Rational's TestObject hierarchy.<p> 
+They make it easier to write code that manipulates GUI objects on the screen. 
+The preferred method for using these objects is to create a new instance from either a mapped or a dynamically located object, like so:
+<code>
+<dd>WButton myButton = new WButton(Button_MappedName());</code><br>
+OR
+<dd><code>WButton myButton = new WButton(sButtonName, sProperty, sClass, BrowserPage());</code><br>
+and then use it with the non-static methods, e.g.<br>
+<dd><code>myButton.click()</code><p>
+Note that since these classes inherit functionality from their corresponding Rational's TestObject classes, you can use all the methods available from these classes on the widgets.
+Thus, you will not lose any functionality by using the widgets. For example, you can also call:
+<dd><code>myButton.drag(pt1, pt2)</code><p>
+
+See also: <a href="http://www.ibm.com/developerworks/lotus/library/rft-api/index.html">http://www.ibm.com/developerworks/lotus/library/rft-api/index.html</a> <p>
+If you wish to publish an articles based on work performed with these widgets, please cite this article.
+</body>
+</html>

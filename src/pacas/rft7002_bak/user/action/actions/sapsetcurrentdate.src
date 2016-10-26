@@ -1,0 +1,6 @@
+#region declare
+#endregion
+#region code
+		TestObject testObj%AUTO_INT% = factory.getSapObjectByName("%PARAM1%", null);
+		new SapSetCurrentDate(testObj%AUTO_INT%, "", "");	
+#endregion

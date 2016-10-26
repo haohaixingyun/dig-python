@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="PageNavigation">
+
+	<object name="Export_link">
+		<prop name="value">Export</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="Export_Button">
+		<prop name="value">Export</prop>
+		<prop name="type">submit</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>
+	<object name="FileName">
+		<prop name="value">FileName</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.text</prop>									
+	</object>
+	<object name="sortBy_1">
+		<prop name="value">SortBy1</prop>
+		<prop name="value">dropList1</prop>
+		<prop name="type">select</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.SELECT</prop>								
+	</object>
+	<object name="sortBy_2">
+		<prop name="value">SortBy2</prop>
+		<prop name="value">dropList1</prop>
+		<prop name="type">select</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.SELECT</prop>								
+	</object>
+	<object name="sortBy_3">
+		<prop name="value">SortBy3</prop>
+		<prop name="value">dropList1</prop>
+		<prop name="type">select</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.SELECT</prop>								
+	</object>	
+
+	<object name="Ascending1">
+		<prop name="value">Ascending1</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="Descending1">
+		<prop name="value">Descending1</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="Ascending2">
+		<prop name="value">Ascending2</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="Descending2">
+		<prop name="value">Descending2</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="Ascending3">
+		<prop name="value">Ascending3</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="Descending3">
+		<prop name="value">Descending3</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="Page1">
+		<prop name="value">1</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="Page2">
+		<prop name="value">2</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>	
+	<object name="Page3">
+		<prop name="value">3</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>	
+	<object name="Page5">
+		<prop name="value">5</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>	
+	<object name="Page9">
+		<prop name="value">9</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>	
+	<object name="customerName_text">
+		<prop name="value">Enter customer name</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="postalCode_text">
+		<prop name="value">Enter postal code</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="search_button">
+		<prop name="value">Search</prop>
+		<prop name="type">submit</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>	
+</object>

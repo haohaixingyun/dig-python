@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="agreementSearchInfoPage">
+	<object name="tag11531_link">
+		<prop name="value">11531</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag131026_link">
+		<prop name="value">131026</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag7084912_link">
+		<prop name="value">7084912</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	
+	<object name="tag7686365_link">
+		<prop name="value">7686365</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="ingUSFinancialServicesCorp_link">
+		<prop name="value">ING .US. Financial Services Corp</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="IBM_link">
+		<prop name="value">IBM</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

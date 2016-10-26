@@ -1,0 +1,9 @@
+#region declare
+	
+#endregion
+
+#region code
+GuiTestObject tmp%AUTO_INT% = new GuiTestObject((TestObject) factory
+			.createGuiObjectAndWait("%PARAM1%", bto, 30, 5));
+	new RapidSelectbyIndex(tmp%AUTO_INT%, "%PARAM2%", "%PARAM3%");
+#endregion

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">http://9.125.73.149:9080/FastPassS2/</value>
+	</item>
+	<item key="username">
+		<value index="1">liumlm@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">MMM123456</value>
+	</item>
+	<item key="salesOrderNum"><!--juco 2015.7.17 -->
+		<value index="1">0055053031</value>
+	</item>	
+	<item key="salesOrderName"><!--juco 2015.7.17 -->
+		<value index="1">国立大学法人</value>
+	</item>		
+</data>

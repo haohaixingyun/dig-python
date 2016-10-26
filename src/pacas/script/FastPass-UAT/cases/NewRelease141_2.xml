@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease141_2" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease141_2</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Dec 30th, 2013</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Appliances.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+		<mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />	
+		<mapping src="activeManagedEntitlementsPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease14.1_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease141_2.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'SW Subscription and Support entitlement' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="SW Subscription and Support entitlements Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Agreement number' field with '141103'.Input 'Site number' field with '7533956'.Click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with customer site entitlement information">
+				settext softwareSubscriptionSearchPage:agreementNum_text $web:agreementNum1.
+				settext softwareSubscriptionSearchPage:siteNumber_text $web:siteNumber1.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Select dropdown option 'All entitlements' and hit Go button." extension="Active managed entitlements for site - Default sort by order date">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropListActiveManagedEntitlementsList.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Active managed entitlements for site - Default sort by order date" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Click the value in the 'Customer name' field." extension="All managed entitlements for site - Default sort by order date">
+				Click activeManagedEntitlementsPage:AllManagedEntitlements_link.
+				<verify type="string_in_page" object="All managed entitlements for site - Default sort by order date" value="60" retry="1"/>
+			</step>
+			
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

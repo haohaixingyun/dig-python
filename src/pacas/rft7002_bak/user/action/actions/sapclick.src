@@ -1,0 +1,6 @@
+#region declare
+#endregion
+#region code
+		TestObject temp%AUTO_INT% = factory.getSapObjectByName("%PARAM1%", null);
+		new SapClickButton(temp%AUTO_INT%, "", "");	
+#endregion

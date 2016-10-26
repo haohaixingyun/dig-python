@@ -1,0 +1,17 @@
+<html>
+<body>
+This package contains loggers that scripts can call directly and that can be set to allow the package to log messages. Choose whichever one gives you the functionality you want and create a logger object from it. 
+When you create the Logger object, the package will be set to use that object for logging. By default, all that will be logged by the package is errors that the package classes run across; however, you can set it to be more verbose by using the setLogLevel method of the logger object.<br>
+The log levels are defined in every logger (inherited from IPackageLoggerConstants). At the moment, there are 
+<dd>	PACKAGELOGLEVEL_NONE = no package logging.<br>
+<dd>	PACKAGELOGLEVEL_ERRORS_ONLY = log package errors only.<br>
+<dd>	PACKAGELOGLEVEL_ERRORS_WARNINGS = log package errors and warnings.<br>
+<dd>	PACKAGELOGLEVEL_BASICINFO = log package errors, warnings, and "basic" informational messages.<br>
+<dd>	PACKAGELOGLEVEL_WIDGET_CLICKS = log errors, warnings, basic info, and widget clicks that in and of themselves constitute a change of state of the widget (e.g. clicking a link will be logged whereas clicking a textfield will not).<br>
+<dd>	PACKAGELOGLEVEL_ALL_WIDGET_SETTERS = log errors, warnings, basic info, and all widget "setters" including clicks  (e.g. setting the text in a textfield or selecting an item from a listbox will be logged in addition to clicks).<p>
+
+If you want to create your own logger, or learn how to log messages from package classes, see the documentation for the ibm.loggers.control package.
+
+
+</body>
+</html>

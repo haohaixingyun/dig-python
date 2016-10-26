@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="fastPassHelpPage">
+	<object name="userGuide_link">
+		<prop name="value">User Guide</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="gettingStarted_link">
+		<prop name="value">Getting Started</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="frequentlyAskedQuestions_link">
+		<prop name="value">Frequently Asked Questions</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>		
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="whatsNew_link">
+		<prop name="value">What's New</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>		
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="helpIndex_link">
+		<prop name="value">Help Index</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>		
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="userGuideLeft_link">
+		<prop name="value">User Guide</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>		
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="gettingStartedLeft_link">
+		<prop name="value">Getting Started</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="frequentlyAskedQuestionsLeft_link">
+		<prop name="value">Frequently asked questions</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="whatsNewLeft_link">
+		<prop name="value">What's new</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="helpIndexLeft_link">
+		<prop name="value">Help Index</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="October2010_link">
+		<prop name="value">October 2010 release</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="NewAndModifiedPages_link">
+		<prop name="value">new and modified pages</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="February2011_link">
+		<prop name="value">February 2011 release</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	
+</object>

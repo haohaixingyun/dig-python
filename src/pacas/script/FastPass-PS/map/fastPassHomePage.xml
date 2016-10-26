@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="fastPassHomePage">
+	<object name="fastPassHome_link">
+		<prop name="value">FastPass home</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="customers_link">
+		<prop name="value">Customers</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="agreements_link">
+		<prop name="value">Agreements</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="salesOrders_link">
+		<prop name="value">Sales orders</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="softwareSubscription_link">
+		<prop name="value">Software entitlements</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="fastPassAccess_link">
+		<prop name="value">FastPass access</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="help_link">
+		<prop name="value">Help</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

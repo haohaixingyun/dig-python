@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease105" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease105</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Jan 21th, 2011</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.5 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.5_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease105.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+			<step index="1" comment="Click the 'Customers' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="20" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Customer Search form.">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="20" retry="1"/>
+				<verify type="object_existence" object="customerSearchPage:siteNumber_text" value="5" retry="1"/>				
+			</step>
+
+			<step index="3" comment="Input 'site number' field with '7766058' and click 'Search'." extension="Customer detail page.">
+				settext customerSearchPage:customerNum_text $web:customerNum1.
+				settext customerSearchPage:siteNumber_text $web:siteNumber1.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Customer details" value="20" retry="1"/>
+			</step>
+			<step index="4" comment="click Services agreements view." extension="Access to Services Agreements from Customer page for PAE FCT">
+				Click customerDetailPage:Services_agreements_View.
+				<verify type="string_in_page" object="Services agreements by site" value="20" retry="1"/>
+			</step>
+			<step index="5" comment="go back." extension="Customer Search form.">
+				Go back.
+			</step>
+			<step index="6" comment="click Sales orders view." extension="Access to Sales orders page">
+				Click customerDetailPage:Sales_orders_View.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="20" retry="1"/>
+			</step>
+			<step index="7" comment="click SAP sales order 0051539838." extension="Sales order information page with Multiple invoice display">
+				Click customerDetailPage:tag0051539838_link.
+				<verify type="string_in_page" object="Sales order information" value="20" retry="1"/>
+				<verify type="string_in_page" object="Invoice number" value="5" retry="1"/>
+			</step>			
+			<step index="8" comment="Click the 'Sales Orders' option from the navigation panel." extension="Sales Orders Search form.">
+				Click fastPassHomePage:salesOrders_link.
+			</step>
+			<step index="9" comment="Search for Services Agreement value using Sales Order Search form.Input 'Services agreement number' field with '0077080024' and click 'Search'." 
+			      extension="Services Agreement page should display with new fields.">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNum1.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Services agreement" value="10" retry="1"/>
+				<verify type="string_in_page" object="Original line item" value="10" retry="1"/>
+				<verify type="string_in_page" object="Co-term line item" value="10" retry="1"/>
+				<verify type="string_in_page" object="Additional purchase order" value="10" retry="1"/>
+				<verify type="string_in_page" object="Replaced" value="10" retry="1"/>
+			</step>
+			<step index="10" comment="go back." extension="Customer Search form.">
+				Go back.
+			</step>	
+			<step index="11" comment="Search for Services Agreement value using Sales Order Search form.Input 'Services agreement number' field with '0077080437' and click 'Search'." 
+			      extension="Services Agreement page should display with new fields.">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNum2.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Services agreement" value="10" retry="1"/>
+				<verify type="string_in_page" object="Coverage term" value="10" retry="1"/>
+				<!--<verify type="string_in_page" object="2 / 30" value="10" retry="1"/> Juco-->
+				<verify type="string_in_page" object="12 / 36" value="10" retry="1"/>
+				<verify type="string_in_page" object="Ramp-up indicator" value="10" retry="1"/>
+			</step>
+
+			
+			<step index="12" comment="Click the 'Customers' option from the navigation panel." extension="Customer search page">
+				Click fastPassHomePage:customers_link.
+			</step>
+			<step index="13" comment="Input 'Customer name' field with 'IBM'.Click 'Search'." extension="Customer information - Sorted by customer name page.">
+				settext customerSearchPage:customerName_text $web:customerName1.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Customer information - Default sort by customer name" value="10" retry="1"/>
+				<verify type="object_existence" object="customerDetailPage:Page2" value="30" retry="1"/>
+				<verify type="object_existence" object="customerDetailPage:Page3" value="10" retry="1"/>
+			</step>
+			<step index="14" comment="Click page 3." extension="page 3 displayed">
+				Click customerDetailPage:Page3.
+				<verify type="object_existence" object="customerDetailPage:Page2" value="10" retry="1"/>
+			</step>			
+			<step index="15" comment="Click page 2." extension="page 2 displayed">
+				Click customerDetailPage:Page2.
+				<!--<verify type="string_in_page" object="Records 101-200" value="10" retry="1"/> Juco-->
+				<verify type="string_in_page" object="101-200" value="10" retry="1"/>
+				<verify type="object_existence" object="customerDetailPage:Page3" value="10" retry="1"/>
+			</step>					
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

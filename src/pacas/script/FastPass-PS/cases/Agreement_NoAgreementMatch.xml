@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="Agreement_NoAgreementMatch" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>Agreement_NoAgreementMatch</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>No Agreement Match.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="Agreement_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="Agreement_NoAgreementMatch.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Agreement Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Name' field with 'nntp' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:customerName_text $web:customerName5.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Hit back." extension="Agreement search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Input 'IBM Customer number' field with '256756' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:customerNum_text $web:customerNum3.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Hit back." extension="Agreement search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>			
+			<step index="7" comment="Input 'Postal code' field with '24536' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:postalCode_text $web:postalCode4.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Hit back." extension="Agreement search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>		
+			<step index="9" comment="Input 'Agreement number' field with '446478' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:agreementNum_text $web:agreementNum3.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Hit back." extension="Agreement search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>		
+			<step index="11" comment="Input 'Site number' field with '7254326' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:siteNumber_text $web:siteNumber2.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Hit back." extension="Agreement search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>	
+			<step index="13" comment="Input 'Site number' field with '7023461'.  Have 'Active sites' clicked. Have all program types checked. Click 'Submit'." extension="Agreement details page">
+				settext agreementSearchPage:siteNumber_text $web:siteNumber3.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="14" comment="Hit back." extension="Agreement search form">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>	
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

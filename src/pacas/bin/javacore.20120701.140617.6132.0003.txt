@@ -1,0 +1,324 @@
+NULL           ------------------------------------------------------------------------
+0SECTION       TITLE subcomponent dump routine
+NULL           ===============================
+1TISIGINFO     Dump Event "gpf" (00002000) received 
+1TIDATETIME    Date:                 2012/07/01 at 14:06:22
+1TIFILENAME    Javacore filename:    C:\workspace\pacas\bin\javacore.20120701.140617.6132.0003.txt
+1TIREQFLAGS    Request Flags: 0x81 (exclusive+preempt)
+1TIPREPSTATE   Prep State: 0x0
+1TIPREPINFO    Exclusive VM access not taken: data may not be consistent across javacore sections
+NULL           ------------------------------------------------------------------------
+0SECTION       GPINFO subcomponent dump routine
+NULL           ================================
+2XHOSLEVEL     OS Level         : Windows XP 5.1 build 2600 Service Pack 3
+2XHCPUS        Processors -
+3XHCPUARCH       Architecture   : x86
+3XHNUMCPUS       How Many       : 2
+3XHNUMASUP       NUMA is either not supported or has been disabled by user
+NULL           
+1XHEXCPCODE    J9Generic_Signal_Number: 00000004
+1XHEXCPCODE    ExceptionCode: C0000005
+1XHEXCPCODE    ExceptionAddress: 7FC66ECE
+1XHEXCPCODE    ContextFlags: 0001003F
+1XHEXCPCODE    Handler1: 7FEFA0C0
+1XHEXCPCODE    Handler2: 7FECC180
+1XHEXCPCODE    InaccessibleAddress: 0000002C
+NULL           
+1XHEXCPMODULE  Module: C:\Program Files\IBM\SDP_1\jdk\jre\bin\jclscar_24.dll
+1XHEXCPMODULE  Module_base_address: 7FC60000
+1XHEXCPMODULE  Offset_in_DLL: 00006ECE
+NULL           
+1XHREGISTERS   Registers:
+2XHREGISTER      EDI: 61BEC4C4
+2XHREGISTER      ESI: 61B61131
+2XHREGISTER      EAX: 00000000
+2XHREGISTER      EBX: 0018B970
+2XHREGISTER      ECX: 61BEC500
+2XHREGISTER      EDX: 00000000
+2XHREGISTER      EIP: 7FC66ECE
+2XHREGISTER      ESP: 61BEC4C8
+2XHREGISTER      EBP: 61BEC600
+2XHREGISTER      EFLAGS: 00010246
+2XHREGISTER      GS: 0000
+2XHREGISTER      FS: 003B
+2XHREGISTER      ES: 0023
+2XHREGISTER      DS: 0023
+NULL           
+1XHFLAGS       VM flags:00000000
+NULL           
+NULL           ------------------------------------------------------------------------
+0SECTION       ENVINFO subcomponent dump routine
+NULL           =================================
+1CIJAVAVERSION JRE 1.6.0 IBM J9 2.4 Windows XP x86-32 build jvmwi3260sr8-20100401_55940
+1CIVMVERSION   VM build 20100401_055940
+1CIJITVERSION  JIT enabled, AOT enabled - r9_20100401_15339
+1CIGCVERSION   GC - 20100308_AA
+1CIRUNNINGAS   Running as a standalone JVM
+1CICMDLINE     java -cp .;pacas.jar;xalan.jar;xercesImpl.jar;serializer.jar;jacl.jar;jacob.jar;tcljava.jar org.pacas.ScriptFactory C:\workspace\pacas\config\Agile\config.xml C:\workspace\pacas\script\FastPass-Agile\cases -icmd
+1CIJAVAHOMEDIR Java Home Dir:   C:\Program Files\IBM\SDP_1\jdk\jre
+1CIJAVADLLDIR  Java DLL Dir:    C:\Program Files\IBM\SDP_1\jdk\jre\bin
+1CISYSCP       Sys Classpath:   C:\Program Files\IBM\SDP_1\jdk\jre\lib\vm.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\annotation.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\beans.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\java.util.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\jndi.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\logging.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\security.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\sql.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmorb.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmorbapi.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmcfw.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\rt.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\charsets.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\resources.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmpkcs.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmcertpathfw.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmjgssfw.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmjssefw.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmsaslfw.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmjcefw.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmjgssprovider.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmjsseprovider2.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmcertpathprovider.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\ibmxmlcrypto.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\management-agent.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\xml.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\jlm.jar;C:\Program Files\IBM\SDP_1\jdk\jre\lib\javascript.jar;
+1CIUSERARGS    UserArgs:
+2CIUSERARG               -Xjcl:jclscar_24
+2CIUSERARG               -Dcom.ibm.oti.vm.bootstrap.library.path=C:\Program Files\IBM\SDP_1\jdk\jre\bin
+2CIUSERARG               -Dsun.boot.library.path=C:\Program Files\IBM\SDP_1\jdk\jre\bin
+2CIUSERARG               -Djava.library.path=C:\Program Files\IBM\SDP_1\jdk\jre\bin;.;C:\Program Files\IBM\IBMIMShared\AgentController\citrixOCR;C:\Program Files\IBM\GSK5\lib;C:\Program Files\IBM\SDP70\rpt\DCI\rpa_prod\tivoli_comp\bin\w32-ix86;C:\Program Files\IBM\IBMIMShared\AgentController\bin;C:\Program Files\IBM\SDP\rpt\citrixOCR;C:\Program Files\IBM\SDP_1\jdk\bin;C:\Program Files\IBM\SDP_1\jdk\bin\jre\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\IBM\Infoprint Select;C:\Notes;C:\Program Files\XLView;C:\lotus\compnent;C:\Utilities;C:\Program Files\Common Files\Lenovo;C:\program files\ibm\personal communications\;C:\Program Files\IBM\Trace Facility\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\ThinkPad\ConnectUtilities;C:\Program Files\IBM\Page Detailer\;C:\SUN\jaxb-ri-20120218\bin;C:\Program Files\Rational\common
+2CIUSERARG               -Djava.home=C:\Program Files\IBM\SDP_1\jdk\jre
+2CIUSERARG               -Djava.ext.dirs=C:\Program Files\IBM\SDP_1\jdk\jre\lib\ext
+2CIUSERARG               -Duser.dir=C:\workspace\pacas\bin
+2CIUSERARG               _j2se_j9=71168 0x7FBE7290
+2CIUSERARG               -Xdump
+2CIUSERARG               -Dconsole.encoding=MS936
+2CIUSERARG               -Djava.class.path=.;C:\Program Files\IBM\SDP_1\jdk\lib\dt.jar;C:\Program Files\IBM\SDP_1\jdk\lib\tools.jar
+2CIUSERARG               -Djava.class.path=.;pacas.jar;xalan.jar;xercesImpl.jar;serializer.jar;jacl.jar;jacob.jar;tcljava.jar
+2CIUSERARG               -Dsun.java.command=org.pacas.ScriptFactory C:\workspace\pacas\config\Agile\config.xml C:\workspace\pacas\script\FastPass-Agile\cases -icmd
+2CIUSERARG               -Dsun.java.launcher=SUN_STANDARD
+2CIUSERARG               _port_library 0x7FBE6A10
+2CIUSERARG               _org.apache.harmony.vmi.portlib 0x000C9458
+NULL
+1CIUSERLIMITS  User Limits (in bytes except for NOFILE and NPROC)
+NULL           ------------------------------------------------------------------------
+2CIULIMITERR   Not supported on this platform
+NULL
+1CIENVVARS     Environment Variables (may include system defined environment variables)
+NULL           ------------------------------------------------------------------------
+2CIENVVAR      =::=::\
+2CIENVVAR      =C:=C:\workspace\pacas\bin
+2CIENVVAR      ALLUSERSPROFILE=C:\Documents and Settings\All Users
+2CIENVVAR      APPDATA=C:\Documents and Settings\Administrator\Application Data
+2CIENVVAR      Classpath=.;C:\Program Files\IBM\SDP_1\jdk\lib\dt.jar;C:\Program Files\IBM\SDP_1\jdk\lib\tools.jar
+2CIENVVAR      CLIENTNAME=Console
+2CIENVVAR      CommonProgramFiles=C:\Program Files\Common Files
+2CIENVVAR      COMPUTERNAME=IBM-L3KC636
+2CIENVVAR      ComSpec=C:\WINDOWS\system32\cmd.exe
+2CIENVVAR      FP_NO_HOST_CHECK=NO
+2CIENVVAR      HOMEDRIVE=C:
+2CIENVVAR      HOMEPATH=\Documents and Settings\Administrator
+2CIENVVAR      IBM_JAVA_COMMAND_LINE=java -cp .;pacas.jar;xalan.jar;xercesImpl.jar;serializer.jar;jacl.jar;jacob.jar;tcljava.jar org.pacas.ScriptFactory C:\workspace\pacas\config\Agile\config.xml C:\workspace\pacas\script\FastPass-Agile\cases -icmd
+2CIENVVAR      IBM_JAVA_SYSLOG_NAME=IBM Java 6
+2CIENVVAR      IBM_RATIONAL_RFT_ECLIPSE_DIR=C:\Program Files\IBM\SDP_1
+2CIENVVAR      IBM_RATIONAL_RFT_INSTALL_DIR=C:\Program Files\IBM\SDP_1\FunctionalTester\bin
+2CIENVVAR      JAVA_HOME=C:\Program Files\IBM\SDP_1\jdk
+2CIENVVAR      JAXB_HOME=C:\SUN\jaxb-ri-20120218\lib
+2CIENVVAR      LOGONSERVER=\\IBM-L3KC636
+2CIENVVAR      LSFORCEHOST=9.3.11.43
+2CIENVVAR      NUMBER_OF_PROCESSORS=2
+2CIENVVAR      OS=Windows_NT
+2CIENVVAR      PAGE_DETAILER_PATH=C:\Program Files\IBM\Page Detailer\
+2CIENVVAR      Path=C:\Program Files\IBM\IBMIMShared\AgentController\citrixOCR;C:\Program Files\IBM\GSK5\lib;C:\Program Files\IBM\SDP70\rpt\DCI\rpa_prod\tivoli_comp\bin\w32-ix86;C:\Program Files\IBM\IBMIMShared\AgentController\bin;C:\Program Files\IBM\SDP\rpt\citrixOCR;C:\Program Files\IBM\SDP_1\jdk\bin;C:\Program Files\IBM\SDP_1\jdk\bin\jre\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\IBM\Infoprint Select;C:\Notes;C:\Program Files\XLView;C:\lotus\compnent;C:\Utilities;C:\Program Files\Common Files\Lenovo;C:\program files\ibm\personal communications\;C:\Program Files\IBM\Trace Facility\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\ThinkPad\ConnectUtilities;C:\Program Files\IBM\Page Detailer\;C:\SUN\jaxb-ri-20120218\bin;C:\Program Files\Rational\common
+2CIENVVAR      PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH
+2CIENVVAR      PCOMM_Root=C:\program files\ibm\personal communications\
+2CIENVVAR      PDBASE=C:\Program Files\IBM\Infoprint Select
+2CIENVVAR      PD_SOCKET=6874
+2CIENVVAR      PROCESSOR_ARCHITECTURE=x86
+2CIENVVAR      PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 13, GenuineIntel
+2CIENVVAR      PROCESSOR_LEVEL=6
+2CIENVVAR      PROCESSOR_REVISION=0f0d
+2CIENVVAR      ProgramFiles=C:\Program Files
+2CIENVVAR      PROMPT=$P$G
+2CIENVVAR      SESSIONNAME=Console
+2CIENVVAR      SystemDrive=C:
+2CIENVVAR      SystemRoot=C:\WINDOWS
+2CIENVVAR      TEMP=C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp
+2CIENVVAR      TMP=C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp
+2CIENVVAR      tvdebugflags=0x260
+2CIENVVAR      tvlogsessioncount=5000
+2CIENVVAR      USERDOMAIN=IBM-L3KC636
+2CIENVVAR      USERNAME=zhuke
+2CIENVVAR      USERPROFILE=C:\Documents and Settings\Administrator
+2CIENVVAR      windir=C:\WINDOWS
+NULL           
+1CIJVMMI       JVM Monitoring Interface (JVMMI)
+NULL           ------------------------
+2CIJVMMIOFF    [not available]
+NULL           
+NULL           ------------------------------------------------------------------------
+0SECTION       MEMINFO subcomponent dump routine
+NULL           =================================
+1STHEAPFREE    Bytes of Heap Space Free: 33CF48 
+1STHEAPALLOC   Bytes of Heap Space Allocated: 400000 
+NULL           
+1STSEGTYPE     Internal Memory
+NULL           segment  start    alloc    end       type     bytes
+1STSEGMENT     62447E2C 624A7018 624A7018 624B7018  01000040 10000
+1STSEGMENT     62447DCC 62700B10 62700B10 62710B10  01000040 10000
+1STSEGMENT     62447EEC 61C16018 61C16018 61C26018  01000040 10000
+1STSEGMENT     62447D0C 62487018 62487018 62497018  01000040 10000
+1STSEGMENT     000DCE84 623D80E0 623D80E0 623E80E0  01000040 10000
+1STSEGMENT     000DCD64 61C35B30 61C35B30 61C45B30  01000040 10000
+1STSEGMENT     000DCC44 0015A220 0015A220 0017BD4C  01000040 21B2C
+1STSEGMENT     000DCBE4 001442A0 001442A0 00157B38  01000040 13898
+1STSEGMENT     000DCB84 00134278 00134278 00144278  01000040 10000
+NULL           
+1STSEGTYPE     Object Memory
+NULL           segment  start    alloc    end       type     bytes
+1STSEGMENT     000DD064 005C0000 009C0000 009C0000  00000009 400000
+NULL           
+1STSEGTYPE     Class Memory
+NULL           segment  start    alloc    end       type     bytes
+1STSEGMENT     62307E84 62740BB0 62747800 62748BB0  00010040 8010
+1STSEGMENT     62307E24 626C8018 626DFBA0 626E8018  00020040 20000
+1STSEGMENT     62307DC4 626F8AE0 62700210 62700AE0  00010040 8010
+1STSEGMENT     62307D64 622F7AE0 622FF260 622FFAE0  00010040 8010
+1STSEGMENT     62307D04 62010030 6209A6E8 620A0A50  00020040 90A20
+1STSEGMENT     62307CA4 001966C0 0019E0C0 0019E6C0  00010040 8010
+1STSEGMENT     62307C44 62407B58 624242F0 62427B58  00020040 20000
+1STSEGMENT     62307BE4 62308000 6230FD60 62310000  00010040 8010
+1STSEGMENT     62307B84 623B80B8 623D77D0 623D80B8  00020040 20000
+1STSEGMENT     62307B24 62398090 623B6868 623B8090  00020040 20000
+1STSEGMENT     000DD994 61C45C20 61C4DBA0 61C4DC20  00010040 8010
+1STSEGMENT     000DD934 62380030 62388020 62388030  00010040 8010
+1STSEGMENT     000DD8D4 62360008 6237F6D0 62380008  00020040 20000
+1STSEGMENT     000DD874 622E0080 622E7EB0 622E8080  00010040 8010
+1STSEGMENT     000DD814 622C0058 622DE5D0 622E0058  00020040 20000
+1STSEGMENT     000DD7B4 7FC66980 7FC66E24 7FC66E24  04020104 4D4
+1STSEGMENT     000DD754 7FEFEC28 7FEFF0A0 7FEFF0A0  04200104 4A8
+1STSEGMENT     000DD6F4 61B60058 61B7DEE8 61B80058  00020040 20000
+1STSEGMENT     000DD694 0018B640 001934D0 00193640  00010040 8010
+1STSEGMENT     000DD634 001AC938 001ACFD0 001ACFD0  00020040 698
+NULL           
+1STSEGTYPE     JIT Code Cache
+NULL           segment  start    alloc    end       type     bytes
+1STSEGMENT     0010E284 619B0000 61A30000 61A30000  00000068 80000
+NULL           
+1STSEGTYPE     JIT Data Cache
+NULL           segment  start    alloc    end       type     bytes
+1STSEGMENT     0010E49C 61A30030 61A331BC 61AB0030  00000048 80000
+NULL           
+1STGCHTYPE     GC History  
+NULL           
+NULL           ------------------------------------------------------------------------
+0SECTION       LOCKS subcomponent dump routine
+NULL           ===============================
+NULL           
+1LKPOOLINFO    Monitor pool info:
+2LKPOOLTOTAL     Current total number of monitors: 0
+NULL           
+1LKMONPOOLDUMP Monitor Pool Dump (flat & inflated object-monitors):
+NULL           
+1LKREGMONDUMP  JVM System Monitor Dump (registered monitors):
+2LKREGMON          Thread global lock (0x003B3C78): <unowned>
+2LKREGMON          Windows native console event lock lock (0x003B3CCC): <unowned>
+2LKREGMON          NLS hash table lock (0x003B3D20): <unowned>
+2LKREGMON          portLibrary_j9sig_async_monitor lock (0x003B3D74): <unowned>
+2LKREGMON          getnameinfo monitor lock (0x003B3DC8): <unowned>
+2LKREGMON          Hook Interface lock (0x003B3E1C): <unowned>
+2LKREGMON          &(vm->bytecodeTableMutex) lock (0x003B3E70): <unowned>
+2LKREGMON          Hook Interface lock (0x003B3EC4): <unowned>
+2LKREGMON          dump tokens mutex lock (0x003B3F18): <unowned>
+2LKREGMON          MM_Forge lock (0x003B3F6C): <unowned>
+2LKREGMON          MM_SublistPool lock (0x003B3FC0): <unowned>
+2LKREGMON          MM_SublistPool lock (0x003B4014): <unowned>
+2LKREGMON          MM_SublistPool lock (0x003B4068): <unowned>
+2LKREGMON          MM_SublistPool lock (0x003B40BC): <unowned>
+2LKREGMON          MM_SublistPool lock (0x003B4110): <unowned>
+2LKREGMON          Undead Segment List Monitor lock (0x003B4164): <unowned>
+2LKREGMON          Hook Interface lock (0x003B41B8): <unowned>
+2LKREGMON          Hook Interface lock (0x003B420C): <unowned>
+2LKREGMON          MM_ParallelDispatcher::slaveThread lock (0x003B4260): <unowned>
+2LKREGMON          MM_ParallelDispatcher::shutdownCount lock (0x003B42B4): <unowned>
+2LKREGMON          MM_ParallelDispatcher::synchronize lock (0x003B4308): <unowned>
+2LKREGMON          MM_WorkPackets::inputList lock (0x003B435C): <unowned>
+2LKREGMON          MM_WorkPackets::allocatingPackets lock (0x003B43B0): <unowned>
+2LKREGMON          MM_GCExtensions::gcStats lock (0x003B4404): <unowned>
+2LKREGMON          &RAS_GLOBAL_FROM_JAVAVM(triggerOnGroupsWriteMutex,vm) lock (0x003B4458): <unowned>
+2LKREGMON          &RAS_GLOBAL_FROM_JAVAVM(triggerOnTpidsWriteMutex,vm) lock (0x003B44AC): <unowned>
+2LKREGMON          &vm->verboseStateMutex lock (0x003B4500): <unowned>
+2LKREGMON          VM thread list lock (0x003B4554): <unowned>
+2LKREGMON          VM exclusive access lock (0x003B45A8): <unowned>
+2LKREGMON          VM Runtime flags Mutex lock (0x003B45FC): <unowned>
+2LKREGMON          VM Extended method block flags Mutex lock (0x003B4650): <unowned>
+2LKREGMON          Async event mutex lock (0x003B46A4): <unowned>
+2LKREGMON          JIT/GC class unload mutex lock (0x003B46F8): <unowned>
+2LKREGMON          VM bind native lock (0x003B474C): <unowned>
+2LKREGMON          VM Statistics List Mutex lock (0x003B47A0): <unowned>
+2LKREGMON          VM class loader blocks lock (0x003B47F4): <unowned>
+2LKREGMON          VM class table lock (0x003B4848): <unowned>
+2LKREGMON          VM string table lock (0x003B489C): <unowned>
+2LKREGMON          VM segment lock (0x003B48F0): <unowned>
+2LKREGMON          VM JNI frame lock (0x003B4944): <unowned>
+2LKREGMON          VM GC finalize master lock (0x003B4998): <unowned>
+2LKREGMON          VM GC finalize run finalization lock (0x003B49EC): <unowned>
+2LKREGMON          VM memory space list lock (0x003B4A40): <unowned>
+2LKREGMON          VM JXE description lock (0x003B4A94): <unowned>
+2LKREGMON          VM AOT runtime init lock (0x003B4AE8): <unowned>
+2LKREGMON          VM monitor table lock (0x003B4B3C): <unowned>
+2LKREGMON          VM volatile long lock (0x003B4B90): <unowned>
+2LKREGMON          VM mem segment list lock (0x003B4BE4): <unowned>
+2LKREGMON          VM mem segment list lock (0x003B4C38): <unowned>
+2LKREGMON          VM mem segment list lock (0x003B4C8C): <unowned>
+2LKREGMON          FinalizeListManager lock (0x003B4CE0): <unowned>
+2LKREGMON          &(jvmtiData->mutex) lock (0x003B4D34): <unowned>
+2LKREGMON          &(jvmtiData->redefineMutex) lock (0x003B4D88): <unowned>
+2LKREGMON          BCVD verifier lock (0x003B4DDC): <unowned>
+2LKREGMON          XshareclassesVerifyInternTreeMon lock (0x003B4E30): <unowned>
+2LKREGMON          global mapMemoryBuffer mutex lock (0x003B4E84): <unowned>
+2LKREGMON          &(classLoader->mutex) lock (0x003B4ED8): <unowned>
+2LKREGMON          Thread public flags mutex lock (0x003B4F2C): <unowned>
+2LKREGMON          jvmriDumpThread lock (0x003B4F80): <unowned>
+2LKREGMON          tracemon lock (0x003B4FD4): <unowned>
+2LKREGMON          tracemon lock (0x003B5028): <unowned>
+2LKREGMON          jvmriDumpThread lock (0x003B507C): <unowned>
+2LKREGMON          JIT-MonitorTableMonitor lock (0x003B50D0): <unowned>
+2LKREGMON          JIT-MemoryAllocMonitor lock (0x003B5124): <unowned>
+2LKREGMON          JIT-MemoryUseMonitor lock (0x003B9C90): <unowned>
+2LKREGMON          Hook Interface lock (0x003B9CE4): <unowned>
+2LKREGMON          JIT thunk table lock (0x003B9D38): <unowned>
+2LKREGMON          JIT-jitConfig->mutex lock (0x003B9D8C): <unowned>
+2LKREGMON          JIT-AssumptionTableMutex lock (0x003B9DE0): <unowned>
+2LKREGMON          VM mem segment list lock (0x003B9E34): <unowned>
+2LKREGMON          VM mem segment list lock (0x003B9E88): <unowned>
+2LKREGMON          JIT-CompilationQueueMonitor lock (0x003B9EDC): <unowned>
+3LKNOTIFYQ            Waiting to be notified:
+3LKWAITNOTIFY            "(未命名的线程)" (0x000DC000)
+2LKREGMON          JIT-DLTmonitor lock (0x003B9F30): <unowned>
+2LKREGMON          JIT-CodeCacheListMutex lock (0x003B9F84): <unowned>
+2LKREGMON          JIT-CodeCacheMonitor-?? lock (0x003B9FD8): <unowned>
+2LKREGMON          OptimizationPlanMonitor lock (0x003BA02C): <unowned>
+2LKREGMON          JIT-InterpreterProfilingMonitor lock (0x003BA080): <unowned>
+2LKREGMON          Thread public flags mutex lock (0x003BA0D4): <unowned>
+2LKREGMON          ValueProfilingMutex lock (0x003BA128): <unowned>
+2LKREGMON          JIT sampling thread lock (0x003BA17C): <unowned>
+2LKREGMON          management fields lock lock (0x003BA1D0): <unowned>
+2LKREGMON          &vm->managementData->notificationMonitor lock (0x003BA224): <unowned>
+2LKREGMON          &vm->managementData->dlparNotificationMonitor lock (0x003BA278): <unowned>
+2LKREGMON          Thread public flags mutex lock (0x003BA2CC): <unowned>
+2LKREGMON          JIT-QueueSlotMonitor-0 lock (0x003BA320): <unowned>
+2LKREGMON          JIT-QueueSlotMonitor-1 lock (0x003BA374): <unowned>
+2LKREGMON          JIT-QueueSlotMonitor-2 lock (0x003BA3C8): <unowned>
+2LKREGMON          JIT-QueueSlotMonitor-3 lock (0x003BA41C): <unowned>
+2LKREGMON          JIT-QueueSlotMonitor-4 lock (0x003BA470): <unowned>
+2LKREGMON          &(classLoader->mutex) lock (0x003BA4C4): <unowned>
+2LKREGMON          &(classLoader->mutex) lock (0x003BA518): <unowned>
+2LKREGMON          Thread public flags mutex lock (0x003BA56C): <unowned>
+NULL           
+NULL           ------------------------------------------------------------------------
+0SECTION       THREADS subcomponent dump routine
+NULL           =================================
+NULL           
+1XMCURTHDINFO  Current thread
+NULL           ----------------------
+3XMTHREADINFO      "(未命名的线程)" J9VMThread:0x61BEC600, j9thread_t:0x003B5900, java/lang/Thread:0x00000000, state:R, prio=0
+3XMTHREADINFO1            (native thread ID:0x193C, native priority:0xA, native policy:UNKNOWN)
+3XMTHREADINFO3           No Java callstack associated with this thread
+3XMTHREADINFO3           Native callstack:
+4XENATIVESTACK               java_lang_J9VMInternals_getInitStatus+0x1e (internals.asm:255, 0x7FC66ECE [jclscar_24+0x6ece])
+4XENATIVESTACK               (0x000C98A8)
+4XENATIVESTACK               (0x61BEC4C8)
+NULL
+NULL           
+1XMTHDINFO     Thread Details
+NULL           ------------------
+NULL           
+3XMTHREADINFO      Anonymous native thread
+3XMTHREADINFO1            (native thread ID:0x1F58, native priority: 0x0, native policy:UNKNOWN)
+3XMTHREADINFO3           Native callstack:
+4XENATIVESTACK               KiFastSystemCallRet+0x0 (0x7C90E514 [ntdll+0xe514])
+4XENATIVESTACK               WaitForSingleObject+0x12 (0x7C802542 [kernel32+0x2542])
+4XENATIVESTACK               JCL_RecvFrom+0x74 (jcl_wrappers.c:94, 0x00404FD2 [java+0x4fd2])
+4XENATIVESTACK               JNU_ClassClass+0x38 (jni_util.c:886, 0x00403AE5 [java+0x3ae5])
+4XENATIVESTACK               (0x72676F72)
+4XENATIVESTACK               wcanonicalize+0xe (canonicalize_md.c:397, 0x00409ED2 [java+0x9ed2])
+4XENATIVESTACK               RegisterWaitForInputIdle+0x49 (0x7C817077 [kernel32+0x17077])
+4XENATIVESTACK               (0x00310045 [SYSFER+0x10045])
+NULL

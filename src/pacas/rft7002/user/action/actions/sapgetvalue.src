@@ -1,0 +1,8 @@
+#region declare
+#endregion
+#region code
+		String ctrlType%AUTO_INT% = %PARAM2%;
+		String varName%AUTO_INT% = %PARAM3%;
+		TestObject testObj%AUTO_INT% = factory.getSapObjectByName("%PARAM1%", null);
+		new SapGetValue(testObj%AUTO_INT%, ctrlType%AUTO_INT%,varName%AUTO_INT%,null);	
+#endregion

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">http://w3stage.sso.ibm.com/software/xl/fastpass/ps/fphome.nsf/default?openform</value>
+	</item>
+	<item key="username">
+		<value index="1">kezhu@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">7890uiop</value>
+	</item>
+	<item key="salesOrderNum1">
+		<value index="1">52182772</value>
+	</item>
+	<item key="salesOrderNum2">
+		<value index="1">30123456</value>
+	</item>
+	<item key="salesOrderNum3">
+		<value index="1">51397933</value>
+	</item>
+	<item key="salesOrderNum4">
+		<value index="1">51882216</value>
+	</item>
+	<item key="salesOrderNum5">
+		<value index="1">0077080210</value>
+	</item>	
+	<item key="salesOrderNum11">
+		<value index="1">0077080386</value>
+	</item>
+	<item key="salesOrderNum12">
+		<value index="1">0040761375</value>
+	</item>		
+	<item key="specialBidNum1">
+		<value index="1">MB-CHI-200709-447135425</value>
+	</item>
+	<item key="specialBidNum2">
+		<value index="1">SWG-PM010</value>
+	</item>
+	<item key="specialBidNum3">
+		<value index="1">BAD-VALUE</value>
+	</item>
+	<item key="opportunityNum1">
+		<value index="1">2-K70ME5</value>
+	</item>
+	<item key="opportunityNum2">
+		<value index="1">D86JWSR</value>
+	</item>
+	<item key="opportunityNum3">
+		<value index="1">BAD-VALUE</value>
+	</item>
+	<item key="siteNumber6">
+		<value index="1">3381897</value>
+	</item>
+	<item key="chooseFastPass">
+		<value index="1">FastPass</value>
+	</item>
+	<item key="choosePages(w3)">
+		<value index="1">Pages(w3)</value>
+	</item>	
+	<item key="searchContent">
+		<value index="1">User Guide</value>
+	</item>	
+	<item key="dropList1AllSalesTransactions">
+		<value index="1">All sales transactions</value>
+	</item>
+	<item key="salesOrderNum18">
+		<value index="1">0054104549</value>
+	</item>			
+	<item key="salesOrderNum19">
+		<value index="1">0040761375</value>
+	</item>		
+<item key="salesOrderNum10"><!--juco 2013.3.21 -->
+		<value index="1">0053979167</value>
+	</item>		
+	<item key="salesOrderNum11"><!--juco 2013.3.21 -->
+		<value index="1">0053403514</value>
+	</item>	
+	<item key="salesOrderNum22"><!--juco 2013.3.26 R-->
+		<value index="1">0077083993</value>
+	</item>	
+	<item key="salesOrderNum23"><!--juco 2013.3.26 C-->
+		<value index="1">0077085879</value>
+	</item>	
+	<item key="salesOrderNum24"><!--juco 2013.3.27 -->
+		<value index="1">0077085879</value>
+	</item>		
+	<item key="salesOrderNum25"><!--juco 2013.3.27 -->
+		<value index="1">0077080755</value>
+	</item>	
+	<item key="salesOrderNum26"><!--juco 2013.3.27 -->
+		<value index="1">0077083233</value>
+	</item>	
+	<item key="salesOrderNum27"><!--juco 2013.3.27 -->
+		<value index="1">0077083168</value>
+	</item>		
+	<item key="salesOrderNum28"><!--juco 2013.3.27 -->
+		<value index="1">0077083238</value>
+	</item>	
+	<item key="salesOrderNumSVI"><!--juco 2013.4.30 -->
+		<value index="1">0053979167</value>
+	</item>			
+</data>

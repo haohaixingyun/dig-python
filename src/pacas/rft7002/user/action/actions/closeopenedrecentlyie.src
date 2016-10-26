@@ -1,0 +1,6 @@
+#region declare
+#endregion
+#region code
+		new CloseOpenedRecentlyIE("", "", "",null);
+		switch_flag = true;
+#endregion

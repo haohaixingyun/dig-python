@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">https://w3-sso.toronto.ca.ibm.com/software/xl/fastpass/uat/</value>
+	</item>
+	<item key="username">
+		<value index="1">zhuke@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">4rfv5tgb</value>
+	</item>
+	<item key="MulMachineType">
+		<value index="1">7800011</value>
+	</item>	
+	<item key="OneMachineType">
+		<value index="1">10RM999</value>
+	</item>		
+	<item key="SerialNumber2">
+		<value index="1">10AA104</value>
+	</item>	
+	<item key="SerialNumber3">
+		<value index="1">1000162</value>
+	</item>		
+	<item key="SerialNumber4">
+		<value index="1">7800252</value>
+	</item>		
+	<item key="salesOrderNum1">
+		<value index="1">54447247</value>
+	</item>		
+	<item key="agreementNum1">
+		<value index="1">09382</value>
+	</item>	
+	<item key="siteNumber1">
+		<value index="1">7017541</value>
+	</item>	
+	<item key="siteNumber2">
+		<value index="1">7406770</value>
+	</item>		
+	<item key="siteNumber3">
+		<value index="1">3427026</value>
+	</item>	
+	<item key="siteNumber4">
+		<value index="1">3345156</value>
+	</item>	
+	<item key="EnterprisenNumbers">
+		<value index="1">8497000</value>
+	</item>	
+	<item key="INACNumber">
+		<value index="1">8142</value>
+	</item>	
+	<item key="ICNNumbers">
+		<value index="1">7824737</value>
+	</item>	
+	<item key="sapSaleOrder1">
+		<value index="1">54420774</value>
+	</item>	
+	<item key="sapSaleOrder2">
+		<value index="1">0053213904</value>
+	</item>	
+	<item key="sapSaleOrder3">
+		<value index="1">53515820</value>
+	</item>	
+	<item key="sapSaleOrder4">
+		<value index="1">54226953</value>
+	</item>	
+	<item key="dropListSubstitutionlist">
+		<value index="1">Substitution list</value>
+	</item>
+	<item key="dropListActiveManagedEntitlementsList">
+		<value index="1">Active managed entitlements</value>
+	</item>		
+	<item key="dropListAllManagedEntitlementsList">
+		<value index="1">All managed entitlements</value>
+	</item>	
+
+</data>

@@ -1,0 +1,8 @@
+Requirement:
+
+1. Add special folder substitution support in deploy config and other trans components.
+E.g., %USER_HOME% stands for c:\documents and settings\xxxxx
+%WIN_PATH% stands for the windows installed dir 
+
+2. Note that the best way to make loading of w32helper.dll is to copy it to system32 folder.
+Because when running with RFT's run, the mods to user.library.path won't work. 

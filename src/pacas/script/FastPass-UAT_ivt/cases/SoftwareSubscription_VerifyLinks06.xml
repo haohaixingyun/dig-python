@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="SoftwareSubscription_VerifyLinks06" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>SoftwareSubscription_VerifyLinks06</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Check links of Active entitlements page.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+		<mapping src="allEntitlementPage.xml" />
+		<mapping src="softwareSubscriptionRelatedLinksPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="MaintenanceEntitlement_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="SoftwareSubscription_VerifyLinks06.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'SW Subscription and Support entitlement' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="SW Subscription and Support entitlements Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Agreement number' field with '09382'.Input 'Site number' field with '7017541'.Click 'Search'." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				settext softwareSubscriptionSearchPage:agreementNum_text $web:agreementNum5.
+				settext softwareSubscriptionSearchPage:siteNumber_text $web:siteNumber5.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Select dropdown option 'Active entitlements' and hit Go button." extension="Active entitlements for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1ActiveEntitlements.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Click the value in the 'Customer name' field." extension="Agreement site information page">
+				Click allEntitlementPage:StateFarmMA_link.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Click the value in the 'Agreement number' field." extension="Agreement details page">
+				Click allEntitlementPage:tag09382_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Click the value in the 'Site number' field." extension="Customer details page">
+				Click allEntitlementPage:tag7017541_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Click the first value in the 'Part number' column." extension="Part details page">
+				Click allEntitlementPage:firstPartNumE0570LL_link.
+				<verify type="string_in_page" object="Part information" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Click on 'Active sales transactions' in the related links area." extension="Active sales transactions page">
+				Click softwareSubscriptionRelatedLinksPage:activeSalesTransactions_link.
+				<verify type="string_in_page" object="Active sales transactions for site - Default sort by order date" value="60" retry="1"/>
+			</step>
+			<step index="14" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Click on 'Active allocations' in the related links area." extension="Active allocations page">
+				Click softwareSubscriptionRelatedLinksPage:activeAllocations_link.
+				<verify type="string_in_page" object="Active allocations for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="16" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="17" comment="Click on 'Active evolutions from sales transactions' in the related links area." extension="Active evolutions page">
+				Click softwareSubscriptionRelatedLinksPage:activeEvolutions_link.
+				<verify type="string_in_page" object="Active evolutions for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="18" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="19" comment="Click on 'All sales transactions' in the related links area." extension="All sales transactions page">
+				Click softwareSubscriptionRelatedLinksPage:allSalesTransactions_link.
+				<verify type="string_in_page" object="All sales transactions for site - Default sort by order date" value="60" retry="1"/>
+			</step>
+			<step index="20" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="21" comment="Click on 'All allocations' in the related links area." extension="All allocations page">
+				Click softwareSubscriptionRelatedLinksPage:allAllocations_link.
+				<verify type="string_in_page" object="All allocations for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="22" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="23" comment="Click on 'All evolutions from sales transactions' in the related links area." extension="All evolutions page">
+				Click softwareSubscriptionRelatedLinksPage:allEvolutions_link.
+				<verify type="string_in_page" object="All evolutions for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="24" comment="Hit back." extension="Active entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

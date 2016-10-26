@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="SoftwareSubscription_NoEntitlementCustomerSiteMatch" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>SoftwareSubscription_NoEntitlementCustomerSiteMatch</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>No entitlement customer site matches.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="softwareSubscriptionSearchPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="MaintenanceEntitlement_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="SoftwareSubscription_NoEntitlementCustomerSiteMatch.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'SW Subscription and Support entitlement' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="SW Subscription and Support entitlements Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Customer name' field with 'nntp' and click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with no customer site entitlement information">
+				settext softwareSubscriptionSearchPage:customerName_text $web:customerName5.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Hit back." extension="SW Subscription and Support entitlements Search form">
+				Go back.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Input 'IBM Customer number' field with '256756' and click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with no customer site entitlement information">
+				settext softwareSubscriptionSearchPage:customerNum_text $web:customerNum3.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Hit back." extension="SW Subscription and Support entitlements Search form">
+				Go back.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Input 'Postal code' field with '24536' and click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with no customer site entitlement information">
+				settext softwareSubscriptionSearchPage:postalCode_text $web:postalCode4.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Hit back." extension="SW Subscription and Support entitlements Search form">
+				Go back.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Input 'Agreement number' field with '446478' and click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with no customer site entitlement information">
+				settext softwareSubscriptionSearchPage:agreementNum_text $web:agreementNum3.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Hit back." extension="SW Subscription and Support entitlements Search form">
+				Go back.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Input 'Site number' field with '7254326' value and click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with no customer site entitlement information">
+				settext softwareSubscriptionSearchPage:siteNumber_text $web:siteNumber2.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Hit back." extension="SW Subscription and Support entitlements Search form">
+				Go back.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

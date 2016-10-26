@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="NewRelease106">
+
+	<object name="Historical_substitution_list_link">
+		<prop name="value">Historical substitution list</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="Customer_name_link">
+		<prop name="value">Abbott Laboratories</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="Agreement_link">
+		<prop name="value">95113</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="Site_number_link">
+		<prop name="value">7011428</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="first_Part_number_link">
+		<prop name="value">D06WLLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="Sales_Transaction_link">
+		<prop name="value">Sales Transaction </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	
+	<object name="Substitution_list_link">
+		<prop name="value">Substitution list</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	
+	
+	<object name="firstPartNumD48XRML_link">
+		<prop name="value">D48XRML</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	
+	</object>	
+	
+</object>

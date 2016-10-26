@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease102" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease102</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Jan 21th, 2011</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.2 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.2_data.xml"></data>
+		</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease102.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+		  	<step index="1" comment="Click the 'Help' option from the navigation panel." extension="Help page displays">
+				Click fastPassHomePage:help_link.
+				<verify type="object_existence" object="fastPassHelpPage:whatsNewLeft_link" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Click the 'What's New' link." extension="What's New top page displays">
+				Click fastPassHelpPage:whatsNewLeft_link.
+				<verify type="string_in_page" object="The current version of FastPass includes these changes made in recent releases." value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Click the 'February 2011 release' link." extension="February 2011 release top page displays">
+				Click fastPassHelpPage:February2011_link.
+				<verify type="string_in_page" object="The February 2011 release of FastPass includes the following enhancements" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Click the 'Customers' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="20" retry="1"/>
+			</step>
+  			<step index="5" comment="Login FastPass." extension="Customer Search form.">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="20" retry="1"/>
+				<verify type="object_existence" object="customerSearchPage:siteNumber_text" value="5" retry="1"/>				
+			</step>
+
+			<step index="6" comment="Input 'site number' field with '7762975' and click 'Search'." extension="Customer detail page.">
+				settext customerSearchPage:customerNum_text $web:customerNum1.
+				settext customerSearchPage:siteNumber_text $web:siteNumber1.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Active PA customer" value="20" retry="1"/>
+			</step>
+			<step index="7" comment="go back." extension="Customer Search form.">
+				Go back.
+			</step>
+			<step index="8" comment="Input 'site number' field with '7762975' and click 'Search'." extension="Customer detail page.">
+				settext customerSearchPage:customerNum_text $web:customerNum2.
+				settext customerSearchPage:siteNumber_text $web:siteNumber2.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="No active PAE transactions" value="20" retry="1"/>
+			</step>
+			<step index="9" comment="go back." extension="Customer Search form.">
+				Go back.
+			</step>
+			<step index="10" comment="Input 'site number' field with '3000117' and click 'Search'." extension="Customer detail page.">
+				settext customerSearchPage:customerNum_text $web:customerNum3.
+				settext customerSearchPage:siteNumber_text $web:siteNumber3.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Active VSP customer" value="20" retry="1"/>
+			</step>
+			<step index="11" comment="go back." extension="Customer Search form.">
+				Go back.
+			</step>
+			<step index="12" comment="Input 'site number' field with '7762975' and click 'Search'." extension="Customer detail page.">
+				settext customerSearchPage:customerNum_text $web:customerNum4.
+				settext customerSearchPage:siteNumber_text $web:siteNumber4.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Active OEM Customer" value="20" retry="1"/>
+			</step>
+			<step index="13" comment="go back." extension="Customer Search form.">
+				Go back.
+			</step>
+			<step index="14" comment="Input 'site number' field with '7762975' and click 'Search'." extension="Customer detail page.">
+				settext customerSearchPage:customerNum_text $web:customerNum5.
+				settext customerSearchPage:siteNumber_text $web:siteNumber5.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Acquisition Customer No IBM DSW Sales" value="20" retry="1"/>
+			</step>
+
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

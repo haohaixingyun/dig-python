@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease101" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease101</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Aug 16th, 2010</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.1 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />	
+	    <mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />	
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.1_data.xml"></data>
+		</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease101.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+		  	<step index="1" comment="Click the 'Help' option from the navigation panel." extension="Help page displays">
+				Click fastPassHomePage:help_link.
+				<verify type="object_existence" object="fastPassHelpPage:whatsNewLeft_link" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Click the 'What's New' link." extension="What's New top page displays">
+				Click fastPassHelpPage:whatsNewLeft_link.
+				<verify type="string_in_page" object="The current version of FastPass includes these changes made in recent releases." value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Click the 'October 2010 release' link." extension="October 2010 release top page displays">
+				Click fastPassHelpPage:October2010_link.
+				<verify type="string_in_page" object="The October 2010 release of FastPass enhancements supports the following projects" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Click the 'new and modified pages' link." extension="new and modified pages displays">
+				Click fastPassHelpPage:NewAndModifiedPages_link.
+			<verify type="string_in_page" object="The following pages were either new or modified during the October 2010 release" value="60" retry="1"/>
+			</step>	
+			<step index="5" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="20" retry="1"/>
+			</step>
+  			<step index="6" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="20" retry="1"/>
+				<verify type="object_existence" object="salesOrderSearchPage:invoiceNum_text" value="5" retry="1"/>
+				<verify type="string_in_page" object="e.g., 100252546 for DSW, 90513937 for Blue Harmony" value="5" retry="1"/>
+				
+			</step>
+			<!--Only one sales order with assigned BH invoice number  0053128386 / 115270396 / 123222901 -->
+			<step index="7" comment="Input 'invoice number' field with  DSW Invoice Number '115270396' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:invoiceNum_text $web:invoiceNum1.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="20" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:tag0053127775_link" value="5" retry="1"/>
+			</step>
+			<step index="8" comment="Click the link in the 'SAP sales order' column." extension="Sales Order information page">
+				Click salesOrderInfoPage:tag0053127775_link.
+				<verify type="string_in_page" object="DSW / Blue Harmony invoice numbers" value="20" retry="1"/>
+				<verify type="string_in_page" object="115270396" value="5" retry="1"/>		
+			</step>
+			<step index="9" comment="Hit Back." extension="Help page displays">
+				Go back.
+				Go back.
+			</step>			
+			<step index="10" comment="Input 'invoice number' field with  BH Invoice Number '123222901' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:invoiceNum_text $web:invoiceNum2.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="20" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:tag0053361495_link" value="5" retry="1"/>
+			</step>
+			<step index="11" comment="Click the link in the 'SAP sales order' column." extension="Sales Order information page">
+				  Click salesOrderInfoPage:tag0053361495_link. 
+				<verify type="string_in_page" object="DSW / Blue Harmony invoice numbers" value="20" retry="1"/>
+				<verify type="string_in_page" object="160055023 / 6800007762" value="5" retry="1"/>		
+			</step>			
+			<!-- One of two sales orders with assigned BH invoice number. 55554321  -->
+			<step index="12" comment="Hit Back." extension="Search page displays">
+			    Go back.
+				Go back.		
+			</step>			
+			<step index="13" comment="Input 'invoice number' field with  BH Invoice Number '123222902' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:invoiceNum_text $web:invoiceNum3.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="20" retry="1"/>
+			<!--	<verify type="object_existence" object="salesOrderInfoPage:tag0051312942_link" value="20" retry="1"/>  -->
+			<!--	<verify type="object_existence" object="salesOrderInfoPage:tag0051312924_link" value="20" retry="1"/>  -->
+			</step>
+			<!--Only one sales order with assigned BH invoice number but has various assigned DSW invoice numbers on the line items.55567894-->
+			<step index="14" comment="Hit Back." extension="Search page displays">
+				Go back.	
+			</step>			
+			<step index="15" comment="Input 'invoice number' field with  BH Invoice Number '170779986' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:invoiceNum_text $web:invoiceNum4.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="20" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:tag0053128386_link" value="20" retry="1"/>
+			</step>
+			<step index="16" comment="Click the link in the 'SAP sales order' column." extension="Sales Order information page">
+				Click salesOrderInfoPage:tag0053128386_link.
+				<verify type="string_in_page" object="DSW / Blue Harmony invoice numbers" value="20" retry="1"/>
+			<!--	<verify type="string_in_page" object="9041105 / 55567895" value="20" retry="1"/>	-->
+				<verify type="string_in_page" object="170779986" value="20" retry="1"/> 
+			</step> 
+			<step index="17" comment="Click the 'Software entitlements' option from the navigation panel." extension="The search page should show">
+				Click fastPassHomePage:fastPassHome_link
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="20" retry="1"/>
+			</step>
+			<!-- SPSS Entmt Type for Revn Stream LACKEY/TULACKEY Entitlement types -->
+			<!-- TODO:  find a data with both lic_only_flag = 1 and elctrnc_dwnld_flag = 1.  -->
+			<step index="18" comment="Input 'Site number' field with '7516475'.Click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with customer site entitlement information">
+				settext softwareSubscriptionSearchPage:siteNumber_text $web:siteNumber1.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+			</step>
+			<step index="19" comment="Select dropdown option 'All entitlements' and hit Go button." extension="All entitlements for site page">
+				<!--select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1AllEntitlements.-->
+				Click customerSiteEntitlementInfoPage:go_button.
+				<!-- <verify type="string_in_page" object="License only" value="20" retry="1"/> -->
+			</step>
+			
+			<!-- Subcapacity (Assortment Module) date.-->
+
+  			<step index="20" comment="Click the 'Agreements' option from the navigation panel." extension="The search page should show">
+				Click fastPassHomePage:fastPassHome_link
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="20" retry="1"/>
+			</step>
+			<step index="21" comment="Input 'Agreement number' field with '48640' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:agreementNum_text $web:agreementNum1.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Accepted on 26 Aug 2008" value="20" retry="1"/>
+				<verify type="object_existence" object="agreementDetailPage:originatingSite_link" value="5" retry="1"/>
+				<verify type="object_existence" object="agreementDetailPage:tagMichael_Weinig_AG_link" value="5" retry="1"/>
+				<verify type="object_existence" object="agreementDetailPage:tag48640_link" value="5" retry="1"/>
+			</step>
+			<step index="22" comment="Click on 'Originating site' in the related links area." extension="Originating site page">
+				Click agreementDetailPage:originatingSite_link.
+				<verify type="string_in_page" object="Accepted on 26 Aug 2008" value="20" retry="1"/>
+			</step>
+			<step index="23" comment="Click on 'Michael Weinig AG'." extension="InfoForSAPID">
+				Go back.	
+				Click agreementDetailPage:tagMichael_Weinig_AG_link.
+				<verify type="string_in_page" object="Accepted on 26 Aug 2008" value="20" retry="1"/>
+			</step>
+			<step index="24" comment="Click on 'Agreement Number'(48640)." extension="InfoForContract">
+				Go back.	
+				Click agreementDetailPage:tag48640_link.
+				<verify type="string_in_page" object="Accepted on 26 Aug 2008" value="20" retry="1"/>
+			</step>
+		
+			
+			
+			<!-- Channel Convergence -->
+  			<step index="25" comment="Click the 'Agreements' option from the navigation panel." extension="The search page should show">
+				Click fastPassHomePage:fastPassHome_link
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="20" retry="1"/>
+			</step>
+			<step index="26" comment="Input 'Agreement number' field with '11585' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:agreementNum_text $web:agreementNum2.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="object_existence" object="agreementDetailPage:tagCentre_Investment_Services_Limited_link" value="20" retry="1"/>
+				<verify type="object_existence" object="agreementDetailPage:tag7156892_link" value="20" retry="1"/>
+			</step>
+			<step index="27" comment="Click on 'Site number' (7070113)." extension="Originating site page">
+				Click agreementDetailPage:tag7070113_link.  
+				<verify type="string_in_page" object="Government for business partner incentives:" value="20" retry="1"/>
+				<verify type="string_in_page" object="Not Applicable" value="5" retry="1"/>
+				<verify type="string_in_page" object="BPLM coverage group:" value="5" retry="1"/>
+				<verify type="object_existence" object="agreementDetailPage:View_link" value="5" retry="1"/>
+			</step>
+			<step index="28" comment="Click on 'Argyle Diamond Sales Ltd'." extension="InfoForSAPID">
+				Go back.	
+				Click agreementDetailPage:tagArgyle_Diamond_Sales_Ltd_link.
+				<verify type="string_in_page" object="Government for business partner incentives:" value="20" retry="1"/>
+				<verify type="string_in_page" object="Not Applicable" value="5" retry="1"/>
+				<verify type="string_in_page" object="BPLM coverage group:" value="5" retry="1"/>
+				<verify type="object_existence" object="agreementDetailPage:View_link" value="5" retry="1"/>
+				<verify type="string_in_page" object="Current sub ISU account designation:" value="5" retry="1"/>
+				<verify type="string_in_page" object="Mining" value="5" retry="1"/>
+				<verify type="string_in_page" object="SAP contract variant:" value="5" retry="1"/>
+				<verify type="string_in_page" object="STANDARD" value="5" retry="1"/>
+			</step>
+			<step index="29" comment="Click on 'View'." extension="BPLM Coverage Group page">
+			</step>
+			<!--  no BPLM data here
+				Click agreementDetailPage:View_link.  
+				<verify type="string_in_page" object="Customer coverage group" value="20" retry="1"/>
+				<verify type="string_in_page" object="Site information" value="5" retry="1"/>
+				<verify type="string_in_page" object="BPLM coverage groups" value="5" retry="1"/>
+				<verify type="string_in_page" object="Coverage group code" value="5" retry="1"/>
+				<verify type="string_in_page" object="Coverage group description" value="5" retry="1"/>
+				
+		     -->
+			
+			<step index="30" comment="Click the 'Agreements' option from the navigation panel." extension="The search page should show">
+				Click fastPassHomePage:fastPassHome_link
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="20" retry="1"/>
+			</step>
+			
+			<step index="31" comment="Input 'Agreement number' field with '114676' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:agreementNum_text $web:agreementNum3.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="object_existence" object="agreementDetailPage:currentView_link" value="20" retry="1"/>
+			</step>
+			<step index="32" comment="Click the 'current View' link." extension="The Sales order information page should show">
+				Click agreementDetailPage:currentView_link.
+				
+				<verify type="object_existence" object="agreementDetailPage:tag0053031062_link" value="20" retry="1"/>
+			</step>
+			<step index="33" comment="Click the 'current View' link." extension="The Sales order information page should show">
+				Click agreementDetailPage:tag0053031062_link.
+				<verify type="string_in_page" object="SW Value Plus terms:" value="20" retry="1"/>
+				<verify type="string_in_page" object="SW Value Plus product group:" value="5" retry="1"/>
+				<verify type="string_in_page" object="SW Value Plus Open" value="5" retry="1"/>
+				<verify type="string_in_page" object="Business partner incentives:" value="5" retry="1"/>
+				<verify type="object_existence" object="agreementDetailPage:View_link" value="5" retry="1"/>
+			</step>
+			<step index="34" comment="Click on 'View'." extension="BPLM Coverage Group page">
+				Click agreementDetailPage:View_link.  
+				<verify type="string_in_page" object="Business partner incentives" value="20" retry="1"/>
+				<verify type="string_in_page" object="Sales order" value="5" retry="1"/>
+				<verify type="string_in_page" object="Site information (at time of transaction)" value="5" retry="1"/>
+				<verify type="string_in_page" object="Business partner data" value="5" retry="1"/>
+			</step>
+			
+			<step index="35" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:fastPassHome_link
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="20" retry="1"/>
+			</step>
+			<step index="36" comment="Input 'site number' field with '7762975' and click 'Search'." extension="Customer detail page.">
+				settext customerSearchPage:siteNumber_text $web:siteNumber2.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Government for business partner incentives:" value="20" retry="1"/>
+				<verify type="string_in_page" object="No" value="20" retry="1"/>
+			</step>
+			
+			
+			
+			<step index="37" comment="Click the 'Agreements' option from the navigation panel." extension="The search page should show">
+				Click fastPassHomePage:fastPassHome_link
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="20" retry="1"/>
+			</step>
+			<step index="38" comment="Input 'Site number' field with '7914331' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement details page">
+				settext agreementSearchPage:siteNumber_text $web:siteNum.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="object_existence" object="agreementDetailPage:tag7914331_link" value="20" retry="1"/>
+			</step>
+			<step index="39" comment="Click the '7914331' link." extension="The Customer details page should show">
+				Click agreementDetailPage:tag7914331_link.
+				<verify type="string_in_page" object="Global brand family history" value="20" retry="1"/>
+				<verify type="object_existence" object="customerDetailPage:GBFH_View_link" value="20" retry="1"/>
+			</step>
+			<step index="40" comment="Click the 'view' link." extension="The Sales orders Global brand product page should show">
+				Click customerDetailPage:GBFH_View_link.
+				<verify type="string_in_page" object="Brand family for business partner incentives" value="20" retry="1"/> 
+				<verify type="string_in_page" object="Purchase order date" value="5" retry="1"/> 
+				<verify type="string_in_page" object="SAP sales order" value="5" retry="1"/> 
+				<verify type="string_in_page" object="Order type" value="5" retry="1"/> 
+				<verify type="string_in_page" object="Line item" value="5" retry="1"/> 
+				<verify type="string_in_page" object="Part number" value="5" retry="1"/> 
+				<verify type="string_in_page" object="Quantity" value="5" retry="1"/> 
+				<verify type="string_in_page" object="Start date" value="5" retry="1"/> 
+				<verify type="string_in_page" object="End date" value="5" retry="1"/> 
+				<verify type="string_in_page" object="Local extended price" value="5" retry="1"/> 
+				<!--<verify type="string_in_page" object="USD extended price" value="5" retry="1"/> 
+				<verify type="string_in_page" object="B7M00 Software: WebSphere - MQ Base" value="5" retry="1"/>  -->
+			</step>
+  			<step index="41" comment="Click the 'Sales orders' option from the navigation panel." extension="The search page should show">
+				Click fastPassHomePage:fastPassHome_link
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="20" retry="1"/>
+			</step>	
+			<step index="42" comment="Input 'SAP sales order number' field with   '0052437024' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNum2.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Brand family for business partner incentives" value="20" retry="1"/> 
+			</step>
+		</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

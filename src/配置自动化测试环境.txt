@@ -1,0 +1,11 @@
+﻿1.下载Python 2.x ，一键安装
+2.通过pip 安装selenium
+  cmd:pip install selenium
+3.下载谷歌浏览器驱动 http://chromedriver.storage.googleapis.com/index.html?path=2.7/ ，
+  把驱动放到C:\Python27\下面
+4.HTMLTestRunner是Python标准库中单元测试模块的扩展，它生成易于使用的html测试报告,
+ HTMLTestRunner.py文件下载地址为：http://tungwaiyip.info/software/HTMLTestRunner.html，
+下载HTMLTestRunner.py文件后，把HTMLTestRunner文件放到C:\Python27\Lib的目录下即可。 
+运行cmd，输入python，导入import HTMLTestRunner，无任何的错误提示信息，就表示成功
+
+环境配置完成。可以进行自由测试了。

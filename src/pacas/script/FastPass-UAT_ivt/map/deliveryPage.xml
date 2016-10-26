@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="deliveryPage">
+	<object name="StateFarmMA_link">
+		<prop name="value">State Farm Mutual Automobile</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag09382_link">
+		<prop name="value">09382</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag7017541_link">
+		<prop name="value">7017541</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="labelRefNum0001756982_link">
+		<prop name="value">0001756982</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="StateFarmInsurance_link">
+		<prop name="value">State Farm Insurance</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

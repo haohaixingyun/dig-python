@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="contactInfoPage">
+	<object name="firstEmailAddress_link">
+		<prop name="value">Lena.Mehl.ia86@statefarm.com</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstEmailAddress_jill_link">
+		<prop name="value">jill.scott.ifa9@statefarm.com</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag7017541_link">
+		<prop name="value">7017541</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

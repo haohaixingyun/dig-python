@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease106" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease106</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Jan 21th, 2011</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.5 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="NewRelease106.xml" />
+		<mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.6_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease106.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+				<step index="1" comment="Click the 'SW Subscription and Support entitlement' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="SW Subscription and Support entitlements Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Agreement number' field with '95113'.Input 'Site number' field with '7011428'.Click 'Search'." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				settext softwareSubscriptionSearchPage:agreementNum_text $web:agreementNum1.
+				settext softwareSubscriptionSearchPage:siteNumber_text $web:siteNumber1.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Select dropdown option 'Substitution list' and hit Go button." extension="All entitlements for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropListSubstitutionlist.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			
+			
+			
+			
+			
+			<step index="5" comment="click Historicalub stitution list." extension="Access to Historical substitution list for site  page">
+				Click NewRelease106:Historical_substitution_list_link.
+				<verify type="string_in_page" object="Historical substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="6" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			
+			<step index="7" comment="click Customer name link." extension="Access to  Agreement site information page">
+				Click NewRelease106:Customer_name_link.
+				<verify type="string_in_page" object="Agreement site information" value="20" retry="1"/>
+			</step>
+			<step index="8" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="9" comment="click Agreement link." extension="Access to  Agreement details page">
+				Click NewRelease106:Agreement_link.
+				<verify type="string_in_page" object="Agreement details" value="20" retry="1"/>
+			</step>
+			<step index="10" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="11" comment="click Site number link." extension="Access to  Customer details page">
+				Click NewRelease106:Site_number_link.
+				<verify type="string_in_page" object="Customer details" value="20" retry="1"/>
+			</step>
+			<step index="12" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="13" comment="click first Part number link." extension="Access to  Part information page">
+				Click NewRelease106:first_Part_number_link.
+				<verify type="string_in_page" object="Part information" value="20" retry="1"/>
+			</step>
+			<step index="14" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="15" comment="click Sales Transaction link" extension="Access to  All substitution sales transactions for site and part page">
+				Click NewRelease106:Sales_Transaction_link.
+				<verify type="string_in_page" object="All substitution sales transactions for site and part - Sorted by order date" value="20" retry="1"/>
+			</step>
+			<step index="16" comment="click Customer name link." extension="Access to  Agreement site information page">
+				Click NewRelease106:Customer_name_link.
+				<verify type="string_in_page" object="Agreement site information" value="20" retry="1"/>
+			</step>
+			<step index="17" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="All substitution sales transactions for site and part - Sorted by order date" value="20" retry="1"/>
+			</step>
+			<step index="18" comment="click Agreement link." extension="Access to  Agreement details page">
+				Click NewRelease106:Agreement_link.
+				<verify type="string_in_page" object="Agreement details" value="20" retry="1"/>
+			</step>
+			<step index="19" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="All substitution sales transactions for site and part - Sorted by order date" value="20" retry="1"/>
+			</step>
+			<step index="20" comment="clickSite number link." extension="Access to Customer details  page">
+				Click NewRelease106:Site_number_link.
+				<verify type="string_in_page" object="Customer details" value="20" retry="1"/>
+			</step>
+			<step index="21" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="All substitution sales transactions for site and part - Sorted by order date" value="20" retry="1"/>
+			</step>
+			<step index="22" comment="click first Part number link." extension="Access to Part information  page">
+				Click NewRelease106:first_Part_number_link.
+				<verify type="string_in_page" object="Part information" value="20" retry="1"/>
+			</step>
+			<step index="23" comment="go back." extension="go back">
+				Go back.
+				<verify type="string_in_page" object="All substitution sales transactions for site and part - Sorted by order date" value="20" retry="1"/>
+			</step>
+			<step index="24" comment="click Substitution list link." extension="Access to  Active substitution list for site page">
+				Click NewRelease106:Substitution_list_link.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="25" comment="click Customer name link." extension="Access to  Agreement site information page">
+				Click NewRelease106:Customer_name_link.
+				<verify type="string_in_page" object="Agreement site information" value="20" retry="1"/>
+			</step>
+			<step index="26" comment="go back." extension="go back">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="27" comment="click Agreement link." extension="Access to  Agreement details page">
+				Click NewRelease106:Agreement_link.
+				<verify type="string_in_page" object="Agreement details" value="20" retry="1"/>
+			</step>
+			<step index="28" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="29" comment="click Site number link." extension="Access to Customer details  page">
+				Click NewRelease106:Site_number_link.
+				<verify type="string_in_page" object="Customer details" value="20" retry="1"/>
+			</step>
+			<step index="30" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="31" comment="click first Part number link." extension="Access to  Part information page">
+				Click NewRelease106:first_Part_number_link.
+				<verify type="string_in_page" object="Part information" value="20" retry="1"/>
+			</step>
+			<step index="32" comment="go back." extension="go back.">
+				Go back.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+			<step index="33" comment="click Historicalub stitution list." extension="Access to Historical substitution list for site  page">
+				Click NewRelease106:Historical_substitution_list_link.
+				<verify type="string_in_page" object="Historical substitution list for site - Default sort by end date" value="20" retry="1"/>
+			</step>
+
+			
+			
+			
+			<step index="34" comment="Click the 'SW Subscription and Support entitlement' option from the navigation panel." extension="SW Subscription and Support entitlements Search form">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="35" comment="Input 'Site number' field with '3001024'.Click 'Search'." extension="Customer site entitlement information - Default sort by customer name">
+				settext softwareSubscriptionSearchPage:siteNumber_text $web:siteNumber2.
+				check softwareSubscriptionSearchPage:pa_checkbox false.
+				check softwareSubscriptionSearchPage:pae_checkbox false.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="36" comment="Select dropdown option 'Substitution list' and hit Go button." extension="All entitlements for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropListSubstitutionlist.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Active substitution list for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+						
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

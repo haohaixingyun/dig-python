@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="customerDetailPage">
+	<object name="contacts_link">
+		<prop name="value">Contacts</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="partners_link">
+		<prop name="value">Partners</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="agreements_link">
+		<prop name="value">Agreements</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="softwareSubscription_link">
+		<prop name="value">Entitlements</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="customerInfoView_link">
+		<prop name="value">View</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object> 
+	<object name="tag09382_link">
+		<prop name="value">09382</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="insuranceCompany_link">
+		<prop name="value">State Farm Mutual Automobile Insurance Company</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="paCustomerInfoView_link">
+		<prop name="value">view</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+5</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="paCustomerInfoCurrentView_link">
+		<prop name="value">Current view</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="paCustomerInfoAllView_link">
+		<prop name="value">All view</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="View__link">
+		<prop name="value">view </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+1</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="GBFH_View_link">
+		<prop name="value">view</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+4</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="SPSS_View_link">
+		<prop name="value">view </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+1</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="Services_agreements_View">
+		<prop name="value">view </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="Sales_orders_View">
+		<prop name="value">All view </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="Page2">
+		<prop name="value">2</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>	
+	<object name="Page3">
+		<prop name="value">3</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="tag0051539838_link">
+		<prop name="value">0051539838</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="VP_Sales_orders_View"><!-- Juco 12.10 -->
+		<prop name="value">All view </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="SVSP_resellers_View">
+		<prop name="value">view </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+1</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>		
+	<object name="SVSP_enduser_View">
+		<prop name="value">view </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="SoftwareEntitlements_View">
+		<prop name="value">view </prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+5</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>	
+	<object name="EnterpriseNumber">
+		<prop name="value">9593023</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+</object>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<item key="fastPassHome">
+		<value index="1">w3-01.ibm.com/software/xl/fastpass</value>
+	</item>
+	<item key="username">
+		<value index="1">kezhu@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">1qaz2wsx</value>
+	</item>
+	<item key="customerNum1">
+		<value index="1">367479</value>
+	</item>
+	<item key="customerNum2">
+		<value index="1">118092</value>
+	</item>	
+	<item key="customerNum3">
+		<value index="1">306125</value>
+	</item>
+	<item key="customerNum4">
+		<value index="1">8407288</value>
+	</item>
+	<item key="customerNum5">
+		<value index="1">6520564</value>
+	</item>	
+	<item key="siteNumber1">
+		<value index="1">7645090</value>
+	</item>
+	<item key="siteNumber2">
+		<value index="1">7887612</value>
+	</item>
+	<item key="siteNumber3">
+		<value index="1">3002620</value>
+	</item>
+	<item key="siteNumber4">
+		<value index="1">7616445</value>
+	</item>	
+	<item key="siteNumber5">
+		<value index="1">7116355</value>
+	</item>		
+</data>

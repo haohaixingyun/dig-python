@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease99" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease99</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Help page.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+		<mapping src="NewRelease99.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease99_data.xml"></data>
+		</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease99.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Help' option from the navigation panel." extension="Help page displays">
+				Click fastPassHomePage:help_link.
+				<verify type="object_existence" object="fastPassHelpPage:whatsNewLeft_link" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Click the 'What's New' link." extension="What's New top page displays">
+				Click fastPassHelpPage:whatsNewLeft_link.
+				<verify type="string_in_page" object="The current version of FastPass includes these changes made in recent releases." value="60" retry="1"/>
+			</step>
+				<step index="3" comment="Click the 'April 2010 release' link." extension="April 2010 release top page displays">
+				Click NewRelease99:April2010Release_link.
+				<verify type="string_in_page" object="The April 2010 release of FastPass enhancements will add ease to searches by users that don't" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Hit Back." extension="Help page displays">
+				Go back.
+					<verify type="string_in_page" object="The current version of FastPass includes these changes made in recent releases." value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Click the 'November 2009 release' link." extension="November 2009 release top page displays">
+				Click NewRelease99:November2009release_link.
+			<verify type="string_in_page" object="The November 2009 release of FastPass displays additional parts" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Hit Back." extension="Help page displays">
+				Go back.
+					<verify type="string_in_page" object="The current version of FastPass includes these changes made in recent releases." value="60" retry="1"/>
+			</step>
+				<step index="7" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Go back.
+				Go back.
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="8" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Input '50123456' field with '115008683' and click 'Search'." extension="Sales Order information page sorted by special bid number">
+				settext NewRelease99:invoiceNum_text $web:invoiceNum.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information - Search on invoice number" value="60" retry="1"/>
+				<verify type="string_in_page" object="115008683" value="60" retry="1"/>
+				<verify type="string_in_page" object="0050123458" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Click the 'Sales Orders' option from the navigation panel." extension="Sales Order search form">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Input 'SAP sales order number' field with '52182772' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNum1.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="91579918" value="60" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Click the third value in the 'Part number' column." extension="Part details page">
+				Click NewRelease99:PartNumD52ELLL_link.
+				<verify type="string_in_page" object="TIDNTDIRSB23" value="60" retry="1"/>
+				<verify type="string_in_page" object="D61VGLL" value="60" retry="1"/>
+				<verify type="string_in_page" object="Part information" value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

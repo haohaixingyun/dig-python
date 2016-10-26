@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="UnbilledSalesOrderDisplay_map">
+	<object name="tag7131896_link">
+		<prop name="value">7131896</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="Unbilled_view_link">
+		<prop name="value">Unbilled view</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>	
+	<object name="November2009release_link">
+		<prop name="value">November 2009 release</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+		<object name="invoiceNum_text">
+		<prop name="value">invoice_num</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>	
+		<object name="PartNumD52ELLL_link">
+		<prop name="value">D52ELLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="saveSettings_button">
+		<prop name="value">Save settings</prop>
+		<prop name="type">button</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.button</prop>								
+	</object>
+	<object name="restore_button">
+		<prop name="value">Restore defaults</prop>
+		<prop name="type">button</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.button</prop>								
+	</object>
+		<object name="saveSettings_dialog">
+		<prop name="text">确定</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.DialogButton</prop>								
+	</object>
+		<object name="restore_dialog">
+		<prop name="text">确定</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.DialogButton</prop>								
+	</object>
+</object>

@@ -1,0 +1,40 @@
+	logger = CustomLogger.getInstance();
+	logger.initialize(theCase);
+	int stepIndex = -1;
+	if(args!=null && args.length > 0){
+			dataIndex = (String)args[0];
+		} else {
+			dataIndex = "1";
+		}
+	DataHelper.initAppData(this);
+	TestCase.Step[] steps = {
+%VERIF_TEXTS%
+			};
+	theCase.addSteps(steps);
+	
+	try {		
+		%OPEN_BROWSER%
+		if (Browse.browserStarted() && BrowserOps.findBrowser() != null) {
+			Browse.put("default", BrowserOps.findBrowser());
+		}
+		// bto_table.put("default",BrowserOps.findBrowser());
+		%STEP_ITERATOR%
+	} catch (UserStoppedScriptError e) {		
+		System.err.println("User stopped script.");
+		logger.logError("User stopped script.");
+	}
+	catch (Throwable e) {
+		e.printStackTrace();
+		System.err.println("script running interrupts abnormally!");
+
+		ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+		PrintStream printStream=new PrintStream(outputStream);
+		e.printStackTrace(printStream);
+			
+	    //logger.logScriptError("Exception:"+outputStream.toString());
+		logger.logError("script running interrupts abnormally!");
+	} finally {
+		new Log(theCase, -1, logger);
+		theCase.removeSteps();
+	}
+	unregisterAll();

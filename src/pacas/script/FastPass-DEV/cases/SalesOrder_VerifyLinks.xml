@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="SalesOrder_VerifyLinks" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>SalesOrder_VerifyLinks</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Verify links from sales order page(1-24).Verify links from Current sales order page(25-30).Verify links from All sales order page(31-40).</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+		<mapping src="currentSalesOrderPage.xml" />
+		<mapping src="allSalesOrdersPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="SalesOrder_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="SalesOrder_VerifyLinks.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'SAP sales order number' field with '52182772' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNum1.
+				Click salesOrderSearchPage:search_button.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Click the 'Customer name' link." extension="Agreement site information">
+				Click salesOrderInfoPage:stateFarmMAIC_link.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Click the 'Agreement number' link." extension="Agreement details">
+				Click salesOrderInfoPage:tag09382_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Click the 'Site number' link." extension="Customer details">
+				Click salesOrderInfoPage:tag7017541_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Click the 'Bill-to site' link." extension="Partner site information">
+				Click salesOrderInfoPage:IBMGlobalFinance_link.
+				<verify type="string_in_page" object="Partner site information" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Click the 'Sold-to site' link." extension="Partner site information">
+				Click salesOrderInfoPage:StateFarmMA1_link.
+				<verify type="string_in_page" object="Partner site information" value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="14" comment="Click the 'Reseller' link." extension="Partner site information">
+				Click salesOrderInfoPage:StateFarmMA2_link.
+				<verify type="string_in_page" object="Partner site information" value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="16" comment="Click the 'Payer' link." extension="Partner site information">
+				Click salesOrderInfoPage:StateFarmMA3_link.
+				<verify type="string_in_page" object="Partner site information" value="60" retry="1"/>
+			</step>
+			<step index="17" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="18" comment="Click the 'Delivery detals' link." extension="Media delivery shipping detail">
+				Click salesOrderInfoPage:tag0052182772_link.
+				<verify type="string_in_page" object="Media delivery shipping detail" value="60" retry="1"/>
+			</step>
+			<step index="19" comment="Click the 'SAP sales order' link." extension="Partner site information">
+				Click salesOrderInfoPage:tag0052182772_link.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="20" comment="Click the 'Maintenance entitlements' related link." extension="Partner site informationCustomer site entitlement information - Default sort by customer name">
+				Click salesOrderInfoPage:softwareSubscription_link.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="21" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="22" comment="Click the 'All sales order' related link." extension="Site historical information - Sorted by purchase order date">
+				Click salesOrderInfoPage:allSalesOrders_link.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="23" comment="Hit back." extension="Sales Order information page">
+				Go back.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="24" comment="Click the 'Current sales orders' related link." extension="Current sales order">
+				Click salesOrderInfoPage:currentSalesOrders_link.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+				<verify type="object_existence" object="currentSalesOrderPage:StateFarmMA_link" value="60" retry="1"/>
+			</step>
+			<step index="25" comment="Click the 'Customer name' link." extension="Agreement site information page">
+				Click currentSalesOrderPage:StateFarmMA_link.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>
+			<step index="26" comment="Hit back." extension="Current sales orders page">
+				Go back.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+				<verify type="object_existence" object="currentSalesOrderPage:StateFarmMA_link" value="60" retry="1"/>
+			</step>
+			<step index="27" comment="Click the 'Agreement number' link." extension="Agreement details page">
+				Click currentSalesOrderPage:tag09382_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+			</step>
+			<step index="28" comment="Hit back." extension="Current sales orders page">
+				Go back.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+				<verify type="object_existence" object="currentSalesOrderPage:StateFarmMA_link" value="60" retry="1"/>
+			</step>
+			<step index="29" comment="Click the 'Site number' link." extension="Customer details page">
+				Click currentSalesOrderPage:tag7017541_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>
+			<step index="30" comment="Hit back." extension="Current sales orders page">
+				Go back.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+				<verify type="object_existence" object="currentSalesOrderPage:StateFarmMA_link" value="60" retry="1"/>
+			</step>
+			<step index="31" comment="Hit the 'All sales orders' related link." extension="Site historical information - Sorted by purchase order date">
+				Click currentSalesOrderPage:allSalesOrders_link.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="32" comment="Click the 'Customer name' link." extension="Agreement site information page">
+				Click allSalesOrdersPage:StateFarmMA_link.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>
+			<step index="33" comment="Hit back." extension="Site historical information - Sorted by purchase order date">
+				Go back.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="34" comment="Click the 'Agreement number' link." extension="Agreement details page">
+				Click allSalesOrdersPage:tag09382_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+			</step>
+			<step index="35" comment="Hit back." extension="Site historical information - Sorted by purchase order date">
+				Go back.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="36" comment="Click the 'Site number' link." extension="Customer details page">
+				Click allSalesOrdersPage:tag7017541_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>
+			<step index="37" comment="Hit back." extension="Site historical information - Sorted by purchase order date">
+				Go back.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="38" comment="Click the first value in the 'SAP sales order' column." extension="Sales order information page">
+				Click allSalesOrdersPage:tag0052182772_link.
+				<verify type="object_existence" object="salesOrderInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="39" comment="Hit back." extension="Site historical information - Sorted by purchase order date">
+				Go back.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="40" comment="Click the 'Next' link to see page 2 of data." extension="Page 2 of All sales orders page">
+				Click allSalesOrdersPage:next_link.
+				<verify type="string_in_page" object="Records 101-200" value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

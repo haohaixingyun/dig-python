@@ -1,0 +1,9 @@
+#region declare
+
+#endregion
+#region code
+		String testData%AUTO_INT% = %PARAM2%;
+		WTextField  testobject%AUTO_INT% = new WTextField((TestObject) factory
+			.createGuiObject("%PARAM1%", bto));
+		new SetText(testobject%AUTO_INT%, testData%AUTO_INT%, "");
+#endregion

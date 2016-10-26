@@ -1,0 +1,16 @@
+
+/**
+*%COMMENT%
+*/
+private void step%AUTO_INT%() throws Throwable {
+int stepIndex = %AUTO_INT%;	
+int[]resultArr = new int[]{1,1,1,1,1,1,1,1,1,1};
+boolean switch_flag = false;
+%LOCAL_VARS%
+%DECLARATIONS%
+%ACTIONS%
+%WEB_SPECIFIED%
+%VERIFICATIONS%
+%LOG%
+	
+}

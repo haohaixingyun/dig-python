@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Only one meta file exists for one project. Here are some information indicating the 
+	platform specific stuff.
+	
+	<pattern> specify parameter number and the type of each parameter.
+	support group and selection
+	
+--> 
+<actions name="webtesting" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- This param-subst node describes how the substitution of parameters happens.
+	 If with $ (referenced notation), the substitution will be replaced by the given 
+	 text within the <external-ref> pair; for declared variables, the 
+	 notation in <internal-ref> is used.  Note, this param-subst is for String parameters.
+	 --> 
+
+	<!-- Action subst, perform substitution against %ACTION% placeholder.
+	if the action-subst node is specified, it will happen first, before subsequent
+	param substitutions.
+	-->
+	<!-- 
+	<action-subst>org.pacas.parser.QTPActionTranslator</action-subst>
+	 -->
+	<param-subst>
+		<external-ref>DataHelper.getAppData("%PARAM%",%PARAM1%,theCase.getStep(stepIndex))</external-ref> 
+		<internal-ref>DataHelper.getAppData("%PARAM%",0,theCase.getStep(stepIndex))</internal-ref>
+		<literal>"%PARAM%"</literal>
+	</param-subst>
+	<action name="Browser" type="op" domain="web">
+		<alias>Open</alias>
+		<pattern paramNo="2">
+			<param type="String" />
+			<param type="String" />
+		</pattern>
+		<template>actions/browser.src</template>
+	</action>
+	<action name="Close" type="op" domain="web">
+		<pattern paramNo="1">
+			<param type="String" />
+		</pattern>
+		<template>actions/closebrowser.src</template>
+	</action>
+	<action name="SetText" type="op" domain="web">
+		<alias>Input</alias>
+		<alias>Enter</alias>
+		<pattern paramNo="2">
+			<param type="TestObject" />
+			<param type="String" />
+		</pattern>
+		<template>actions/settext.src</template>
+	</action>
+	
+	
+	<action name="Click"  type="op" domain="web">
+		<alias>MouseClick</alias>
+		<pattern paramNo="1">
+			<param type="TestObject" />
+		</pattern>
+		<template>actions/click.src</template>
+	</action>
+	
+	<action name="Select" type="op" domain="web">
+		<pattern paramNo="2">
+			<param type="TestObject" />
+			<param type="String" />
+		</pattern>
+		<template>actions/select.src</template>
+	</action>
+	<action name="CloseOpenedRecentlyIE" type="op" domain="web">
+		<alias>closepopup</alias>
+		<pattern paramNo="0">
+		</pattern>
+		<template>actions/closeopenedrecentlyie.src</template>
+	</action>
+	
+	<action name="switch" type="op" domain="web">
+		<pattern paramNo="1">
+			<param type="String" />
+		</pattern>
+		<template>actions/switch.src</template>
+	</action>
+	
+	<action name="Check" type="op" domain="web">
+		<pattern paramNo="2">
+			<param type="TestObject" />
+			<param type="List">true,false</param>
+		</pattern>
+		<template>actions/Check.src</template>
+	</action>
+	
+	<action name="SetRadio" type="op" domain="web">
+		<pattern paramNo="1">
+			<param type="TestObject" />
+		</pattern>
+		<template>actions/setratio.src</template>
+	</action>
+	
+	<action name="verif" type="op" domain="web">
+		<pattern paramNo="0" />
+		<template>actions/verif.src</template>
+	</action>
+	
+	<action name="AcceptHtmlDialog" type="op" domain="web">
+		<alias>AcceptHtmlDialog</alias>
+		<alias>Accept</alias>
+		<pattern paramNo="1">
+			<param type="String" />
+		</pattern>
+		<template>actions/accepthtmldialog.src</template>
+	</action>
+	<action name="Go" type="op" domain="web">
+		<alias>navigate</alias>
+		<alias>GoTo</alias>
+		<pattern paramNo="1">
+			<param type="List">back, forward</param>
+		</pattern>
+		<template>actions/go.src</template>
+	</action>
+	<action name="wait" type="op" domain="web">
+		<alias>sleep</alias>
+		<pattern paramNo="1">
+			<param type="String" />
+		</pattern>
+		<template>actions/wait.src</template>
+	</action>
+	<action name="MultiSelect" type="op" domain="web">
+		<pattern paramNo="2">
+			<param type="TestObject" />
+			<param type="String" />
+		</pattern>
+		
+		<template>actions/multiselect.src</template>
+	</action>
+	<action name="InputKeys" type="op" domain="web">
+			<pattern paramNo="1">
+			<param type="String" />
+		</pattern>
+		<template>actions/inputkeys.src</template>
+
+	</action>
+	<action name="CaptureScreen" type="op" domain="web">
+		<pattern paramNo="0"/>
+		<template>actions/capturescreen.src</template>
+	</action>
+	<action name="Store" type="op" domain="web">
+		<pattern paramNo="2">
+			<param type="String" />
+			<param type="String" />
+		</pattern>
+		<template>actions/store.src</template>
+	</action>
+	<action name="MultiCheck" type="op" domain="web">
+		<pattern paramNo="3">
+			<param type="TestObject" />
+			<param type="String" />
+			<param type="String" />
+		</pattern>
+		<template>actions/multicheck.src</template>
+	</action>
+	<action name="GetNumber" type="op" domain="web">
+		<pattern paramNo="2">
+			<param type="String"/>
+			<param type="Var"/>
+		</pattern>
+		<template>actions/getnumber.src</template>
+	</action>
+	
+	<action name="SelectbyIndex" type="op" domain="web">
+		<pattern paramNo="3">
+			<param type="TestObject" />
+			<param type="String" />
+			<param type="String" />
+		</pattern>
+		<template>actions/selectbyindex.src</template>
+	</action>
+	<action name="if" type="op" domain="web">
+		<pattern paramNo="1">
+		<param type="String" />
+		</pattern>
+		<template>actions/if.src</template>
+	</action>
+	<action name="else" type="op" domain="web">
+		<pattern paramNo="0">
+		</pattern>
+		<template>actions/else.src</template>
+	</action>
+	<action name="endif" type="op" domain="web">
+		<pattern paramNo="0">
+		</pattern>
+		<template>actions/endif.src</template>
+	</action>
+	<action name="stringexist" type="op" domain="web">
+		<pattern paramNo="3">
+			<param type="String" />
+			<param type="String" />
+			<param type="String" />
+		</pattern>
+		<template>actions/stringexist.src</template>
+	</action>
+	<action name="SapGetValue" type="op" domain="sap">
+		<pattern paramNo="3">
+			<param type="TestObject" />
+			<param type="String" />
+			<param type="String" />
+		</pattern>
+		<template>actions/sapgetvalue.src</template>
+	</action>
+	<action name="SapApp" type="op" domain="sap">
+		<pattern paramNo="2">
+			<param type="String"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapapp.src</template>
+	</action>
+	<action name="SapSetText" type="op" domain="sap">
+	<pattern paramNo="2">
+			<param type="TestObject"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapsettext.src</template>
+	</action>
+	<action name="SapSetCurrentDate" type="op" domain="sap">
+	<pattern paramNo="1">
+			<param type="TestObject"/>
+		</pattern>
+		<template>actions/sapsetcurrentdate.src</template>
+	</action>
+	
+	<action name="SapClick" type="op" domain="sap">
+	<pattern paramNo="1">
+			<param type="TestObject"/>
+		</pattern>
+		<template>actions/sapclick.src</template>
+	</action>
+	<action name="SapExpandTree" type="op" domain="sap">
+	<pattern paramNo="2">
+			<param type="TestObject"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapexpandtree.src</template>
+	</action>
+	<action name="SapDClickTreeNode" type="op" domain="sap">
+	<pattern paramNo="2">
+			<param type="TestObject"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapdoubleclicknode.src</template>
+	</action>
+	<action name="SapCollapseTree" type="op" domain="sap">
+	<pattern paramNo="2">
+			<param type="TestObject"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapcollapsetree.src</template>
+	</action>
+	<action name="SapComboboxSelect" type="op" domain="sap">
+	<pattern paramNo="2">
+			<param type="TestObject"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapcomboboxselect.src</template>
+	</action>
+	<action name="SapTabSelect" type="op" domain="sap">
+	<pattern paramNo="1">
+			<param type="TestObject"/>
+		</pattern>
+		<template>actions/saptabselect.src</template>
+	</action>
+	<action name="SapTextFieldClick" type="op" domain="sap">
+	<pattern paramNo="1">
+			<param type="TestObject"/>
+		</pattern>
+		<template>actions/saptextfieldclick.src</template>
+	</action>
+	<action name="SapMenuSelect" type="op" domain="sap">
+	<pattern paramNo="1">
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapmenuselect.src</template>
+	</action>
+	<action name="SapSelectTreeNode" type="op" domain="sap">
+	<pattern paramNo="2">
+			<param type="TestObject"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapselecttreenode.src</template>
+	</action>
+	<action name="SapGetStatusInfo" type="op" domain="sap">
+		<pattern paramNo="3">
+			<param type="TestObject"/>
+			<param type="String"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/sapGetStatusInfo.src</template>
+	</action>
+	<action name="sapverif" type="op" domain="sap">
+		<pattern paramNo="0" />
+		<template>actions/sapverify.src</template>
+	</action>
+	<action name="Db2Logon" type="op" domain="db2">
+		<pattern paramNo="5">
+			<param type="String"/>
+			<param type="String"/>
+			<param type="String"/>
+			<param type="String"/>
+			<param type="String"/>
+		</pattern>
+		<template>actions/db2logon.src</template>
+	</action>
+	<action name="db2verif" type="op" domain="db2">
+		<pattern paramNo="0" />
+		<template>actions/db2verify.src</template>
+	</action>
+	<action name="Db2Logoff" type="op" domain="db2">
+		<pattern paramNo="0">
+		</pattern>
+		<template>actions/db2logoff.src</template>
+	</action>
+</actions>

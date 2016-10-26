@@ -1,0 +1,14 @@
+#region declare	
+#endregion
+
+#region code
+GuiTestObject tmp%AUTO_INT% = new GuiTestObject((TestObject) factory
+			.createGuiObjectAndWait("%PARAM1%", bto, 30, 5));
+	WCheckBox testobject%AUTO_INT% = new WCheckBox(tmp%AUTO_INT%);	
+	if ( %PARAM2%.length()==0 || %PARAM2%.equalsIgnoreCase("true") ) {
+		testobject%AUTO_INT%.check();
+	}
+	else {
+		testobject%AUTO_INT%.uncheck();
+	}
+#endregion

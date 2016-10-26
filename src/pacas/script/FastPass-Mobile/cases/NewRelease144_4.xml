@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease144_4" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease144_4</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Dec 30th, 2013</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Appliances.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+		<mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />	
+		<mapping src="activeManagedEntitlementsPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />
+		<mapping src="agreementSiteInfoPage.xml" />
+		<mapping src="agreementSearchInfoPage.xml" />
+		<mapping src="customerDetailPage.xml" />		
+		<mapping src="CSRA_map.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease14.4_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease144_4.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Agreement Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Name' field with 'ING' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement search information page">
+				settext agreementSearchPage:agreementNum_text $web:agreementNumber4.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+				<verify type="string_in_page" object="Active" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Hit back." extension="Agreement details page">
+				Go back.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>				
+			<step index="5" comment="Input 'Agreement number' field with '141103'.Input 'Site number' field with '7533956'.Click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with customer site entitlement information">
+				settext agreementSearchPage:agreementNum_text $web:agreementNumber5.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:fct_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+				<verify type="string_in_page" object="Terminated" value="60" retry="1"/>
+			</step>
+			
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

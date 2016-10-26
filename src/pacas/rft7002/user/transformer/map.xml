@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map xsi:noNamespaceSchemaLocation="http://bizit.bluehost.ibm.com/xmlschema/v1/map.xsd">
+	<files dest_root="%dir:config.script-dir%">
+		<file-set name="map" bean="%bean:TestCase.mapFiles%" dest_dir="%dir:engine-config.map%" transformer="xsl\maps\map.xsl"/>
+	</files>
+</map>

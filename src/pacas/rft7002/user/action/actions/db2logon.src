@@ -1,0 +1,14 @@
+#region declare
+
+#endregion
+#region code
+		String dbName%AUTO_INT% = %PARAM1%;
+		String userName%AUTO_INT% = %PARAM2%;
+		String pwd%AUTO_INT% = %PARAM3%;
+		String address%AUTO_INT% = %PARAM4%;
+		String instance%AUTO_INT% = %PARAM5%;
+		Object []objs%AUTO_INT% = new Object[2];
+		objs%AUTO_INT%[0] = address%AUTO_INT%;
+		objs%AUTO_INT%[1] = instance%AUTO_INT%;
+		new Db2Logon(dbName%AUTO_INT%,userName%AUTO_INT%,pwd%AUTO_INT%,objs%AUTO_INT%);
+#endregion

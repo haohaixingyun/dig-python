@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="customerSiteEntitlementInfoPage">
+	<object name="customerNamePRM_link">
+		<prop name="value">PRM Only/Admin Office of US Courts</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag141103_link">
+		<prop name="value">141103</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag7533956_link">
+		<prop name="value">7533956</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="dropList1_select">
+		<prop name="value">dropList1</prop>
+		<prop name="type">select</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.SELECT</prop>								
+	</object>
+	<object name="go_button">
+		<prop name="value">GO</prop>
+		<prop name="type">submit</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>
+</object>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!---->
+<config>
+	<engine path="C:/workspace/pacas/rft7002/engine"/>
+	<deploy path="C:/workspace/pacas/rft7002/deploy"/>
+	<user path="C:/workspace/pacas/rft7002/user"/>
+	
+	<script language="JAVA"/>
+	
+	<project>
+		<project-name value="S2P" />	
+	</project>
+	
+	<dirs dest_root="%dir:config.script-dir.abs%">
+		<dir name="script-dir" dest_dir="C:/workspace/RFT_workspace/UATFromPacas" absolute="true"/>
+		<dir name="case-dir" dest_dir="cases">
+			<dir name="action" dest_dir="action"/>
+		</dir>		
+		<dir name="map-dir" dest_dir="map" />
+		<dir name="data-dir" dest_dir="data" />
+	</dirs>
+</config>

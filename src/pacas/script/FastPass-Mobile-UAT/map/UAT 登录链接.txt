@@ -1,0 +1,33 @@
+https://fastpass-agile.gho.pok.ibm.com/software/xl/fastpass/agile/fastpass.nsf?Login
+
+
+
+
+
+https://w3stage.sso.ibm.com/software/xl/fastpass/uat/fastpass.nsf?Login
+
+https://w3stage.sso.ibm.com/software/xl/fastpass/uat/fphome.nsf/default?openform
+
+
+
+
+
+
+
+https://w3stage.sso.ibm.com/software/xl/fastpass/uat/fastpass.nsf?Login
+
+https://w3stage.sso.ibm.com/software/xl/fastpass/uat/fphome.nsf/default?openform
+
+Policy:论坛URL
+https://w3-connections.ibm.com/communities/service/html/communityview?communityUuid=0426adc9-1920-4948-804c-25503198ec24#fullpageWidgetId=W088608852058_469e_b771_cab29a388d11
+
+
+
+	https://w3stage.sso.ibm.com/w3ssopostlogin.html  过滤去掉的页面
+	
+	
+	
+	
+有问题页面：
+https://w3alpha-2.toronto.ca.ibm.com/software/xl/fastpass/UAT/fastpass.nsf/SubDlvryForSAPID?openagent&agree_num=0000057324&program=PA&ibm_cust_num=811144&cust_type=NAV&cust_num=0007393567
+点击		Label reference number

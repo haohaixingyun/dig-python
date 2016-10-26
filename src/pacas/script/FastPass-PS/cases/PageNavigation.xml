@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="PageNavigation" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>PageNavigation</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Jan 21th, 2011</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.5 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="PageNavigation.xml" />
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.5_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="PageNavigation.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+
+			<step index="1" comment="Click the 'Agreements' option from the navigation panel." extension="Agreements search page">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Agreements Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="PageNavigation:search_button" value="60" retry="1"/>
+			</step>
+
+			<step index="3" comment="Input 'Customer name' field with 'IBM'.Click 'Search'." extension="Agreement search information - Default sort by customer name.">
+				settext PageNavigation:customerName_text $web:Name_IBM.
+				Click PageNavigation:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page2" value="30" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page5" value="10" retry="1"/>
+			</step>
+			<step index="4" comment="Click page 5." extension="page 5 displayed">
+				Click PageNavigation:Page5.
+				<verify type="string_in_page" object="Records 401-500" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page1" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page9" value="10" retry="1"/>
+			</step>			
+			<step index="5" comment="Click page 9." extension="page 9 displayed">
+				Click PageNavigation:Page9.
+				<verify type="string_in_page" object="Records 801-900" value="10" retry="1"/>
+			</step>	
+			<step index="6" comment="Click the 'Agreements' option from the navigation panel." extension="Agreements search page">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="PageNavigation:search_button" value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Input 'Postal code' field with '50000'.Click 'Search'." extension="Agreement search information - Default sort by customer name.">
+				settext PageNavigation:postalCode_text $web:Postcode_5000.							
+				Click PageNavigation:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page2" value="30" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page5" value="10" retry="1"/>
+			</step>
+			<step index="8" comment="Click page 5." extension="page 5 displayed">
+				Click PageNavigation:Page5.
+				<verify type="string_in_page" object="Records 401-500" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page1" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page3" value="10" retry="1"/>
+			</step>	
+			<step index="9" comment="Click page 3." extension="page 3 displayed">
+				Click PageNavigation:Page3.
+				<verify type="string_in_page" object="Records 201-300" value="10" retry="1"/>
+			</step>	
+			
+			
+			<step index="10" comment="Click the 'Software entitlements' option from the navigation panel." extension="Software entitlements page">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="PageNavigation:search_button" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Input 'Customer name' field with 'IBM'.Click 'Search'." extension="Customer site entitlement information - Default sort by customer name">
+				settext PageNavigation:customerName_text $web:Name_IBM.
+				Click PageNavigation:search_button.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page2" value="30" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page5" value="10" retry="1"/>
+			</step>
+			<step index="12" comment="Click page 5." extension="page 5 displayed">
+				Click PageNavigation:Page5.
+				<verify type="string_in_page" object="Records 401-500" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page1" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page3" value="10" retry="1"/>
+			</step>	
+			<step index="13" comment="Click page 3." extension="page 3 displayed">
+				Click PageNavigation:Page3.
+				<verify type="string_in_page" object="Records 201-300" value="10" retry="1"/>
+			</step>	
+			<step index="14" comment="Click the 'Software entitlements' option from the navigation panel." extension="Software entitlements page">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="PageNavigation:search_button" value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Input 'Postal code' field with '50000'.Click 'Search'." extension="Customer site entitlement information - Default sort by customer name">
+				settext PageNavigation:postalCode_text $web:Postcode_5000.							
+				Click PageNavigation:search_button.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page2" value="30" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page5" value="10" retry="1"/>
+			</step>
+			<step index="16" comment="Click page 5." extension="page 5 displayed">
+				Click PageNavigation:Page5.
+				<verify type="string_in_page" object="Records 401-500" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page1" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page3" value="10" retry="1"/>
+			</step>	
+			<step index="17" comment="Click page 3." extension="page 3 displayed">
+				Click PageNavigation:Page3.
+				<verify type="string_in_page" object="Records 201-300" value="10" retry="1"/>
+			</step>	
+
+			
+			<step index="18" comment="Click the 'Customers' option from the navigation panel." extension="Customers search page">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="PageNavigation:search_button" value="60" retry="1"/>
+			</step>
+			<step index="19" comment="Input 'Customer name' field with 'IBM'.Click 'Search'." extension="Customer information - Default sort by customer name">
+				settext PageNavigation:customerName_text $web:Name_IBM.
+				Click PageNavigation:search_button.
+				<verify type="string_in_page" object="Customer information - Default sort by customer name" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page2" value="30" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page5" value="10" retry="1"/>
+			</step>
+			<step index="20" comment="Click page 5." extension="page 5 displayed">
+				Click PageNavigation:Page5.
+				<verify type="string_in_page" object="Records 401-500" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page1" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page3" value="10" retry="1"/>
+			</step>	
+			<step index="21" comment="Click page 3." extension="page 3 displayed">
+				Click PageNavigation:Page3.
+				<verify type="string_in_page" object="Records 201-300" value="10" retry="1"/>
+			</step>	
+			<step index="22" comment="Click the 'Customers' option from the navigation panel." extension="Customers search page">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="PageNavigation:search_button" value="60" retry="1"/>
+			</step>
+			<step index="23" comment="Input 'Postal code' field with '50000'.Click 'Search'." extension="Customer information - Default sort by customer name">
+				settext PageNavigation:postalCode_text $web:Postcode_5000.							
+				Click PageNavigation:search_button.
+				<verify type="string_in_page" object="Customer information - Default sort by customer name" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page2" value="30" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page5" value="10" retry="1"/>
+			</step>
+			<step index="24" comment="Click page 5." extension="page 5 displayed">
+				Click PageNavigation:Page5.
+				<verify type="string_in_page" object="Records 401-500" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page1" value="10" retry="1"/>
+				<verify type="object_existence" object="PageNavigation:Page3" value="10" retry="1"/>
+			</step>	
+			<step index="25" comment="Click page 3." extension="page 3 displayed">
+				Click PageNavigation:Page3.
+				<verify type="string_in_page" object="Records 201-300" value="10" retry="1"/>
+			</step>	
+
+
+			
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

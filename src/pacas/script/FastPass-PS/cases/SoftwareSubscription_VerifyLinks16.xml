@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="SoftwareSubscription_VerifyLinks16" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>SoftwareSubscription_VerifyLinks16</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Check links of Delivery entitlement pages.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />
+		<mapping src="agreementSiteInfoPage.xml" />
+		<mapping src="agreementSearchInfoPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="Agreement_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="SoftwareSubscription_VerifyLinks16.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="SW Subscription and Support entitlements Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'IBM customer number:' field with '757701' and click 'Search'.(Have 'All sites' clicked.  Have all program types checked.)" extension="Agreement search information page">
+				settext agreementSearchPage:customerNum_text $web:customerNum4.
+				check agreementSearchPage:vp_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="object_existence" object="agreementSearchInfoPage:tag7954318_link" value="60" retry="1"/>			
+			</step>
+			<step index="4" comment="Click agreementSearchInfoPage:tag7954318_link" extension="InfoForCust page">
+				Click agreementSearchInfoPage:tag7954318_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+				<verify type="string_in_page" object="Reseller" value="60" retry="1"/>
+				<verify type="string_in_page" object="Software ValueNet Support Provider resellers" value="60" retry="1"/>					
+			</step>		
+			<step index="5" comment="Click Software ValueNet Support Provider end user customers:view" extension="VPPEndUserCustList page">
+				Click customerDetailPage:SVSP_enduser_View.
+				<verify type="string_in_page" object="End user customer list for reseller" value="60" retry="1"/>
+				<verify type="string_in_page" object="Reseller" value="60" retry="1"/>
+				<verify type="string_in_page" object="Software ValueNet Support Provider resellers" value="60" retry="1"/>					
+			</step>
+			<step index="6" comment="Hit back." extension="Customer details">
+				Go back.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Click Software entitlements:view" extension="Entitlement+Request page">
+				Click customerDetailPage:SoftwareEntitlements_View.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>				
+			</step>		
+			<step index="8" comment="Hit back." extension="Customer details">
+				Go back.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>	
+			<step index="9" comment="Click the value in the 'sales orders' field." extension="Agreement site information page">
+				Click customerDetailPage:VP_Sales_orders_View.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+				<verify type="string_in_page" object="Software ValueNet Support Provider" value="60" retry="1"/>
+			</step>	
+			<step index="10" comment="Hit back." extension="Customer details">
+				Go back.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>	
+			<step index="11" comment="Click the value in the 'sales orders' field." extension="GBPForSAPID page">
+				Click customerDetailPage:GBFH_View_link.
+				<verify type="string_in_page" object="Global brand family history" value="60" retry="1"/>
+				<verify type="string_in_page" object="Software ValueNet Support Provider" value="60" retry="1"/>
+			</step>	
+			<step index="12" comment="Hit back." extension="Customer details">
+				Go back.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Click Related links:contacts_link" extension="InfoForContact page">
+				Click customerDetailPage:contacts_link.
+				<verify type="string_in_page" object="Contact information" value="60" retry="1"/>
+			</step>			
+			<step index="14" comment="Hit back." extension="Customer details">
+				Go back.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Click Related links:softwareSubscription_link" extension="Entitlement+Request page">
+				Click customerDetailPage:softwareSubscription_link.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>	
+			<step index="16" comment="Hit back." extension="Customer details">
+				Go back.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>	
+			<step index="17" comment="Click Related links:Agreements" extension="Agreement+Request page">
+				Click customerDetailPage:agreements_link.
+				<verify type="string_in_page" object="Agreement+Request page" value="60" retry="1"/>
+			</step>		
+			<step index="18" comment="Click Related links:Agreement details" extension="Agreement+Request page">
+				Click agreementDetailPage:allSites_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+			</step>	
+			<step index="19" comment="Hit back." extension="Agreement+Request page">
+				Go back.
+				<verify type="string_in_page" object="Agreement details - Not applicable" value="60" retry="1"/>
+			</step>		
+			<step index="20" comment="Click Related links:Originating site" extension="InfoForOrigSite page">
+				Click agreementDetailPage:originatingSite_link.
+				<verify type="string_in_page" object="Originating site" value="60" retry="1"/>
+			</step>
+			<step index="21" comment="Hit back." extension="Agreement+Request page">
+				Go back.
+				<verify type="string_in_page" object="Agreement details - Not applicable" value="60" retry="1"/>
+			</step>
+			<step index="22" comment="Click Related links:Originating site" extension="Entitlement+Request page">
+				Click agreementDetailPage:softwareSubscription_link.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>			
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

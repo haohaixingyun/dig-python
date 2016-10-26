@@ -1,0 +1,19 @@
+#region declare
+		GuiTestObject screenObject%AUTO_INT% = null;
+		if (!"".equals("%PARAM1%"))
+		{
+			screenObject%AUTO_INT% = new GuiTestObject((TestObject) factory
+			.createGuiObjectAndWait("%PARAM1%", bto, 30, 5));
+		}
+
+#endregion
+#region code
+		if (!"".equals("%PARAM1%"))
+		{
+			new CaptureScreen(screenObject%AUTO_INT%,"","");
+		}
+		else 
+		{
+			new CaptureScreen(null,"","");		
+		}
+#endregion

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<case>
+<files dest_root="%dir:config.script-dir%">
+	<file name="script_file" src="template/ft_script_template.src" 
+		 dest_dir="%dir:engine-config.case%" rename="%bean:TestCase.name%.java" method="overwrite">
+		<piece pattern="%PACKAGE_DECL%" generator="%dir:engine-config.case.rel%" />
+		<piece pattern="%HELPER_PKG%" generator="%dir:engine-config.resources.rel%.%dir:engine-config.resource_case.rel%"/>
+		<piece pattern="%SCRIPT_NAME%" bean="%bean:TestCase.name%" />
+		<piece pattern="%USER_NAME%" bean="%bean:Header.author->reducer:app-name->reducer:upper-case%" />
+		<piece pattern="%DATE%" bean="%bean:Header.date%" />
+		<piece pattern="%TIME%" bean="%bean:Header.time%" />
+		<piece pattern="%OS_INFO%" bean="%bean:System.OSInfo%" />
+		<piece pattern="%ACTIONS_PKG%" generator="%dir:engine-config.action.rel%" />
+		<piece pattern="%VARS%" template="template/member_vars.src">
+			<piece pattern="%OBJBASE%" generator="%dir:config.map-dir.rel%"/>
+			<piece pattern="%OBJFILE%" generator="%bean:TestCase.mapFiles->reducer:get-relative-path->reducer:pipe-separate%"/>
+			<piece pattern="%POLICY%" generator="%bean:IterPolicy.policy%"/>
+			<piece pattern="%MAX%" generator="%bean:TestCase.maxAmountOfValue%"/>
+		</piece>
+		<piece pattern="%STEPS%" template="template/step.src" iterator="%bean:TestCase.stepNumber%" >
+			<piece pattern="%COMMENT%" bean="%bean:Step.comment%" />
+			<piece pattern="%AUTO_INT%" bean="%bean:Step.index%" />
+			<piece pattern="%DECLARATIONS%" bean="%bean:Step.declarations%"/>
+			<piece pattern="%ACTIONS%" bean="%bean:Step.actionCode%"/>
+			<piece pattern="%VERIFICATIONS%" bean="%bean:Step.verifCode%"/>
+			<piece pattern="%LOG%" template="template/log.src">
+				<piece pattern="%AUTO_INT%" bean="%bean:Step.index%"/>
+				<piece pattern="%RESULTS%" bean="%bean:Step.verifVars%" />
+				<piece pattern="%IF_SAP%" bean="%bean:Step.ifSap%"/>
+			</piece>
+			<piece pattern="%LOCAL_VARS%" template="template/local_vars.src"/>
+		</piece>
+		<piece pattern="%WEB_SPECIFIED%" template="template/web_spec.src"/>
+		<piece pattern="%TESTMAIN%" template="template/testmain.src">
+			<piece pattern="%VERIF_TEXTS%" template="template/verifstext.src" iterator="%bean:TestCase.stepNumber%">
+				<piece pattern="%COMMENT%" bean="%bean:Step.comment%"/>
+				<piece pattern="%EXTENSION%" bean="%bean:Step.extension%"/>
+			</piece>
+			<piece pattern="%OPEN_BROWSER%" bean="%bean:Prolog.actionCode%"/>	
+			<piece pattern="%STEP_ITERATOR%" template="step%AUTO_INT%();" iterator="%bean:TestCase.stepNumber%">
+				<piece pattern="%AUTO_INT%" generator="org.pacas.transform.AutoValueGenerator"/>
+			</piece>
+		</piece>
+	</file>
+
+	<file name="script_helper_file" src="template/ft_scripthelper_template.src" 
+		dest_dir="%dir:engine-config.resource_case%" rename="%bean:TestCase.name%Helper.java">
+					<piece pattern="%PACKAGE_DECL%" generator="%dir:engine-config.case.rel%"/>
+					<piece pattern="%HELPER_PKG%" generator="%dir:engine-config.resources.rel%.%dir:engine-config.resource_case.rel%"/>
+					<piece pattern="%SCRIPT_NAME%" bean="%bean:TestCase.name%" />
+					<piece pattern="%OS_INFO%" bean="%bean:System.OSInfo%" />
+					<piece pattern="%DATE%" bean="%bean:Header.date%" />
+					<piece pattern="%USER_NAME%" bean="%bean:Header.author%" />
+	</file>
+</files>
+</case>

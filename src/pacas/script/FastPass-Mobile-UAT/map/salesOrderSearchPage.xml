@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="salesOrderSearchPage">
+	<object name="sapSalesOrderNum_text">
+		<prop name="value">sap_sales_ord_num</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="specialBidNum_text">
+		<prop name="value">nim_specl_bid_offerg_num</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="opportunityNum_text">
+		<prop name="value">opprtnty_num</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>	
+	<object name="invoiceNum_text">
+		<prop name="value">invoice_num</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="search_button">
+		<prop name="value">Search</prop>
+		<prop name="type">submit</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>
+	<object name="SAP_SALES_ORDER_Num_text">
+		<prop name="value">Enter SAP sales order number</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="services_agreement_number_text">
+		<prop name="value">services_agreement_number</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>	
+	<object name="enter_machine_type">
+		<prop name="value">machinetype</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="enter_machine_serial_number">
+		<prop name="value">machineserialnumber</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>		
+</object>

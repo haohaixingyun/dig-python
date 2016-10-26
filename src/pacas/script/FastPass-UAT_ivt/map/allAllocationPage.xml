@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="allAllocationPage">
+	<object name="CaterpillarInc_link">
+		<prop name="value">Caterpillar, Inc.</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag08301_link">
+		<prop name="value">08301</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="tag7139841_link">
+		<prop name="value">7139841</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstPartNumD561HLL_link">
+		<prop name="value">D561HLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="firstSourceCustomerNum7016120_link">
+		<prop name="value">7016120</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+		<object name="firstOriginalPartNumD53SNLL_link">
+		<prop name="value">D53SNLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

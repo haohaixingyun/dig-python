@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease104" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease104</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>June 21th, 2011</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Page modified or added in 10.4 release.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="fastPassHelpPage.xml" />
+		<mapping src="loginPage.xml" />
+		
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+		<mapping src="allEntitlementPage.xml" />
+		<mapping src="softwareSubscriptionRelatedLinksPage.xml" />
+		<mapping src="agreementDetailPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+		
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease10.4_data.xml"></data>
+		</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease104.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+	
+	
+	  		<step index="1" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Search for Services Agreement value using Sales Order Search form.Input 'SAP sales order number' field with '0053529755' and click 'Search'." 
+			      extension="Services Agreement page should display.	The Service Agreement page is displayed as expected">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNum1.  
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+				<verify type="string_in_page" object="Services agreement number" value="60" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:ServicesAgreementNumber_0077080000_link" value="60" retry="1"/> 
+			</step>
+			<step index="4" comment="Search for Services Agreement value using Sales Order Search form.Input 'SAP sales order number' field with '0053529755' and click 'Search'." 
+			      extension="Services Agreement page should display.	The Service Agreement page is displayed as expected">
+				Click salesOrderInfoPage:ServicesAgreementNumber_0077080000_link
+				<verify type="string_in_page" object="Services agreement" value="60" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:softwareSubscription_link" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Use 'Software entitlements' related link to view 'All evolutions from sales transactions' (selected from dropdown on first page displayed)" 
+			      extension="All Evolutions page should display">
+				  Click salesOrderInfoPage:softwareSubscription_link
+				  <verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>	  
+			<step index="6" comment="Use 'Software entitlements' related link to view 'All evolutions from sales transactions' (selected from dropdown on first page displayed)" 
+			      extension="All Evolutions page should display">
+				
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1AllEntitlements.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="All entitlements for site - Default sort by end date" value="60" retry="1"/>
+				<verify type="object_existence" object="salesOrderInfoPage:softwareSubscription_link" value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Clicking on the part link" 
+			      extension="The part information is displayed">
+				Click allEntitlementPage:firstPartNumD48XRML_link  
+				<verify type="string_in_page" object="Part information" value="60" retry="1"/>
+				<verify type="string_in_page" object="D48XRML" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Hit back." extension="All entitlements for site page">
+				Go back.
+				<verify type="string_in_page" object="All entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Click on 'Active sales transactions' in the related links area." extension="Active sales transactions page">
+				Click softwareSubscriptionRelatedLinksPage:activeSalesTransactions_link.
+				<verify type="string_in_page" object="Active sales transactions for site - Default sort by order date" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Click on the first Part Number values" 
+			      extension="Part Details page displayed with the SaaS part type, and Saas service provider field values">
+				Click allEntitlementPage:firstPartNumE005FLL_link   
+				<verify type="string_in_page" object="Part information" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS part type" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS service provider" value="60" retry="1"/>
+			</step>			
+			<step index="11" comment="Hit back." extension="Active sales transactions page">
+				Go back.
+				<verify type="string_in_page" object="Active sales transactions for site - Default sort by order date" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="By clicking on the Sales Order, or Service agreement number" 
+			      extension="Sales Order information is displayed">
+				Click allEntitlementPage:firstSalesOrder_0053490413_link
+				<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+				<verify type="string_in_page" object="0053490413" value="60" retry="1"/>
+			</step>	
+			<step index="13" comment="Hit back." extension="so additional values can be clicked">
+				Go back.
+				<verify type="string_in_page" object="Active sales transactions for site - Default sort by order date" value="60" retry="1"/>
+			</step>	
+			<step index="14" comment="By clicking on the Sales Order, or Service agreement number" 
+			      extension="Sales Order information is displayed">
+				Click allEntitlementPage:firstSalesOrder_0053490413_link
+				<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+				<verify type="string_in_page" object="0053490413" value="60" retry="1"/>
+			</step>	
+			<step index="15" comment="clicking on the Customer name Thrivent Financial for Lutherans link" 
+			      extension=" Agreements page is displayed">
+				Click salesOrderInfoPage:Thrivent_Financial_for_Lutherans_link
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+				<verify type="string_in_page" object="Thrivent Financial for Lutherans" value="60" retry="1"/>
+			</step>				
+			<step index="16" comment="clicking on the Seriveces agreements Related link" 
+			      extension=" Agreements page is displayed">
+				Click softwareSubscriptionRelatedLinksPage:ServicesAgreements_link
+				<verify type="string_in_page" object="Services agreements by site" value="60" retry="1"/>
+				<verify type="string_in_page" object="Thrivent Financial for Lutherans" value="60" retry="1"/>
+			</step>			
+			<step index="17" comment="selecting the Services agreement number" 
+			      extension=" Services agreement page is displayed">
+				Click  salesOrderInfoPage:ServicesAgreementNumber_0077080000_link  
+				<verify type="string_in_page" object="Services agreement" value="60" retry="1"/>
+				<verify type="string_in_page" object="Thrivent Financial for Lutherans" value="60" retry="1"/>
+			</step>	
+			
+			<step index="18" comment="Hit back." extension="By hitting the back button the Services agreements by site is displayed again">
+				Go back.
+				<verify type="string_in_page" object="Services agreements by site" value="60" retry="1"/>
+				<verify type="string_in_page" object="Thrivent Financial for Lutherans" value="60" retry="1"/>
+			</step>	
+			<step index="19" comment="Click Agreement number 43721" 
+			      extension="Agreement Details page should display.">
+				Click  salesOrderInfoPage:tag43721_link  00700
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+				<verify type="string_in_page" object="43721" value="60" retry="1"/>
+			</step>	 
+			<step index="20" comment="Click on the Services Agreement value of 'View' associated with some rows." 
+			      extension="Services Agreements by Site page should display.">
+				Click  agreementDetailPage:View_link
+				<verify type="string_in_page" object="Services agreements by site" value="60" retry="1"/>
+			</step>	  
+			<step index="21" comment="Hit back." extension="Agreement Details page should display again">
+				Go back.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+			</step>	
+			<step index="22" comment="Click related link 'Originating Site'" 
+			      extension="Originating Site page should display">
+				Click softwareSubscriptionRelatedLinksPage:OriginatingSite_link
+				<verify type="string_in_page" object="Originating site" value="60" retry="1"/>
+				<verify type="string_in_page" object="Country State Province" value="60" retry="1"/>
+				<verify type="string_in_page" object="Site type" value="60" retry="1"/>
+			</step>	 
+			
+			<step index="23" comment="Click on the Services Agreement value of 'View' if associated with the row." 
+			      extension="Services Agreements by Site page should display">
+				Click  agreementDetailPage:View_link
+				<verify type="string_in_page" object="Services agreements by site" value="60" retry="1"/>
+			</step>	  
+			<step index="24" comment="Click on a Services Agreement value 0077080000" 
+			      extension="Services Agreement page should display">
+				Click  salesOrderInfoPage:ServicesAgreementNumber_0077080000_link  
+				<verify type="string_in_page" object="Services agreement" value="60" retry="1"/>
+				<verify type="string_in_page" object="0077080000" value="60" retry="1"/>
+			</step>	
+			<step index="25" comment="Click on a part number D0L26LL" 
+			      extension="Part Details page should display.">
+				Click salesOrderInfoPage:firstPartNumD0L26LL_link        
+				<verify type="string_in_page" object="Part information" value="60" retry="1"/>
+				<verify type="string_in_page" object="D0L26LL" value="60" retry="1"/>
+			</step>		
+			<step index="26" comment="Hit back." extension="ervices Agreement page should display">
+				Go back.
+				<verify type="string_in_page" object="Services agreement" value="60" retry="1"/>
+			</step>	
+			<step index="27" comment="Click on a Billing Order value 0053529755" 
+			      extension="Sales Order page should display..">
+				Click salesOrderInfoPage:tag0053529755_link  
+				<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+				<verify type="string_in_page" object="0053529755" value="60" retry="1"/>
+			</step>		
+			<step index="28" comment="Click on Services Agreement value 0077080000 to return to the Services Agreement page." 
+			      extension="Services Agreement page displayed as expected">
+				Click  salesOrderInfoPage:ServicesAgreementNumber_0077080000_link  
+				<verify type="string_in_page" object="Services agreement" value="60" retry="1"/>
+				<verify type="string_in_page" object="Thrivent Financial for Lutherans" value="60" retry="1"/>
+			</step>	
+			
+
+			
+			
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

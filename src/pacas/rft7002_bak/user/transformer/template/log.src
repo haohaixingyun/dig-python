@@ -1,0 +1,2 @@
+		
+		new Log(theCase, %AUTO_INT% , logger,"%IF_SAP%");

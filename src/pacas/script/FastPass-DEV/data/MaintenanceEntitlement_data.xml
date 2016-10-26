@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<item key="fastPassHome">
+		<value index="1">http://fastpass-dev.gho.pok.ibm.com</value>
+	</item>
+	<item key="username">
+		<value index="1">kezhu@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">3456erty</value>
+	</item>
+	<item key="agreementNum1">
+		<value index="1">55556</value>
+	</item>
+	<item key="agreementNum2">
+		<value index="1">11531</value>
+	</item>
+	<item key="agreementNum3">
+		<value index="1">446478</value>
+	</item>
+	<item key="agreementNum4">
+		<value index="1">141103</value>
+	</item>
+	<item key="agreementNum5">
+		<value index="1">09382</value>
+	</item>
+	<item key="agreementNum6">
+		<value index="1">08301</value>
+	</item>
+	<item key="customerName1">
+		<value index="1">Kunta AVP</value>
+	</item>
+	<item key="customerName2">
+		<value index="1">Connectria</value>
+	</item>
+	<item key="customerName3">
+		<value index="1">ING</value>
+	</item>
+	<item key="customerName4">
+		<value index="1">ING Insurance</value>
+	</item>
+	<item key="customerName5">
+		<value index="1">nntp</value>
+	</item>
+	<item key="customerName6">
+		<value index="1">State Farm</value>
+	</item>
+	<item key="customerNum1">
+		<value index="1">0956850</value>
+	</item>
+	<item key="customerNum2">
+		<value index="1">401976</value>
+	</item>
+	<item key="customerNum3">
+		<value index="1">256756</value>
+	</item>
+	<item key="postalCode1">
+		<value index="1">78008</value>
+	</item>
+	<item key="postalCode2">
+		<value index="1">313002</value>
+	</item>
+	<item key="postalCode3">
+		<value index="1">02169</value>
+	</item>
+	<item key="postalCode4">
+		<value index="1">97865</value>
+	</item>
+	<item key="siteNumber1">
+		<value index="1">7131453</value>
+	</item>
+	<item key="siteNumber2">
+		<value index="1">7254326</value>
+	</item>
+	<item key="siteNumber3">
+		<value index="1">7023461</value>
+	</item>
+	<item key="siteNumber4">
+		<value index="1">7533956</value>
+	</item>
+	<item key="siteNumber5">
+		<value index="1">7017541</value>
+	</item>
+	<item key="siteNumber6">
+		<value index="1">7139841</value>
+	</item>
+	<item key="siteNumber7">
+		<value index="1">7239211</value>
+	</item>		
+	<item key="dropList1ActiveEntitlements">
+		<value index="1">Active entitlements</value>
+	</item>
+	<item key="dropList1ActiveSalesTransactions">
+		<value index="1">Active sales transactions</value>
+	</item>
+	<item key="dropList1ActiveAllocations">
+		<value index="1">Active allocations</value>
+	</item>
+	<item key="dropList1ActiveEvolutions">
+		<value index="1">Active evolutions</value>
+	</item>
+	<item key="dropList1AllEntitlements">
+		<value index="1">All entitlements</value>
+	</item>
+	<item key="dropList1AllSalesTransactions">
+		<value index="1">All sales transactions</value>
+	</item>
+		<item key="dropList1AllAllocations">
+		<value index="1">All allocations</value>
+	</item>
+		<item key="dropList1AllEvolutions">
+		<value index="1">All evolutions</value>
+	</item>
+		<item key="dropList1SubscriptionByProduct">
+		<value index="1">Subscription by product</value>
+	</item>
+		<item key="dropList1Delivery">
+		<value index="1">Delivery</value>
+	</item>
+</data>

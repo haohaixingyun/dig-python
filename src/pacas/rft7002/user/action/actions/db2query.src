@@ -1,0 +1,7 @@
+#region declare
+
+#endregion
+#region code
+		String testData%AUTO_INT% = %PARAM1%;
+		new DB2Query(testobject%AUTO_INT%, "%PARAM2%", "",new Object[]{});
+#endregion

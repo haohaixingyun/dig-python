@@ -1,0 +1,7 @@
+#region declare
+
+#endregion
+#region code
+		String str%AUTO_INT% = %PARAM1%;
+		new StringExist(str%AUTO_INT%,%PARAM2%,%PARAM3%,new Object[] {bto});
+#endregion

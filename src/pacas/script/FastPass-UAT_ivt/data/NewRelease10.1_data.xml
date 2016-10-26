@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">https://w3stage.sso.ibm.com/software/xl/fastpass/uat/fphome.nsf/default?openform</value>
+	</item>
+	<item key="username">
+		<value index="1">kezhu@cn.ibm.com</value>
+	</item>
+	<item key="password">
+
+		<value index="1">1qaz2wsx</value>
+	</item>
+
+	<item key="invoiceNum1">
+		<value index="1">115270396</value>
+	</item>
+	<item key="invoiceNum2">
+		<value index="1">6800007762</value>
+	</item>	
+	<item key="invoiceNum3">
+		<value index="1">123222902</value>
+	</item>
+	<item key="invoiceNum4">
+		<value index="1">170779986</value>
+	</item>
+	<item key="siteNumber1">
+		<value index="1">7516475</value>
+	</item>
+	<item key="siteNumber2">
+		<value index="1">7762975</value>
+	</item>
+	<item key="agreementNum1">
+		<value index="1">48640</value>
+	</item>
+	 
+	<item key="agreementNum2">
+		<value index="1">83815</value>
+	</item>
+	<item key="agreementNum3">
+		<value index="1">114676</value>
+	</item>	
+	<item key="siteNum">
+		<value index="1">7914331</value>
+	</item>	
+	<item key="dropList1AllEntitlements">
+		<value index="1">All entitlements</value>
+	</item>
+	<item key="salesOrderNum1">
+		<value index="1">52182772</value>
+	</item>
+	<item key="salesOrderNum2">
+		<value index="1">0052437024</value>
+	</item>	
+</data>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="softwareSubscriptionSearchPage">
+	<object name="customerName_text">
+		<prop name="value">Enter customer name</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="match_checkbox">
+		<prop name="value">Match name exactly</prop>
+		<prop name="type">checkbox</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.checkbox</prop>								
+	</object>
+	<object name="customerNum_text">
+		<prop name="value">Enter IBM customer number</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="postalCode_text">
+		<prop name="value">Enter postal code</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="agreementNum_text">
+		<prop name="value">contractnum</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="siteNumber_text">
+		<prop name="value">Enter site number</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="originatingSiteOnly_checkbox">
+		<prop name="value">Originating site only</prop>
+		<prop name="type">checkbox</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.INPUT.checkbox</prop>								
+	</object>
+	<object name="sortBy_select">
+		<prop name="value">Order By</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.title</prop>
+		<prop name="classID">Html.SELECT</prop>								
+	</object>
+	<object name="desc_radio">
+		<prop name="value">DESC</prop>
+		<prop name="type">radio</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.radio</prop>								
+	</object>
+	<object name="pa_checkbox">
+		<prop name="value">PA</prop>
+		<prop name="type">checkbox</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.checkbox</prop>								
+	</object>
+	<object name="pae_checkbox">
+		<prop name="value">PX</prop>
+		<prop name="type">checkbox</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.checkbox</prop>								
+	</object>
+	<object name="fct_checkbox">
+		<prop name="value">FC</prop>
+		<prop name="type">checkbox</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.checkbox</prop>								
+	</object>
+	<object name="search_button">
+		<prop name="value">Search</prop>
+		<prop name="type">submit</prop>
+		<prop name="propertyName">.value</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>
+</object>

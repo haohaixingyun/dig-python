@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="SoftwareSubscription_VerifyLinks01" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>SoftwareSubscription_VerifyLinks01</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Check links of main entitlement page.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="softwareSubscriptionSearchPage.xml" />
+		<mapping src="customerSiteEntitlementInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="MaintenanceEntitlement_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="SoftwareSubscription_VerifyLinks01.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'SW Subscription and Support entitlement' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:softwareSubscription_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="SW Subscription and Support entitlements Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="softwareSubscriptionSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Agreement number' field with '141103'.Input 'Site number' field with '7533956'.Click 'Search'.(Have all program types checked.)" extension="SW Subscription and Support entitlements with customer site entitlement information">
+				settext softwareSubscriptionSearchPage:agreementNum_text $web:agreementNum4.
+				settext softwareSubscriptionSearchPage:siteNumber_text $web:siteNumber4.
+				check softwareSubscriptionSearchPage:pa_checkbox true.
+				check softwareSubscriptionSearchPage:pae_checkbox true.
+				check softwareSubscriptionSearchPage:fct_checkbox true.
+				Click softwareSubscriptionSearchPage:search_button.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Hit the 'Customer name' link." extension="Agreement site information page">
+				Click customerSiteEntitlementInfoPage:customerNamePRM_link.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="6" comment="Hit the 'Agreement number' link." extension="Agreement details page">
+				Click customerSiteEntitlementInfoPage:tag141103_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+			</step>
+			<step index="7" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="8" comment="Hit the 'Site number' link." extension="Customer details page">
+				Click customerSiteEntitlementInfoPage:tag7533956_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Select dropdown option 'All entitlements' and hit Go button." extension="All entitlements for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1AllEntitlements.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="All entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Select dropdown option 'All sales transactions' and hit Go button." extension="All sales transactions for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1AllSalesTransactions.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="All sales transactions for site - Default sort by order date" value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="14" comment="Select dropdown option 'All allocations' and hit Go button." extension="All allocations for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1AllAllocations.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="All allocations for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="16" comment="Select dropdown option 'All evolutions' and hit Go button." extension="All evolutions for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1AllEvolutions.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="All evolutions for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="17" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="18" comment="Select dropdown option 'Active entitlements' and hit Go button." extension="Active entitlements for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1ActiveEntitlements.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Active entitlements for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="19" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="20" comment="Select dropdown option 'Active sales transactions' and hit Go button." extension="Active sales transactions for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1ActiveSalesTransactions.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Active sales transactions for site - Default sort by order date" value="60" retry="1"/>
+			</step>
+			<step index="21" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="22" comment="Select dropdown option 'Active allocations' and hit Go button." extension="Active allocations for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1ActiveAllocations.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Active allocations for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="23" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="24" comment="Select dropdown option 'Active evolutions' and hit Go button." extension="Active evolutions for site page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1ActiveEvolutions.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Active evolutions for site - Default sort by end date" value="60" retry="1"/>
+			</step>
+			<step index="25" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="26" comment="Select dropdown option 'Subscription by product' and hit Go button." extension="Product summary page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1SubscriptionByProduct.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Product summary" value="60" retry="1"/>
+			</step>
+			<step index="27" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="28" comment="Select dropdown option 'Delivery' and hit Go button." extension="Subscription delivery delivery detail page">
+				select customerSiteEntitlementInfoPage:dropList1_select $web:dropList1Delivery.
+				Click customerSiteEntitlementInfoPage:go_button.
+				<verify type="string_in_page" object="Subscription entitlement delivery detail - Sorted by date" value="60" retry="1"/>
+			</step>
+			<step index="29" comment="Hit back." extension="SW Subscription and Support entitlements with customer site entitlement information">
+				Go back.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

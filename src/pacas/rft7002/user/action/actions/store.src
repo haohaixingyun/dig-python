@@ -1,0 +1,3 @@
+#region code
+		new Store("%PARAM1%", "%PARAM2%", "");
+#endregion

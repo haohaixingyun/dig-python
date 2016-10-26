@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">https://w3-sso.toronto.ca.ibm.com/software/xl/fastpass/uat/</value>
+	</item>
+	<item key="username">
+		<value index="1">zhuke@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">4rfv5tgb</value>
+	</item>
+	<item key="agreementNumber1">
+		<value index="1">208295</value>
+	</item>	
+	<item key="agreementNumber2">
+		<value index="1">212950</value>
+	</item>	
+	<item key="agreementNumber3">
+		<value index="1">15457</value>
+	</item>	
+	<item key="siteNumber3">
+		<value index="1">7040312</value>
+	</item>	
+	<item key="agreementNumber4">
+		<value index="1">11531</value>
+	</item>	
+	<item key="agreementNumber5">
+		<value index="1">11417</value>
+	</item>		
+	<item key="sapSalesOrderNum1">
+		<value index="1">0077090125</value>
+	</item>	
+	<item key="sapSalesOrderNum2">
+		<value index="1">0077090204</value>
+	</item>	
+	<item key="sapSalesOrderNum3">
+		<value index="1">0077090125</value>
+	</item>		
+</data>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="SaasSolution" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>SaasSolution</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Multiple Agreements Match.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="agreementSearchPage.xml" />
+		<mapping src="agreementDetailPage.xml" />
+		<mapping src="agreementSiteInfoPage.xml" />
+		<mapping src="agreementSearchInfoPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="Agreement_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="SaasSolution.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Agreements' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:agreements_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Agreement Search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="agreementSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input Agreement number 0000203436 " extension="Agreement search information page">
+				settext agreementSearchPage:agreementNum_text $web:agreementNum7.
+				setradio agreementSearchPage:allSites_radio.
+				check agreementSearchPage:pa_checkbox true.
+				check agreementSearchPage:pae_checkbox true.
+				check agreementSearchPage:sp_checkbox true.
+				Click agreementSearchPage:search_button.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider - End user" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider - Provider" value="60" retry="1"/>
+			
+				<!--<verify type="string_in_page" object="7746381" value="60" retry="1"/>Juco 4.7  0000203436 -->
+				<!--<verify type="string_in_page" object="7746382" value="60" retry="1"/>Juco 4.7-->
+			</step>			
+			<step index="4" comment="Click tagChinaBanking_link" extension="Agreement site information">
+				Click agreementSearchInfoPage:tagChinaBanking_link.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="End user" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Click tag203436_link" extension="Agreement details">
+				Click agreementSiteInfoPage:tag203436_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+			</step>		
+			<step index="6" comment="Hit back." extension="Agreement search information - Default sort by customer name ">
+				Go back.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>				
+			<step index="7" comment="Click tag3545005_link" extension="Customer details">
+				Click agreementSiteInfoPage:tag3545005_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider providers" value="60" retry="1"/>
+			</step>				
+			<step index="8" comment="Hit back." extension="Agreement search information - Default sort by customer name ">
+				Go back.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>					
+			<step index="9" comment="Click on 'Contacts' in related links area on the Agreement site information page." extension="Contact information page">
+				Click agreementSiteInfoPage:contacts_link.
+				<verify type="string_in_page" object="Contact information" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Click on 'Current sales orders' in related links area on the Agreement site information page." extension="Current sales order page">
+				Click agreementSiteInfoPage:currentSalesOrders_link.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:allSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Click on 'All sales orders' in related links area on the Agreement site information page." extension="Site historical information page">
+				Click agreementSiteInfoPage:allSalesOrders_link.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="14" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:softwareSubscription_link" value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Click on 'Software subscription and support entitlements' in related links area on the Agreement site information page." extension="Customer site maintenance entitlement information page">
+				Click agreementSiteInfoPage:softwareSubscription_link.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="16" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:servicesAgreement_link" value="60" retry="1"/>
+			</step>			
+			<step index="17" comment="Click on services Agreement link in related links area on the Agreement site information page." extension="Services agreements by site">
+				Click agreementSiteInfoPage:servicesAgreement_link.
+				<verify type="string_in_page" object="Services agreements by site" value="60" retry="1"/>
+			</step>			
+			<step index="18" comment="Hit back." extension="Agreement search information - Default sort by customer name ">
+				Go back.
+				Go back.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+			</step>								
+			<step index="19" comment="Click SSP China customer address name." extension="Agreement site information">
+				Click agreementSearchInfoPage:tagSSPCCAN_link.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="Provider" value="60" retry="1"/>
+			</step>
+			<step index="20" comment="Click tag203436_link" extension="Agreement details">
+				Click agreementSiteInfoPage:tag203436_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="Provider" value="60" retry="1"/>
+			</step>		
+			<step index="21" comment="Hit back." extension="Agreement search information - Default sort by customer name ">
+				Go back.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>				
+			<step index="22" comment="Click tag3545005_link" extension="Customer details">
+				Click agreementSiteInfoPage:tag3544973_link.
+				<verify type="string_in_page" object="Customer details" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider providers" value="60" retry="1"/>
+			</step>				
+			<step index="23" comment="Hit back." extension="Agreement search information - Default sort by customer name ">
+				Go back.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>			
+					
+			<step index="24" comment="Click on 'Contacts' in related links area on the Agreement site information page." extension="Contact information page">
+				Click agreementSiteInfoPage:contacts_link.
+				<verify type="string_in_page" object="Contact information" value="60" retry="1"/>
+			</step>
+			<step index="25" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:currentSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="26" comment="Click on 'Current sales orders' in related links area on the Agreement site information page." extension="Current sales order page">
+				Click agreementSiteInfoPage:currentSalesOrders_link.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+				<verify type="string_in_page" object="Provider" value="60" retry="1"/>
+			</step>
+			<step index="27" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:allSalesOrders_link" value="60" retry="1"/>
+			</step>
+			<step index="28" comment="Click on 'All sales orders' in related links area on the Agreement site information page." extension="Site historical information page">
+				Click agreementSiteInfoPage:allSalesOrders_link.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+				<verify type="string_in_page" object="Provider" value="60" retry="1"/>
+			</step>
+			<step index="29" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:softwareSubscription_link" value="60" retry="1"/>
+			</step>
+			<step index="30" comment="Click on 'Software subscription and support entitlements' in related links area on the Agreement site information page." extension="Customer site maintenance entitlement information page">
+				Click agreementSiteInfoPage:softwareSubscription_link.
+				<verify type="string_in_page" object="Customer site entitlement information - Default sort by customer name" value="60" retry="1"/>
+			</step>
+			<step index="31" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				<verify type="object_existence" object="agreementSiteInfoPage:servicesAgreement_link" value="60" retry="1"/>
+			</step>			
+			<step index="32" comment="Click on services Agreement link in related links area on the Agreement site information page." extension="Services agreements by site">
+				Click agreementSiteInfoPage:servicesAgreement_link.
+				<verify type="string_in_page" object="Services agreements by site" value="60" retry="1"/>
+				<verify type="string_in_page" object="Provider" value="60" retry="1"/>
+			</step>				
+			<step index="33" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				Go back.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+			</step>						
+			<step index="34" comment="Click tag203436_link" extension="Agreement details">
+				Click agreementSearchInfoPage:tag203436_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+			</step>		
+			<step index="35" comment="Click End user  View" extension="Services agreements by site">
+				Click agreementDetailPage:View_link.
+				<verify type="string_in_page" object="Services agreements by site" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="End user" value="60" retry="1"/>
+			</step>	
+			<step index="36" comment="Hit back." extension="Agreement details page">
+				Go back.
+				<verify type="string_in_page" object="Agreement details " value="60" retry="1"/>
+			</step>	
+			<step index="37" comment="Click current View link  " extension="Current sales order page">
+				Click agreementDetailPage:currentView_link.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="End user" value="60" retry="1"/>
+			</step>	
+			<step index="38" comment="Hit back." extension="Agreement details page">
+				Go back.
+				<verify type="string_in_page" object="Agreement details " value="60" retry="1"/>
+			</step>		
+			<step index="39" comment="Click All view link  " extension="Site historical information - Sorted by purchase order date page">
+				Click agreementDetailPage:allView_link.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="End user" value="60" retry="1"/>
+			</step>	
+			<step index="40" comment="Hit back." extension="Agreement details page">
+				Go back.
+				<verify type="string_in_page" object="Agreement details " value="60" retry="1"/>
+			</step>	
+			<step index="41" comment="Click End user  View" extension="Services agreements by site">
+				Click agreementDetailPage:View_link3.
+				<verify type="string_in_page" object="Services agreements by site" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="Provider" value="60" retry="1"/>
+			</step>	
+			<step index="42" comment="Hit back." extension="Agreement details page">
+				Go back.
+				<verify type="string_in_page" object="Agreement details " value="60" retry="1"/>
+			</step>	
+			<step index="43" comment="Click current View link  " extension="Current sales order page">
+				Click agreementDetailPage:currentView_link3.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="Provider" value="60" retry="1"/>
+			</step>	
+			<step index="44" comment="Hit back." extension="Agreement details page">
+				Go back.
+				<verify type="string_in_page" object="Agreement details " value="60" retry="1"/>
+			</step>	
+			<step index="45" comment="Click All view link  " extension="Site historical information - Sorted by purchase order date page">
+				Click agreementDetailPage:allView_link.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+				<verify type="string_in_page" object="SaaS Solution Provider" value="60" retry="1"/>
+				<verify type="string_in_page" object="Provider" value="60" retry="1"/>
+			</step>	
+			<step index="46" comment="Hit back." extension="Agreement site information page">
+				Go back.
+				Go back.
+				<verify type="string_in_page" object="Agreement search information - Default sort by customer name" value="60" retry="1"/>
+			</step>				
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

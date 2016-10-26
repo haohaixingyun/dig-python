@@ -1,0 +1,9 @@
+if (Browse.browserStarted() && !switch_flag) {
+if(bto != null){bto.unregister();}
+bto = BrowserOps.findBrowser();
+bto_table.remove("default");
+bto_table.put("default", bto);
+for(int i = 0; i < 10 && !BrowserOps.waitForReady(); i++) {				System.out.println("Already waiting " + (i+1) +" times!");
+	Thread.sleep(1000);
+}
+}

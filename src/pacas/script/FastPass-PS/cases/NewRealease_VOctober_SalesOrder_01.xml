@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRealease_VOctober_SalesOrder_01" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRealease_VOctober_SalesOrder_01</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>One Sales Order Match.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="SalesOrder_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRealease_VOctober_SalesOrder_01.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'SAP sales order number' field with '0053766300' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNumWithInstallation.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+				<verify type="string_in_page" object="Machine type / model / serial number:" value="60" retry="1"/>
+				<verify type="string_in_page" object="7863-10Y S/N 101A001 installed on 20 Nov 2012" value="60" retry="1"/>				
+			</step>	
+  			<step index="4" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>			
+			<step index="5" comment="Input 'SAP sales order number' field with '0053979725' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNumWithNoInstallation.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+				<verify type="string_in_page" object="Revenue stream:" value="60" retry="1"/>
+				<verify type="string_in_page" object="Appl Upg Lic + S" value="60" retry="1"/>
+				<verify type="string_in_page" object="Machine type / model / serial number:" value="60" retry="1"/>
+				<verify type="string_in_page" object="8739-42X S/N 1000190 not yet installed" value="60" retry="1"/>
+			</step>
+<!--			
+			<step index="6" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>			
+			<step index="7" comment="Input 'SAP sales order number' field with '52182772' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNumWithNoInstallationExist.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Revenue stream:" value="60" retry="1"/>
+				<verify type="string_in_page" object="Appl Subsq HD Reten Svc Upg 12 Mo" value="60" retry="1"/>
+				<verify type="string_in_page" object="Not applicable" value="60" retry="1"/>
+				<verify type="string_in_page" object="Machine type / model / serial number:" value="60" retry="1"/>
+				<verify type="string_in_page" object="2222 / 222 / 2222222" value="60" retry="1"/>
+			</step>	
+-->			
+			<step index="6" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>			
+			<step index="7" comment="Input 'SAP sales order number' field with '52182772' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNumWithNullDate.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Revenue stream:" value="60" retry="1"/>
+				<verify type="string_in_page" object="Appl Init HD Reten Svc Upg 12 Mo" value="60" retry="1"/>
+				<verify type="string_in_page" object="Not applicable" value="60" retry="1"/>
+				<verify type="string_in_page" object="Machine type / model / serial number:" value="60" retry="1"/>
+				<verify type="string_in_page" object="9191-912 S/N 9191911" value="60" retry="1"/>
+			</step>	
+			<step index="8" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>			
+			<step index="9" comment="Input 'SAP sales order number' field with '52182772' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNumWithNotApplicable.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Revenue stream:" value="60" retry="1"/>
+				<verify type="string_in_page" object="Appl with Lic plus initial S" value="60" retry="1"/>
+				<verify type="string_in_page" object="Not applicable" value="60" retry="1"/>
+				<verify type="string_in_page" object="Machine type / model / serial number:" value="60" retry="1"/>
+				<verify type="string_in_page" object="7863-10X S/N 1040003" value="60" retry="1"/>
+			</step>	
+<!--			
+			<step index="12" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>			
+			<step index="13" comment="Input 'SAP sales order number' field with '52182772' and click 'Search'." extension="Sales Order information page">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:salesOrderNumWithNotApplicableNullDate.
+				Click salesOrderSearchPage:search_button.
+				<verify type="string_in_page" object="Revenue stream:" value="60" retry="1"/>
+				<verify type="string_in_page" object="Appliance Related HW" value="60" retry="1"/>
+				<verify type="string_in_page" object="Not applicable" value="60" retry="1"/>
+				<verify type="string_in_page" object="Machine type / model / serial number:" value="60" retry="1"/>
+				<verify type="string_in_page" object="1455 / 64C / Not applicable" value="60" retry="1"/>
+			</step>		
+-->			
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

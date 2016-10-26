@@ -1,0 +1,9 @@
+#region declare
+		
+#endregion
+#region code
+GuiTestObject tmp%AUTO_INT% = new GuiTestObject((TestObject) factory
+			.createGuiObjectAndWait("%PARAM1%", bto, 30, 5));
+	WRadioButton testobject%AUTO_INT% = new WRadioButton(tmp%AUTO_INT%);	
+	 testobject%AUTO_INT%.select();
+#endregion

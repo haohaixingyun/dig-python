@@ -1,0 +1,11 @@
+#region declare
+#endregion
+
+#region code
+	if (%PARAM1%.equalsIgnoreCase("back")) {
+		bto.back();
+	} else if (%PARAM1%.equalsIgnoreCase("forward")) {
+		bto.forward();
+	}
+	AutoObjectFactory.browserReady(bto, 30, 3);
+#endregion

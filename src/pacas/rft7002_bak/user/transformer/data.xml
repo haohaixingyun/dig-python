@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Node file-handler
+
+class: could be data or map
+id: the identifier that uniquely identifies this file handler
+type: the file types (ext) that this file handler handles, could be comma separated list
+parser: a parser class that extends ParserWithInput and implements IParseData for class data,
+		or a parser class that extends ParserWithInput and implements IParseMap for class map
+transformer: 
+		a class that implements ITransformer
+ 
+ -->
+<data xsi:noNamespaceSchemaLocation="http://bizit.bluehost.ibm.com/xmlschema/v1/data.xsd">
+	<file-handler class="data" id = "default" type="xml" 
+				parser="org.pacas.parser.DefaultDataParser" 
+				transformer="org.pacas.transform.DefaultDataTransformer"/> 
+	<file-handler class="data" id = "xls" type="xls" 
+				parser="org.pacas.parser.ExcelDataParser" 
+				transformer="org.pacas.transform.ExcelDataTransformer"/>
+	<data-set dest_root="%dir:config.script-dir%">
+		<data	name="data" bean="%bean:TestCase.dataFiles%" 
+				dest_dir="%dir:engine-config.data%" 
+				rename="%bean:TestCase.name%.csv" 
+				method="overwrite"/>
+	</data-set>
+</data>

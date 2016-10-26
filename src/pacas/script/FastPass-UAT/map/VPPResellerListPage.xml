@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="VPPResellerListPage">
+	<object name="endUserSiteNumber7954311_link">
+		<prop name="value">7954311</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>
+	<object name="rwsellerSiteNumber7954318_link">
+		<prop name="value">7954318</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>							
+	</object>	
+</object>

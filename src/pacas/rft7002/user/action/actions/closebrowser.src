@@ -1,0 +1,6 @@
+#region declare
+#endregion
+#region code
+		 AutoObjectFactory.getBrowserByTitle(%PARAM1%).close();
+		 switch_flag = true;
+#endregion

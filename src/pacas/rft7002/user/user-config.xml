@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user-config>
+	<case-engine path="transformer/case.xml"/>
+	<data-engine path="transformer/data.xml"/>
+	<map-engine path="transformer/map.xml"/>
+	<reduce-engine path="transformer/reduce.xml"/>
+	<action-def-list path="action/actiondeflist.xml"/>
+	<schema use-default="true">
+		<case schema=""/>
+		<data schema=""/>
+		<map schema=""/>
+		<action-def-list schema=""/>
+	</schema>
+</user-config>

@@ -1,0 +1,6 @@
+#region declare
+
+#endregion
+#region code
+		new DB2Logoff(null,null,null,new Object[]{});
+#endregion

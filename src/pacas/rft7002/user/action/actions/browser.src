@@ -1,0 +1,9 @@
+#region declare
+#endregion
+
+#region code
+		new Browse(%PARAM1%, %PARAM2%, "");
+		if (Browse.browserStarted()) {
+			Browse.put("default", BrowserOps.findBrowser());
+		}
+#endregion

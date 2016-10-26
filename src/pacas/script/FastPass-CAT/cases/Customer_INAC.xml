@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="Customer_INAC" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>Customer_INAC</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>No Customer Match.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="Customer_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="Customer_INAC.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Customers' option from the navigation panel." extension="The login page should show.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Customer Search form.">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'Customer name' field with 'State Farm'.Input 'Postal code' field with 19355 value. Click 'Search'." extension="Customer information - Sorted by customer name page.NO RESULTS FOUND.">
+				settext customerSearchPage:customerNum_text $web:customerNum5.
+				Click customerSearchPage:search_button.
+				<verify type="string_in_page" object="Customer details"  value="60" retry="1"/>
+				<verify type="string_in_page" object="International account number" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Click EnterpriseNumber." extension="Customer information - Sorted by customer name page.NO RESULTS FOUND.">
+				Click customerDetailPage:EnterpriseNumber.
+				<verify type="string_in_page" object="Customer information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>
+			<step index="5" comment="Step 5" extension="Customer information - Sorted by customer name page.NO RESULTS FOUND.">
+				Click customerDetailPage:EnterpriseNumber.
+				<verify type="string_in_page" object="Customer information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>			
+			<step index="6" comment="Step 6" extension="Customer information - Sorted by customer name page.NO RESULTS FOUND.">
+				Click customerDetailPage:EnterpriseNumber.
+				<verify type="string_in_page" object="Customer information - Default sort by customer name" value="60" retry="1"/>
+				<verify type="string_in_page" object="No results were found that match the search criteria" value="60" retry="1"/>
+			</step>		
+			
+				
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

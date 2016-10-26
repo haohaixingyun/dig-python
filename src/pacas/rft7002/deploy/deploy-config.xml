@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy-config>
+	<dirs>
+		<dir name="hlta_runtime" dest_dir="hlta" src="hlta" recursive="true" dest_root="%dir:config.script-dir%"/>
+		<dir name="ibm_runtime" dest_dir="ibm" src="ibm" recursive="true" dest_root="%dir:config.script-dir%"/>
+		<dir name="actions" dest_dir="actions" src="actions" recursive="true" dest_root="%dir:config.script-dir%"/>
+		<dir name="db" dest_dir="db" src="db" recursive="true" dest_root="%dir:config.script-dir%"/>
+	</dirs>
+	<files>
+		<file name="win32helper" src="hlta/w32helper.dll" dest_dir="%dir:config.script-dir%"/>
+		<file name="db2jcc" src="db/db2jcc.jar" dest_dir="%dir:config.script-dir%"/>
+		<file name="db2jcc_license_cu" src="db/db2jcc_license_cu.jar" dest_dir="%dir:config.script-dir%"/>
+	</files>
+</deploy-config>

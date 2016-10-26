@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">https://w3stage.sso.ibm.com/software/xl/fastpass/ps/fphome.nsf/default?openform</value>
+	</item>
+	<item key="username">
+		<value index="1">kezhu@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">7890uiop</value>
+	</item>
+	<item key="siteNumber1">
+		<value index="1">7766058</value>
+	</item>
+	<item key="customerNum1">
+		<value index="1">822277</value>
+	</item>	
+	<item key="customerName1">
+		<value index="1">IBM</value>
+	</item>		
+	
+	<item key="salesOrderNum1">
+		<value index="1">0077081005</value>
+	</item>	
+	<item key="salesOrderNum2">
+		<value index="1">0077081617</value>
+	</item>		
+	
+	<item key="FileName1">
+		<value index="1">FastPassExportFile</value>
+	</item>	
+	<item key="FileName2">
+		<value index="1">FastPassExportFile2</value>
+	</item>	
+	<item key="Customer_name">
+		<value index="1">Customer name</value>
+	</item>
+	<item key="Country">
+		<value index="1">Country</value>
+	</item>
+	<item key="other">
+		<value index="1">Software ValueNet Support Provider reseller indicator</value>
+	</item>
+	
+	<item key="Name_IBM">
+		<value index="1">IBM</value>
+	</item>	
+	<item key="Postcode_5000">
+		<value index="1">5000</value>
+	</item>		
+	
+	
+</data>

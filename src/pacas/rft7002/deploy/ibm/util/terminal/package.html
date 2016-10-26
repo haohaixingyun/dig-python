@@ -1,0 +1,137 @@
+<html>
+<h1>Using the Functional Tester Extension for Terminal Applications</h1>
+
+
+
+<body>
+
+
+
+This package contains terminal operations that scripts can call directly and that can be used to interact with the IBM Extension for Terminal Based Applications.
+Information on IBM Extension for Terminal Based Applications is available at <a href="http://jibe.raleigh.ibm.com/hostft/">http://jibe.raleigh.ibm.com/hostft/</a>.  Also see
+<a href = "http://test.ibm.com/functionaltester">http://test.ibm.com/functionaltester</a>
+and <a href = "https://w3.opensource.ibm.com/projects/rtnlfuncttstr/">https://w3.opensource.ibm.com/projects/rtnlfuncttstr/ </a> for more details.
+<p>
+Test scripts which use the IBM Extension for Terminal Based Applications use up to three TestObjects:
+<ul>
+<li><dt>Frame</dt>
+	<dd>Needed to send any keystrokes to the terminal.</dd>
+	<dd><b>.class</b>: com.ibm.terminal.tester.gui.panel.TFrame</dd>
+<li><dt>Screen</dt>
+	<dd>Contains the text on the terminal screen.</dd>
+	<dd><b>.class</b>: com.ibm.eNetwork.beans.HOD.Screen</dd>
+	<dd><b>Note</b>: when creating the object map for the Screen object, modify the property value weights to be all 0 except for .class, since the intention is for this to be a fully generic object.</dd>
+<li><dt>Terminal OIA (optional)</dt>
+	<dd>Reflects system information.</dd>
+	<dd><b>.class</b>: com.ibm.eNetwork.ECL.ECLOIA</dd>
+</ul>
+<p>
+First, create a new Functional Tester script called TerminalFrame.  You will add your Terminal
+objects to this script's object map.
+</p>
+<p>The easiest way to capture the TestObjects is to capture the Terminal OIA first:  open the object map, then select "Test Object:  Insert Object", and the "Insert a GUI Object Into the Object Map" tool will appear.  Make sure that "After selecting an object advance to next page" is UNselected, then drag the "Object Finder" pointer over the active terminal screen and select the very bottom of the terminal area-- it should be a rectangle, one row high, separated by a line from the rest of the screen area. Verify that the .class displayed for the object in the "Insert GUI Object" window is "com.ibm.eNetwork.ECL.ECLOIA", then click Next, then select the "Include the siblings of the selected object" radio button to get the Screen object, then click Finish. The Screen object can also be selected by browsing the object heirarchy.  The classes given above will tell you which objects are the right ones.</p>
+<p>Once the objects have been added to your TerminalFrame object map, add the following code in the body of the TerminalFrame script:
+<pre><code>
+	public TopLevelTestObject getFrame() {
+		TestObject to = Frame(ANY,LOADED);
+		return new TopLevelTestObject(to);
+	}
+
+	public TestObject getTerminalScreen() {
+		TestObject to = Screen(ANY,LOADED);
+		return new TestObject(to);
+	}
+
+	public TestObject getTerminalOIA() {
+		TestObject to = TerminalOIA(ANY,LOADED);
+		return new TestObject(to);
+	}
+
+</code></pre>
+Don't use the automatic code generator for this script-- just use this code.  The automatic code generator will return these objects as Widgets, which won't work.
+</p>
+<p>
+You will also likely need to create a ConfigurationsOptions script to contain the objects needed to configure the host session.  These objects can be treated per the usual library methodology (as documented in the tutorial on <a href = "http://test.ibm.com/functionaltester">http://test.ibm.com/functionaltester</a>).
+</P>
+
+<p>
+You may also wish to create a method to log into the host which all of the test scripts would each call.
+
+</p>
+
+<p>
+The high level methods are contained in <bold>TerminalOps</bold>.  These methods search and navigate
+through screens, looking for target strings, and can return the row the string is found in;
+methods are also available to search in a particular row.  These methods allow you to search
+for a particular property value name, and verify its value against a known value.
+</p>
+
+<p>
+Methods to grab information off of the terminal screen are contained in <bold>TerminalLookOps</bold>.
+These methods can get text, test objects, and the like from the Terminal.
+Several methods in ibm.util.StringOps, such as the findPattern and findString methods, work with the various getScreen methods in TerminalLookOps.</p>
+
+
+
+<p>
+Here is an example of a test case that starts up Terminal Tester, configures the connection, logs in, executes a command, then searches for a property and its value and verifies that the value is as expected.
+Your testcase then will look like this:
+
+<pre><code>
+	AllTask t = new AllTask();
+
+//  starts up application and session
+	startApp("Extension for Terminal Applications");
+
+	t.getConfigurationOptionsFrame().getHostnameTextfield().waitForExistence();
+	t.getConfigurationOptionsFrame().getHostnameTextfield().setText("rs037a.rchland.ibm.com");
+	t.getConfigurationOptionsFrame().getTerminalTypeDropdown().select("TN5250");
+	t.getConfigurationOptionsFrame().getWorkstationIDTextfield().setText("asdf");
+	t.getConfigurationOptionsFrame().getScreensizeDropdown().select("27x132");
+	t.getConfigurationOptionsFrame().getConnectButton().click();
+	t.getTerminalFrame().getTerminalScreen().waitForExistence();
+
+//  logs in to host
+	String userid = "xdetest";
+	String pwd = "xdetest1";
+	t.Login(userid,pwd);
+	sleep(2);
+
+//screen navigation
+	t.getTerminalFrame().getFrame().inputKeys("{ENTER}");
+	t.getTerminalFrame().getFrame().inputKeys("DSPJOBD JOBD{(}QSYS/QTOQJOBDR{)}{ENTER}");
+
+//verification of result
+	String findrow = ("Time slice end pool"); //this is the property we want to verify
+	String search=("SYSVAL");   //this is the proper value for the property
+
+	int result = TerminalOps.searchScreensForRow(findrow,t.getTerminalFrame().
+	getTerminalScreen(),t.getTerminalFrame().getFrame());
+
+	if (result == -1) {
+		vpManual("VerifyResult","true","false").performTest();
+	}
+
+	else {
+		if (TerminalOps.searchScreenInRow(search,Integer.toString(result),t.getTerminalFrame().
+		getTerminalScreen(),t.getTerminalFrame().getFrame()))
+		{
+			vpManual("VerifyResult","true","true").performTest();
+		}
+		else {vpManual("VerifyResult","true","false").performTest();}
+	}
+
+
+</code></pre>
+
+</p>
+
+<em>
+Chris Carlson, <a href="mailto:chrisrc@us.ibm.com">chrisrc@us.ibm.com</a> and Ann Kopren, <a href="mailto:v2kea565@us.ibm.com">v2kea565@us.ibm.com</a>.<br>
+Last updated 9 Sept 2004
+
+</em>
+
+
+</body>
+</html>

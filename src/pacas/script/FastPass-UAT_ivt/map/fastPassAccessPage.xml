@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="fastPassAccessPage">
+	<object name="requestAccess_link">
+		<prop name="value">Request Access</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="requestAccessLeft_link">
+		<prop name="value">Request Access</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="removeAccess_link">
+		<prop name="value">Remove Access</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="removeAccessLeft_link">
+		<prop name="value">Remove Access</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top+2</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

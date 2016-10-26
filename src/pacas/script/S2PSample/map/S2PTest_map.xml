@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="common">
+    <object name="edit_UserName">
+		<prop name="value">username</prop>
+		<prop name="type">edit</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="edit_Pwd">
+		<prop name="value">password</prop>
+		<prop name="type">edit</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.password</prop>								
+	</object>
+	<object name="button_SignIn">
+		<prop name="value">SUBMIT</prop>
+		<prop name="type">button</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>
+	<object name="link_Logoff">
+		<prop name="value">Log off</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

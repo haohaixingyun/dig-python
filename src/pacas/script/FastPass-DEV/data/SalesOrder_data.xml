@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<item key="fastPassHome">
+		<value index="1">http://fastpass-dev.gho.pok.ibm.com</value>
+	</item>
+	<item key="username">
+		<value index="1">kezhu@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">3456erty</value>
+	</item>
+	<item key="salesOrderNum1">
+		<value index="1">52182772</value>
+	</item>
+	<item key="salesOrderNum2">
+		<value index="1">30123456</value>
+	</item>
+	<item key="salesOrderNum3">
+		<value index="1">51397933</value>
+	</item>
+	<item key="salesOrderNum4">
+		<value index="1">51882216</value>
+	</item>
+	<item key="specialBidNum1">
+		<value index="1">MB-CHI-200709-447135425</value>
+	</item>
+	<item key="specialBidNum2">
+		<value index="1">SWG-PM010</value>
+	</item>
+	<item key="specialBidNum3">
+		<value index="1">BAD-VALUE</value>
+	</item>
+	<item key="opportunityNum1">
+		<value index="1">2-K70ME5</value>
+	</item>
+	<item key="opportunityNum2">
+		<value index="1">D86JWSR</value>
+	</item>
+	<item key="opportunityNum3">
+		<value index="1">BAD-VALUE</value>
+	</item>
+</data>

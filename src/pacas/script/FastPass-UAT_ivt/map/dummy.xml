@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<object name="dummy">
+	<object name="dummy">
+		<prop name="value">logonId</prop>
+		<prop name="type">textfield</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+</object>

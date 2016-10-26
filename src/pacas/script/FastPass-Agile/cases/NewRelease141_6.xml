@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="NewRelease141_6" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>NewRelease141_6</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Dec 30th, 2013</date> 
+		<time>10:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Appliances.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="salesOrderSearchPage.xml" />
+		<mapping src="salesOrderInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="NewRelease14.1_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="NewRelease141_6.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+			<step index="1" comment="Click the 'Sales Orders' option from the navigation panel." extension="The login page should show">
+				Click fastPassHomePage:salesOrders_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Sales Order search form">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="salesOrderSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input MachineType :54420774 and click 'Search'." extension="Active part">
+				settext salesOrderSearchPage:sapSalesOrderNum_text $web:sapSaleOrder4.
+				Click salesOrderSearchPage:search_button.
+			<verify type="string_in_page" object="Sales order information" value="60" retry="1"/>
+			</step>				
+  			<step index="4" comment="Click the 'Sales Orders' option from the navigation panel." extension="Active part">
+				Click salesOrderInfoPage:tagE060ZLL_link.
+				<verify type="string_in_page" object="Part information" value="60" retry="1"/>
+			</step>		
+		
+	</steps>		
+			
+	<epilog>
+	</epilog>
+</testcase>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data name="web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item key="fastPassHome">
+		<value index="1">w3-01.ibm.com/software/xl/fastpass</value>
+	</item>
+	<item key="username">
+		<value index="1">kezhu@cn.ibm.com</value>
+	</item>
+	<item key="password">
+		<value index="1">1qaz2wsx</value>
+	</item>
+	<item key="siteNumber1">
+		<value index="1">7017541</value>
+	</item>
+	<item key="siteNumber2">
+		<value index="1">7125097</value>
+	</item>
+	<item key="siteNumber3">
+		<value index="1">7444885</value>
+	</item>
+	<item key="siteNumber4">
+		<value index="1">7907887</value>
+	</item>
+	<item key="siteNumber5">
+		<value index="1">9988776</value>
+	</item>
+	<item key="customerName1">
+		<value index="1">State Farm</value>
+	</item>
+	<item key="customerName2">
+		<value index="1">Bell</value>
+	</item>
+	<item key="customerName3">
+		<value index="1">zze</value>
+	</item>
+	<item key="customerName4">
+		<value index="1">Pepsi</value>
+	</item>
+	<item key="customerNum1">
+		<value index="1">8112327</value>
+	</item>
+	<item key="customerNum2">
+		<value index="1">0956850</value>
+	</item>
+	<item key="customerNum3">
+		<value index="1">7824737</value>
+	</item>
+	<item key="customerNum4">
+		<value index="1">5557878</value>
+	</item>
+	<item key="postalCode1">
+		<value index="1">61710</value>
+	</item>
+	<item key="postalCode2">
+		<value index="1">19355</value>
+	</item>
+	<item key="postalCode3">
+		<value index="1">61791</value>
+	</item>
+	<item key="postalCode4">
+		<value index="1">58765</value>
+	</item>
+	<item key="acquisitionCustomerNum1">
+		<value index="1">13156</value>
+	</item>
+	<item key="acquisitionCustomerNum2">
+		<value index="1">199734</value>
+	</item>
+	<item key="acquisitionCustomerNum3">
+		<value index="1">28688</value>
+	</item>
+	<item key="acquisitionCustomerNum4">
+		<value index="1">1+L+12711</value>
+	</item>
+	<item key="acquisitionCustomerNum5">
+		<value index="1">300</value>
+	</item>
+	<item key="sortByCustomerName">
+		<value index="1">Customer name</value>
+	</item>
+	<item key="sortBySiteNum">
+		<value index="1">Site number</value>
+	</item>
+	<item key="sortByCountry">
+		<value index="1">Country</value>
+	</item>
+</data>

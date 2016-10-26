@@ -1,0 +1,37 @@
+DEV PS: \map\allEntitlementPage.xml item="firstPartNumE01M6LL_link" value=G12236
+DEV PS: \data\Agreement_data.xml item="postalCode4" value=97865
+DEV PS: \data\MaintenanceEntitlement_data.xml item="postalCode4" value=97865
+------2010.06.30
+
+agile:  \map\allEntitlementPage.xml item="firstPartNumE01M6LL_link" value=D599NLL
+agile:  \data\Agreement_data.xml item="postalCode4" value=97865
+agile:  \data\MaintenanceEntitlement_data.xml item="postalCode4" value=97865
+------2010.07.07
+
+
+GHO:    \map\allEntitlementPage.xml  item="firstPartNumE01M6LL_link" value=D599NLL
+GHO:    \data\Agreement_data.xml     item="customerName3" value="IBM"
+GHO:    \data\Agreement_data.xml     item="customerName4" value="IBM CHINA/HONG KONG LTD"
+GHO:    \map\agreementSearchInfoPage.xml (additem) 	<object name="tag131026_link">
+GHO:    \map\agreementSearchInfoPage.xml (additem) 	<object name="tag7686365_link">
+GHO:    \map\agreementSearchInfoPage.xml (additem) 	<object name="IBM_link">
+GHO:    \cases\Agreement_MultipleAgreementsMatch.xml Replace "tag11531_link" with "tag131026_link".
+GHO:    \cases\Agreement_MultipleAgreementsMatch.xml Replace "7746381" with "7686365"
+GHO:    \cases\Agreement_MultipleAgreementsMatch.xml Replace "7746382" with "7531815"
+GHO:    \cases\Agreement_MultipleAgreementsMatch.xml Replace "7084912" with "7686365"
+GHO:    \cases\Agreement_MultipleAgreementsMatch.xml Replace "ingUSFinancialServicesCorp_link" with "IBM_link"
+GHO:    \cases\Agreement_MultipleAgreementsMatch.xml Replace "ING Insurance" with "IBM CHINA/HONG KONG LTD"
+GHO:    \cases\Customer_SingleCustomerMatch.xml   step4 add <verify type="string_in_page" object="Request access" value="60" retry="1"/> remove other checkpoint
+GHO:    \cases\Customer_SingleCustomerMatch.xml   step5 change to "go back"  remove content of step6 & step7.
+
+------2010.07.09
+
+UAT agile: \map\allEntitlementPage.xml item="firstPartNumE01M6LL_link" value=G12236
+UAT agile: \map\allEntitlementPage.xml item="firstPartNumD599NLL_link" value=D599NLL
+UAT: \map\customerDetailPage.xml item:"<object name="paCustomerInfoView_link">" subvalue:"<prop name="pos">top+4</prop>"
+
+------2010.09.09
+
+UAT \cases\NewRelease101.xml\   Replace"Global brand product" to "Global brand family history"
+UAT \cases\NewRelease101.xml\   Replace"Global brand product" to "Brand family for business partner incentives"
+------2010.10.18

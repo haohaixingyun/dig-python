@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="Customer_SingleCustomerMatch" id="1" actionDomain="web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>Customer_SingleCustomerMatch</name>
+		<author>Wizard</author>
+		<version>1.0</version>
+		<date>Mar 6th, 2008</date> 
+		<time>15:00:00</time>
+		<objective>......</objective> 
+		<prerequisites> Some data, blahblah.</prerequisites>
+		<info>Single Customer Match.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="fastPassHomePage.xml" />
+		<mapping src="loginPage.xml" />
+		<mapping src="customerSearchPage.xml" />
+		<mapping src="customerDetailPage.xml" />
+		<mapping src="contactInfoPage.xml" />
+		<mapping src="partnerInfoPage.xml" />
+		<mapping src="partnerSiteInfoPage.xml" />
+		<mapping src="agreementSiteInfoPage.xml" />
+		<mapping src="acquisitionCustomerInfoPage.xml" />
+	</mapping-set>
+	<data-set>
+		<data src="Customer_data.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+		<case src="Customer_SingleCustomerMatch.xml"></case>
+	</dependentcases>
+	<logchannels>
+		<logchannel item="logchannel1"></logchannel>
+		<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+		<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key="1"></tag>
+		<tag key="2"></tag>
+	</tags>
+	
+	<prolog>
+  			Browser $web:fastPassHome.
+  	</prolog> 
+  	<steps>
+  			<step index="1" comment="Click the 'Customers' option from the navigation panel." extension="The login page should show.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="loginPage:submit_button" value="60" retry="1"/>
+			</step>
+  			<step index="2" comment="Login FastPass." extension="Customer Search form.">
+				settext loginPage:logon_text $web:username.
+				settext loginPage:logon_password $web:password.
+				Click loginPage:submit_button.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="3" comment="Input 'site number' field with '7017541' and click 'Search'." extension="Customer detail page.">
+				settext customerSearchPage:siteNumber_text $web:siteNumber1.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="4" comment="Hit the Contacts related link." extension="Contact information page.">
+				Click customerDetailPage:contacts_link.
+				<verify type="string_in_page" object="Unauthorized BPI user" value="60" retry="1"/>
+
+				<!-- <verify type="object_existence" object="contactInfoPage:firstEmailAddress_link" value="60" retry="1"/>
+				<verify type="object_existence" object="contactInfoPage:tag7017541_link" value="60" retry="1"/> -->
+			</step>
+			<step index="5" comment="Click the first email address in the Email column." extension="An email page will open with the email address in the 'To' field.">
+			    Go back.
+				<!--Click contactInfoPage:firstEmailAddress_link.
+				<verify type="manual" object="" value="60" retry="1"/>-->
+			</step>
+			<step index="6" comment="Hit ESC to escape and disregard the email started." extension="Email page will no longer be displayed.">
+				<!--Accept "{ESC}".
+				<verify type="manual" object="" value="60" retry="1"/>-->
+			</step>
+			<step index="7" comment="Click the Site number link." extension="Customer details page.">
+				<!--Click contactInfoPage:tag7017541_link.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>-->
+			</step>
+			<step index="8" comment="Hit the Agreements related link." extension="Agreement search information page.">
+				Click customerDetailPage:agreements_link.
+				<verify type="string_in_page" object="Agreement search information" value="60" retry="1"/>
+			</step>
+			<step index="9" comment="Hit back." extension="Customer details page.">
+				Go back.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="10" comment="Hit the Maintenance Entitlement related link." extension="Customer site maintenance entitlement information (two entries in table).">
+				Click customerDetailPage:softwareSubscription_link.
+				<verify type="string_in_page" object="Customer site entitlement information" value="60" retry="1"/>
+				<verify type="string_in_page" object="Flexible Contract Type" value="60" retry="1"/>
+				<verify type="string_in_page" object="Passport Advantage" value="60" retry="1"/>
+			</step>
+			<step index="11" comment="Hit back." extension="Customer details page.">
+				Go back.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="12" comment="Click the 'view' link of the Acquisition customer numbers field." extension="Acquisition customer information page.">
+				Click customerDetailPage:customerInfoView_link.
+				<verify type="object_existence" object="acquisitionCustomerInfoPage:tag7017541_link" value="60" retry="1"/>
+			</step>
+			<step index="13" comment="Click the Site number link." extension="Customer details page.">
+				Click acquisitionCustomerInfoPage:tag7017541_link.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="14" comment="In the Passport Advantage customer information table at the bottom, click the link for agreement number '09382'." extension="Agreement detail page.">
+				Click customerDetailPage:tag09382_link.
+				<verify type="string_in_page" object="Agreement details" value="60" retry="1"/>
+			</step>
+			<step index="15" comment="Hit back." extension="Customer details page.">
+				Go back.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="16" comment="In the Passport Advantage customer information table at the bottom, click the link for site name 'State Farm Mutual Automobile Insurance Company'." extension="Agreement site information page.">
+				Click customerDetailPage:insuranceCompany_link.
+				<verify type="string_in_page" object="Agreement site information" value="60" retry="1"/>
+			</step>
+			<step index="17" comment="Hit back." extension="Customer details page.">
+				Go back.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="18" comment="In the Passport Advantage customer information table at the bottom, click the 'view' link of the Maintenance Entitlement field for agreement site '09382 / 7017541'." extension="Customer site maintenance entitlement information (only one entry in table).">
+				Click customerDetailPage:paCustomerInfoView_link.
+				<verify type="string_in_page" object="Customer site entitlement information" value="60" retry="1"/>
+				<verify type="manual" object="" value="60" retry="1"/>
+			</step>
+			<step index="19" comment="Hit back." extension="Customer details page.">
+				Go back.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="20" comment="In the Passport Advantage customer information table at the bottom, click 'Current view' link of the Sales Orders field for agreement site '09382 / 7017541'." extension="Current sales orders page.">
+				Click customerDetailPage:paCustomerInfoCurrentView_link.
+				<verify type="string_in_page" object="Current sales order" value="60" retry="1"/>
+			</step>
+			<step index="21" comment="Hit back." extension="Customer details page.">
+				Go back.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="22" comment="Click 'All view' link of the Sales Orders field for agreement site '09382 / 7017541'." extension="Site historical information page - Sorted by purchase order date page.">
+				Click customerDetailPage:paCustomerInfoAllView_link.
+				<verify type="string_in_page" object="Site historical information - Sorted by purchase order date" value="60" retry="1"/>
+			</step>
+			<step index="23" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="24" comment="Input 'Customer name' field with 'State Farm'. Check the 'Match name exactly' box. Click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:customerName_text $web:customerName1.
+				Check customerSearchPage:match_checkbox true.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="25" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="26" comment="Input 'IBM customer number' field with '8112327' and click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:customerNum_text $web:customerNum1.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="27" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="28" comment="Input 'Acquisition customer number' field with '13156' and click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:acquisitionCustomerNum_text $web:acquisitionCustomerNum1.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="29" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="30" comment="Input 'Customer name' field with 'State Farm'. Input 'IBM customer number' field with '8112327'. Click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:customerName_text $web:customerName1.
+				settext customerSearchPage:customerNum_text $web:customerNum1.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="31" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="32" comment="Input 'Customer name' field with 'Bell'. Input 'IBM customer number' field with '0956850'. Input 'Postal code' field with '19355'.Click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:customerName_text $web:customerName2.
+				settext customerSearchPage:customerNum_text $web:customerNum2.
+				settext customerSearchPage:postalCode_text $web:postalCode2.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="33" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="34" comment="Input 'Customer name' field with 'Bell'. Input 'Site number' field with '7125097'. Click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:customerName_text $web:customerName2.
+				settext customerSearchPage:siteNumber_text $web:siteNumber2.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="35" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="36" comment="Input 'Customer name' field with 'Pepsi'. Input 'Acquisition customer number' field with '199734'. Click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:customerName_text $web:customerName4.
+				settext customerSearchPage:acquisitionCustomerNum_text $web:acquisitionCustomerNum2.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="37" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="38" comment="Input 'Customer name' field with 'State Farm'.Input 'IBM customer number' field with '7824737'. Input 'Postal code' field with '61791'.Click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:customerName_text $web:customerName1.
+				settext customerSearchPage:customerNum_text $web:customerNum3.
+				settext customerSearchPage:postalCode_text $web:postalCode3.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="39" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="40" comment="Input 'Customer name' field with 'State Farm'. Input 'Site number' field with '7017541'. Click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:customerName_text $web:customerName1.
+				settext customerSearchPage:siteNumber_text $web:siteNumber1.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+			<step index="41" comment="Click the 'Customers' option from the navigation panel." extension="Customer Search form.">
+				Click fastPassHomePage:customers_link.
+				<verify type="object_existence" object="customerSearchPage:search_button" value="60" retry="1"/>
+			</step>
+			<step index="42" comment="Input 'Site number' field with '7907887'.Input 'Acquisition customer number' field with '1+L+12711'.Click 'Search'." extension="Customer details page.">
+				settext customerSearchPage:siteNumber_text $web:siteNumber4.
+				settext customerSearchPage:acquisitionCustomerNum_text $web:acquisitionCustomerNum4.
+				Click customerSearchPage:search_button.
+				<verify type="object_existence" object="customerDetailPage:contacts_link" value="60" retry="1"/>
+			</step>
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>

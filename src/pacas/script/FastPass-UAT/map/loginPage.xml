@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="loginPage">
+	<object name="logon_text">
+		<prop name="value">username</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>
+	<object name="logon_password">
+		<prop name="value">password</prop>
+		<prop name="type">password</prop>
+		<prop name="propertyName">.id</prop>
+		<prop name="classID">Html.INPUT.password</prop>								
+	</object>
+	<object name="submit_button">
+		<prop name="value">ibm-submit</prop>
+		<prop name="type">submit</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.submit</prop>								
+	</object>
+</object>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="NewRelease99">
+	<object name="April2010Release_link">
+		<prop name="value">April 2010 release</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+	<object name="November2009release_link">
+		<prop name="value">November 2009 release</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+		<object name="invoiceNum_text">
+		<prop name="value">invoice_num</prop>
+		<prop name="type">text</prop>
+		<prop name="propertyName">.name</prop>
+		<prop name="classID">Html.INPUT.text</prop>								
+	</object>	
+		<object name="PartNumD52ELLL_link">
+		<prop name="value">D52ELLL</prop>
+		<prop name="type">link</prop>
+		<prop name="propertyName">.text</prop>
+		<prop name="pos">top</prop>
+		<prop name="classID">Html.A</prop>								
+	</object>
+</object>

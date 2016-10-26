@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<testcase name="PageDetailerTest" id="1" actionDomain="web" basedon_framework="PACAS"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<header> 
+		<!-- 
+		Header section includes informational stuff, which could be omitted.
+		--> 
+		<name>PageDetailerTest</name>
+		<author>Jeffrey</author>
+		<version>1.0</version>
+		<date>April, 2008</date> 
+		<time>14:00:00</time>
+		<objective></objective> 
+		<prerequisites></prerequisites>
+		<info> Here displays some readable information.</info> 
+	</header>
+	<mapping-set>
+		<mapping src="loginPage.xml"/>
+	</mapping-set>
+	<data-set>
+		<data src="ProdPages.xml"></data>
+	</data-set>
+	<iter-policy>sequential</iter-policy>
+	<prolog>
+					Browser $FastPassPages:form01 open
+					Accept "{TAB}{TAB}{ENTER}"
+	</prolog> 
+	<casepolicy></casepolicy>
+	<coverage></coverage>
+	<casepasscriteria></casepasscriteria>
+	<site></site>
+	<dependentcases>
+	<case src=""></case>
+	</dependentcases>
+	<logchannels>
+	<logchannel item="logchannel1"></logchannel>
+	<logchannel item="logchannel2"></logchannel>
+	</logchannels>
+	<reportchannels>
+	<reportchannel item="report"></reportchannel>
+	</reportchannels>
+	<tags>
+		<tag key=""></tag>
+	</tags>  
+	<steps>
+		<step index = '1' comment="Login." extension="The SQO main pages should show">
+				settext loginPage:logon_text 			$FastPassPages:username.
+				settext loginPage:logon_password 	$FastPassPages:password.
+				Click 	loginPage:submit_button.
+				wait 5
+		</step>
+		<step index = '2' comment="Try different pages!." extension="The SQO main pages should show">					wait 15
+					Browser $FastPassPages:form02 exist
+					wait 15
+					Browser $FastPassPages:form03 exist 
+					wait 15
+					Browser $FastPassPages:form04 exist 
+					wait 15
+					Browser $FastPassPages:form05 exist 
+					wait 15
+					Browser $FastPassPages:form06 exist 
+					wait 15
+					Browser $FastPassPages:form07 exist 
+					wait 15
+					Browser $FastPassPages:form08 exist 
+					wait 15
+					Browser $FastPassPages:form09 exist 
+					wait 15
+					Browser $FastPassPages:form10 exist 
+					wait 15
+					Browser $FastPassPages:form11 exist 
+					wait 15
+					Browser $FastPassPages:form12 exist 
+					wait 15
+					Browser $FastPassPages:form13 exist
+					wait 15
+					Browser $FastPassPages:form14 exist
+					wait 15
+				
+					Browser $FastPassPages:agent01 exist. 					wait 15                
+					Browser $FastPassPages:agent02 exist.						wait 15                
+					Browser $FastPassPages:agent03 exist.  					wait 15                
+					Browser $FastPassPages:agent04 exist.  					wait 15                
+					Browser $FastPassPages:agent05 exist.  					wait 15                
+					Browser $FastPassPages:agent06 exist. 	 				wait 15                
+					Browser $FastPassPages:agent07 exist.  					wait 15                
+					Browser $FastPassPages:agent08 exist.  					wait 15                
+					Browser $FastPassPages:agent09 exist.  					wait 15                
+					Browser $FastPassPages:agent10 exist.  					wait 15                
+					Browser $FastPassPages:agent11 exist.  					wait 15                
+					Browser $FastPassPages:agent12 exist. 					wait 15                
+					Browser $FastPassPages:agent13 exist. 					wait 15                
+					Browser $FastPassPages:agent14 exist. 					wait 15
+					Browser $FastPassPages:agent15 exist.  					wait 15
+					Browser $FastPassPages:agent16 exist.  					wait 15
+					Browser $FastPassPages:agent17 exist.  					wait 15
+					Browser $FastPassPages:agent18 exist.  					wait 15
+					Browser $FastPassPages:agent19 exist.  					wait 15
+					Browser $FastPassPages:agent20 exist.  					wait 15
+					Browser $FastPassPages:agent21 exist.  					wait 15
+					Browser $FastPassPages:agent22 exist.  					wait 15
+					Browser $FastPassPages:agent23 exist.  					wait 15
+					Browser $FastPassPages:agent24 exist.  					wait 15
+					Browser $FastPassPages:agent25 exist. 					wait 15
+					Browser $FastPassPages:agent26 exist. 					wait 15
+					Browser $FastPassPages:agent27 exist.						wait 15
+					Browser $FastPassPages:agent28PA exist. 					wait 15
+					Browser $FastPassPages:agent28PX exist.						wait 15
+					Browser $FastPassPages:agent28FC exist.  					wait 15
+					Browser $FastPassPages:agent29 exist.  					wait 15
+					Browser $FastPassPages:agent30 exist.  					wait 15
+					Browser $FastPassPages:agent31 exist. 	 				wait 15
+					Browser $FastPassPages:agent32 exist.  					wait 15
+					Browser $FastPassPages:agent33 exist.  					wait 15
+					Browser $FastPassPages:agent34 exist.  					wait 15
+					Browser $FastPassPages:agent35 exist.  					wait 15
+					Browser $FastPassPages:agent36Agreement_search_information_Sorted_by exist.  					wait 15
+					Browser $FastPassPages:agent36Agreement_details exist. 					wait 15
+					Browser $FastPassPages:agent36Agreement_details_Not_applicable exist. 					wait 15
+					Browser $FastPassPages:agent37 exist. 					wait 15
+					Browser $FastPassPages:agent38 exist.  					wait 15  
+					
+					
+					Browser $FastPassPages:help01 exist.  					wait 15
+					Browser $FastPassPages:help02 exist.  					wait 15
+					Browser $FastPassPages:help03 exist.  					wait 15
+					Browser $FastPassPages:help04 exist.  					wait 15
+					Browser $FastPassPages:help05 exist.  					wait 15
+					Browser $FastPassPages:help06 exist.  					wait 15
+					Browser $FastPassPages:help07 exist.  					wait 15
+					Browser $FastPassPages:help08 exist.  					wait 15
+					Browser $FastPassPages:help09 exist.  					wait 15
+					Browser $FastPassPages:help10 exist. 					wait 15
+					Browser $FastPassPages:help11 exist. 					wait 15
+					Browser $FastPassPages:help12 exist.						wait 15
+					Browser $FastPassPages:help13 exist.  					wait 15
+					Browser $FastPassPages:help14 exist.  					wait 15
+					Browser $FastPassPages:help15 exist.  					wait 15
+					Browser $FastPassPages:help16 exist.  					wait 15
+					Browser $FastPassPages:help17 exist.  					wait 15
+					Browser $FastPassPages:help18 exist.  					wait 15
+					Browser $FastPassPages:help19 exist.  					wait 15
+					Browser $FastPassPages:help20 exist.  					wait 15
+					Browser $FastPassPages:help21 exist.  					wait 15
+					Browser $FastPassPages:help22 exist. 					wait 15
+					Browser $FastPassPages:help23 exist. 					wait 15
+					Browser $FastPassPages:help24 exist.						wait 15
+					Browser $FastPassPages:help25 exist.  					wait 15
+					Browser $FastPassPages:help26 exist.  					wait 15  
+					Browser $FastPassPages:help27 exist.  					wait 15   
+					Browser $FastPassPages:help28 exist.  					wait 15    
+					Browser $FastPassPages:help29 exist.  					wait 15     
+					Browser $FastPassPages:help30 exist.  					wait 15      
+					Browser $FastPassPages:help31 exist.  					wait 15       
+					Browser $FastPassPages:help32 exist.  					wait 15        
+					Browser $FastPassPages:help33 exist.  					wait 15         
+					Browser $FastPassPages:help34 exist. 					wait 15          
+					Browser $FastPassPages:help35 exist. 					wait 15           
+					Browser $FastPassPages:help36 exist.						wait 15            
+					Browser $FastPassPages:help37 exist.  					wait 15             
+					Browser $FastPassPages:help38 exist.  					wait 15              
+					Browser $FastPassPages:help39 exist.  					wait 15               
+					Browser $FastPassPages:help40 exist.  					wait 15                
+					Browser $FastPassPages:help41 exist.  					wait 15                 
+					Browser $FastPassPages:help42 exist.  					wait 15                  
+					Browser $FastPassPages:help43 exist.  					wait 15                   
+					Browser $FastPassPages:help44 exist.  					wait 15                    
+					Browser $FastPassPages:help45 exist.  					wait 15                     
+					Browser $FastPassPages:help46 exist. 					wait 15                      
+					Browser $FastPassPages:help47 exist. 					wait 15                       
+					Browser $FastPassPages:help48 exist.						wait 15                        
+					Browser $FastPassPages:help49 exist.  					wait 15                         
+					Browser $FastPassPages:help50 exist.  					wait 15                          
+					Browser $FastPassPages:help51 exist.  					wait 15                           
+					Browser $FastPassPages:help52 exist.  					wait 15                            
+					Browser $FastPassPages:help53 exist.  					wait 15                             
+					Browser $FastPassPages:help54 exist.  					wait 15                              
+					Browser $FastPassPages:help55 exist.  					wait 15                               
+					Browser $FastPassPages:help56 exist.  					wait 15                                
+					Browser $FastPassPages:help57 exist.  					wait 15                                 
+					Browser $FastPassPages:help58 exist. 					wait 15                                  
+					Browser $FastPassPages:help59 exist. 					wait 15                                   
+					Browser $FastPassPages:help60 exist.						wait 15                                    
+					Browser $FastPassPages:help61 exist.  					wait 15
+					Browser $FastPassPages:help62 exist.  					wait 15
+					Browser $FastPassPages:help63 exist.  					wait 15
+					Browser $FastPassPages:help64 exist.  					wait 15
+					Browser $FastPassPages:help65 exist.  					wait 15
+					Browser $FastPassPages:help66 exist.  					wait 15
+					Browser $FastPassPages:help67 exist.  					wait 15
+					Browser $FastPassPages:help68 exist.  					wait 15
+					Browser $FastPassPages:help69 exist.  					wait 15
+					Browser $FastPassPages:help70 exist. 					wait 15
+					Browser $FastPassPages:help71 exist. 					wait 15
+					Browser $FastPassPages:help72 exist.						wait 15
+					Browser $FastPassPages:help73 exist.  					wait 15
+					Browser $FastPassPages:help74 exist.  					wait 15
+					Browser $FastPassPages:help75 exist.  					wait 15
+					Browser $FastPassPages:help76 exist.  					wait 15
+					Browser $FastPassPages:help77 exist.  					wait 15
+					Browser $FastPassPages:help78 exist.  					wait 15
+					Browser $FastPassPages:help79 exist.  					wait 15
+					Browser $FastPassPages:help80 exist.  					wait 15
+					Browser $FastPassPages:help81 exist.  					wait 15
+					Browser $FastPassPages:help82 exist. 					wait 15
+					Browser $FastPassPages:help83 exist. 					wait 15
+					Browser $FastPassPages:help84 exist.						wait 15
+					Browser $FastPassPages:help85 exist.  					wait 15
+					Browser $FastPassPages:help86 exist.  					wait 15
+					Browser $FastPassPages:help87 exist.  					wait 15
+					Browser $FastPassPages:help88 exist.  					wait 15
+					Browser $FastPassPages:help89 exist.  					wait 15
+					Browser $FastPassPages:help90 exist.  					wait 15
+					Browser $FastPassPages:help91 exist.  					wait 15
+					Browser $FastPassPages:help92 exist.  					wait 15
+					Browser $FastPassPages:help93 exist.  					wait 15
+					Browser $FastPassPages:help94 exist. 					wait 15
+					Browser $FastPassPages:help95 exist. 					wait 15
+					Browser $FastPassPages:help96 exist.					wait 15
+					Browser $FastPassPages:help97 exist.
+ 	 	 	 	 	wait 15
+					Browser $FastPassPages:help98 exist.	 				wait 15
+					Browser $FastPassPages:help99 exist.	 				wait 15
+					Browser $FastPassPages:help100 exist.  					wait 15
+					Browser $FastPassPages:help101 exist.  					wait 15
+					Browser $FastPassPages:help102 exist.  					wait 15
+					Browser $FastPassPages:help103 exist.  					wait 15
+					Browser $FastPassPages:help104 exist. 					wait 15
+					Browser $FastPassPages:help105 exist. 					wait 15
+					Browser $FastPassPages:help106 exist.						wait 15
+					Browser $FastPassPages:help107 exist.  					wait 15
+					Browser $FastPassPages:help108 exist.  					wait 15
+					Browser $FastPassPages:help109 exist.  					wait 15
+					Browser $FastPassPages:help110 exist.  					wait 15
+					Browser $FastPassPages:help111 exist.  					wait 15
+					Browser $FastPassPages:help112 exist.  					wait 15
+					Browser $FastPassPages:help113 exist.  					wait 15
+					Browser $FastPassPages:help114 exist.  					wait 15
+					Browser $FastPassPages:help115 exist.  					wait 15
+					Browser $FastPassPages:help116 exist. 					wait 15
+					Browser $FastPassPages:help117 exist. 					wait 15
+					Browser $FastPassPages:help118 exist.						wait 15
+					Browser $FastPassPages:help119 exist.  					wait 15
+					Browser $FastPassPages:help120 exist.  					wait 15  
+					Browser $FastPassPages:help121 exist.  					wait 15   
+					Browser $FastPassPages:help122 exist.  					wait 15    
+					Browser $FastPassPages:help123 exist.  					wait 15     
+					Browser $FastPassPages:help124 exist.  					wait 15      
+					Browser $FastPassPages:help125 exist.  					wait 15       
+					Browser $FastPassPages:help126 exist.  					wait 15        
+					Browser $FastPassPages:help127 exist.  					wait 15         
+					Browser $FastPassPages:help128 exist. 					wait 15          
+					Browser $FastPassPages:help129 exist. 					wait 15           
+					Browser $FastPassPages:help130 exist.						wait 15            
+					Browser $FastPassPages:help131 exist.  					wait 15             
+					Browser $FastPassPages:help132 exist.  					wait 15              
+					Browser $FastPassPages:help133 exist.  					wait 15               
+					Browser $FastPassPages:help134 exist.  					wait 15                
+					Browser $FastPassPages:help135 exist.  					wait 15                 
+					Browser $FastPassPages:help136 exist.  					wait 15                  
+					Browser $FastPassPages:help137 exist.  					wait 15                   
+					Browser $FastPassPages:help138 exist.  					wait 15                    
+					Browser $FastPassPages:help139 exist.  					wait 15                     
+					Browser $FastPassPages:help140 exist. 					wait 15                      
+					Browser $FastPassPages:help141 exist. 					wait 15                       
+					Browser $FastPassPages:help142 exist.						wait 15                        
+					Browser $FastPassPages:help143 exist.  					wait 15                         
+		</step>
+		      
+		      
+	</steps>
+	<epilog>
+	</epilog>
+</testcase>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          

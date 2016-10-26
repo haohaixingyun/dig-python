@@ -1,0 +1,9 @@
+#region declare	
+#endregion
+#region code
+	switch_flag = true;
+	bto = AutoObjectFactory.getBrowserByTitle(%PARAM1%);
+	if(bto == null){
+		System.out.println("not found");
+	}
+#endregion
